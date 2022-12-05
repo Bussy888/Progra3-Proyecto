@@ -141,14 +141,14 @@
         android:layout_margin="15dp"
         android:background="@color/grey"/>
 
-        <Button
-            android:layout_width="130dp"
-            android:layout_height="80dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_margin="15dp"
-            android:background="@drawable/round_corner"
-            android:backgroundTint="@color/teal_900"/>
+    <Button
+        android:layout_width="130dp"
+        android:layout_height="80dp"
+        android:layout_margin="15dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/teal_900"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
