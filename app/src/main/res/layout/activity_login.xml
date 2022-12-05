@@ -6,6 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/view_tope_gafete"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grupo_lados_gafete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/view_tope_gafete"
+            app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete">
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:background="@color/light_grey"
+                app:layout_constraintTop_toBottomOf="@id/view_tope_gafete"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/view_izq_gafete"/>
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/light_grey"
+                android:id="@+id/view_der_gafete"/>
+
+        </androidx.constraintlayout.widget.Group>
+
+
+
+
+
+        <View
+            android:id="@+id/view_bottom_gafete"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toBottomOf="@id/grupo_lados_gafete"
+            app:layout_constraintBottom_toTopOf="@id/view_background_datos"/>
+
+        <View
+            android:id="@+id/view_background_datos"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintTop_toBottomOf="@id/view_bottom_gafete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/almost_white"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/view_rectangular_hole"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
