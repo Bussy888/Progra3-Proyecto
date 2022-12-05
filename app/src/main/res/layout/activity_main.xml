@@ -88,7 +88,8 @@
         app:layout_constraintEnd_toEndOf="@id/guia_vertical_50"
         app:layout_constraintBottom_toTopOf="@id/button_yellow_plus"
         android:src="@drawable/file_cabinet_red"
-        android:layout_marginEnd="10dp"/>
+        android:scaleType="fitCenter"
+        android:layout_marginEnd="10dp" />
 
 
     <ImageView
@@ -98,6 +99,46 @@
         app:layout_constraintEnd_toStartOf="@id/image_cabinet_red"
         app:layout_constraintBottom_toTopOf="@id/button_yellow_plus"
         android:src="@drawable/file_cabinet_blue"
+        android:scaleType="fitCenter"
         android:layout_marginEnd="20dp"/>
+
+    <ImageView
+        android:id="@+id/image_cabinet_yellow"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toEndOf="@id/guia_vertical_50"
+        app:layout_constraintBottom_toTopOf="@id/button_yellow_plus"
+        android:src="@drawable/file_cabinet_yellow"
+        android:layout_marginStart="10dp"/>
+
+    <ImageView
+        android:id="@+id/image_cabinet_green"
+        android:scaleType="fitCenter"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toEndOf="@id/image_cabinet_yellow"
+        app:layout_constraintBottom_toTopOf="@id/button_yellow_plus"
+        android:src="@drawable/file_cabinet_green"
+        android:layout_marginStart="10dp"/>
+
+    <ImageButton
+        android:id="@+id/image_coffee_cup_s"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/settings_icon_coffee"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"
+        android:background="@android:color/transparent"/>
+    <View
+        android:layout_width="150dp"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="15dp"
+        android:background=""/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
