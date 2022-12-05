@@ -147,6 +147,8 @@
         android:layout_margin="15dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="@color/teal_900"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTintMode="src_atop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
