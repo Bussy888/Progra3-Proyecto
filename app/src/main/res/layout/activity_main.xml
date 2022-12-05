@@ -166,7 +166,9 @@
         android:background="@drawable/rounded_corners"
         android:backgroundTintMode="src_atop"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/menu"
+        android:textSize="30dp"/>
 
     <!--TODO: CREAR TEMPORIZADOR DE LUZ, POR AHORA ES SOLO UN STAND-IN-->
 
