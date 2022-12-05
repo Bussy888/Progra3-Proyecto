@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,52 +19,66 @@
             android:layout_height="20dp"
             android:background="@color/light_grey"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/view_background_datos"
             android:id="@+id/view_tope_gafete"/>
 
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grupo_lados_gafete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/view_tope_gafete"
-            app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete">
-
             <View
-                android:layout_width="100dp"
+                android:layout_width="70dp"
                 android:layout_height="20dp"
                 android:background="@color/light_grey"
                 app:layout_constraintTop_toBottomOf="@id/view_tope_gafete"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"
                 android:id="@+id/view_izq_gafete"/>
 
             <View
-                android:layout_width="100dp"
+                android:layout_width="70dp"
                 android:layout_height="20dp"
+                app:layout_constraintTop_toBottomOf="@id/view_tope_gafete"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"
                 android:background="@color/light_grey"
                 android:id="@+id/view_der_gafete"/>
-
-        </androidx.constraintlayout.widget.Group>
-
-
-
-
 
         <View
             android:id="@+id/view_bottom_gafete"
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:background="@color/light_grey"
-            app:layout_constraintTop_toBottomOf="@id/grupo_lados_gafete"
-            app:layout_constraintBottom_toTopOf="@id/view_background_datos"/>
+            app:layout_constraintTop_toBottomOf="@id/view_izq_gafete"
+            app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"/>
 
         <View
             android:id="@+id/view_background_datos"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:layout_constraintTop_toBottomOf="@id/view_bottom_gafete"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@color/almost_white"/>
+            android:layout_height="250dp"
+            android:background="@color/almost_white"
+            app:layout_constraintTop_toTopOf="@id/view_tope_gafete"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/top_strap"
+            app:layout_constraintStart_toEndOf="@id/view_izq_gafete"
+            app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"
+        android:background="@android:color/transparent"
+            app:layout_constraintEnd_toStartOf="@id/image_bottom_strap"
+            android:id="@+id/image_top_strap"/>
+
+        <ImageView
+            android:id="@+id/image_bottom_strap"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bottom_strap"
+            app:layout_constraintStart_toEndOf="@id/image_top_strap"
+            app:layout_constraintEnd_toStartOf="@id/view_der_gafete"
+            app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"
+            android:background="@android:color/transparent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
