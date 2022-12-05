@@ -134,6 +134,7 @@
         android:layout_margin="10dp"
         android:background="@android:color/transparent"/>
     <View
+        android:id="@+id/view_back_timer"
         android:layout_width="150dp"
         android:layout_height="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -141,7 +142,23 @@
         android:layout_margin="15dp"
         android:background="@color/grey"/>
 
+    <TextView
+        android:layout_width="140dp"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="@id/view_back_timer"
+        app:layout_constraintEnd_toEndOf="@id/view_back_timer"
+        app:layout_constraintStart_toStartOf="@id/view_back_timer"
+        app:layout_constraintTop_toTopOf="@id/view_back_timer"
+        android:layout_margin="15dp"
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="50dp"
+        android:text="5:00"
+        android:background="@color/dark_grey"/>
+
     <Button
+        android:id="@+id/button_menu"
         android:layout_width="130dp"
         android:layout_height="80dp"
         android:layout_margin="15dp"
@@ -152,5 +169,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!--TODO: CREAR TEMPORIZADOR DE LUZ, POR AHORA ES SOLO UN STAND-IN-->
+
+    <View
+        android:layout_width="25dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@id/button_menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="15dp"
+        android:layout_marginStart="30dp"
+        android:background="@color/dark_grey"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
