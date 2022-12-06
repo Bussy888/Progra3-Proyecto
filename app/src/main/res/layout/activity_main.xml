@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
-        android:id="@+id/guia_vertical_50"/>
+        android:id="@+id/guia_vertical_45"/>
 
     <ImageView
         android:id="@+id/image_file_center"
@@ -85,7 +85,7 @@
         android:id="@+id/image_cabinet_red"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintEnd_toEndOf="@id/guia_vertical_50"
+        app:layout_constraintEnd_toEndOf="@id/guia_vertical_45"
         app:layout_constraintBottom_toTopOf="@id/button_yellow_plus"
         android:src="@drawable/file_cabinet_red"
         android:scaleType="fitCenter"
@@ -107,7 +107,7 @@
         android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintStart_toEndOf="@id/guia_vertical_50"
+        app:layout_constraintStart_toEndOf="@id/guia_vertical_45"
         app:layout_constraintBottom_toTopOf="@id/button_yellow_plus"
         android:src="@drawable/file_cabinet_yellow"
         android:layout_marginStart="10dp"/>

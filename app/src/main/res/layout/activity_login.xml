@@ -14,6 +14,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_percent="0.45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:id="@+id/guia_vertical_45"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_percent="0.55"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:id="@+id/guia_vertical_55"/>
+
+        <ImageView
+            android:id="@+id/image_bottom_strap"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/bottom_strap"
+            app:layout_constraintStart_toEndOf="@id/guia_vertical_45"
+            app:layout_constraintBottom_toBottomOf="@id/view_tope_gafete"
+            android:background="@android:color/transparent"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="20dp"
@@ -60,31 +89,81 @@
         android:layout_width="50dp"
         android:layout_height="100dp"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
+        android:scaleType="fitXY"
         android:src="@drawable/top_strap"
-            app:layout_constraintStart_toEndOf="@id/view_izq_gafete"
-            app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"
+            app:layout_constraintBottom_toBottomOf="@id/view_tope_gafete"
         android:background="@android:color/transparent"
-            app:layout_constraintEnd_toStartOf="@id/image_bottom_strap"
+            app:layout_constraintEnd_toEndOf="@id/guia_vertical_55"
             android:id="@+id/image_top_strap"/>
 
         <ImageView
-            android:id="@+id/image_bottom_strap"
-            android:layout_width="50dp"
+            android:id="@+id/image_user_icon"
+            android:layout_width="100dp"
             android:layout_height="100dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/bottom_strap"
-            app:layout_constraintStart_toEndOf="@id/image_top_strap"
-            app:layout_constraintEnd_toStartOf="@id/view_der_gafete"
-            app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"
-            android:background="@android:color/transparent"/>
+            android:layout_marginTop="10dp"
+            android:src="@drawable/user_profile_icon"
+            app:layout_constraintTop_toTopOf="@id/view_background_datos"
+            app:layout_constraintStart_toStartOf="@id/view_background_datos"
+            app:layout_constraintEnd_toEndOf="@id/view_background_datos"/>
+
+        <View
+            android:id="@+id/view_username"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="@id/view_background_datos"
+            app:layout_constraintEnd_toEndOf="@id/view_background_datos"
+            app:layout_constraintTop_toBottomOf="@id/image_user_icon"
+            app:layout_constraintBottom_toTopOf="@id/view_password"
+            android:background="@color/white"/>
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/image_small_icon"
+            app:layout_constraintEnd_toEndOf="@id/view_username"
+            app:layout_constraintTop_toTopOf="@id/view_username"
+            android:hint="Username"/>
+
+        <ImageView
+            android:id="@+id/image_small_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/small_user_icon"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="@id/view_username"
+            app:layout_constraintTop_toTopOf="@id/view_username"
+            app:layout_constraintBottom_toBottomOf="@id/view_username"/>
+        <View
+            android:id="@+id/view_password"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="@id/view_background_datos"
+            app:layout_constraintEnd_toEndOf="@id/view_background_datos"
+            app:layout_constraintTop_toBottomOf="@id/view_username"
+            app:layout_constraintBottom_toBottomOf="@id/view_background_datos"
+            android:background="@color/white"/>
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/image_lock_icon"
+            app:layout_constraintEnd_toEndOf="@id/view_password"
+            app:layout_constraintTop_toTopOf="@id/view_password"
+            android:hint="Password"/>
+
+        <ImageView
+            android:id="@+id/image_lock_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/lock_icon"
+            android:scaleType="fitXY"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toStartOf="@id/view_password"
+            app:layout_constraintTop_toTopOf="@id/view_password"
+            app:layout_constraintBottom_toBottomOf="@id/view_password"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/view_rectangular_hole"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
