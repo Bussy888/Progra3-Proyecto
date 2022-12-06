@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_percent="0.45"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:id="@+id/guia_vertical_45"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_percent="0.55"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            android:id="@+id/guia_vertical_55"/>
+
+        <ImageView
+            android:id="@+id/image_bottom_strap"
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/bottom_strap"
+            app:layout_constraintStart_toEndOf="@id/guia_vertical_45"
+            app:layout_constraintBottom_toBottomOf="@id/view_tope_gafete"
+            android:background="@android:color/transparent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/view_background_datos"
+            android:id="@+id/view_tope_gafete"/>
+
+            <View
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                android:background="@color/light_grey"
+                app:layout_constraintTop_toBottomOf="@id/view_tope_gafete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"
+                android:id="@+id/view_izq_gafete"/>
+
+            <View
+                android:layout_width="70dp"
+                android:layout_height="20dp"
+                app:layout_constraintTop_toBottomOf="@id/view_tope_gafete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"
+                android:background="@color/light_grey"
+                android:id="@+id/view_der_gafete"/>
+
+        <View
+            android:id="@+id/view_bottom_gafete"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/light_grey"
+            app:layout_constraintTop_toBottomOf="@id/view_izq_gafete"
+            app:layout_constraintBottom_toTopOf="@id/view_bottom_gafete"/>
+
+        <View
+            android:id="@+id/view_background_datos"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/almost_white"
+            app:layout_constraintTop_toTopOf="@id/view_tope_gafete"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/top_strap"
+            app:layout_constraintBottom_toBottomOf="@id/view_tope_gafete"
+        android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="@id/guia_vertical_55"
+            android:id="@+id/image_top_strap"/>
+
+        <ImageView
+            android:id="@+id/image_user_icon"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/user_profile_icon"
+            app:layout_constraintTop_toTopOf="@id/view_background_datos"
+            app:layout_constraintStart_toStartOf="@id/view_background_datos"
+            app:layout_constraintEnd_toEndOf="@id/view_background_datos"/>
+
+        <View
+            android:id="@+id/view_username"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="@id/view_background_datos"
+            app:layout_constraintEnd_toEndOf="@id/view_background_datos"
+            app:layout_constraintTop_toBottomOf="@id/image_user_icon"
+            app:layout_constraintBottom_toTopOf="@id/view_password"
+            android:background="@color/white"/>
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/image_small_icon"
+            app:layout_constraintEnd_toEndOf="@id/view_username"
+            app:layout_constraintTop_toTopOf="@id/view_username"
+            android:hint="Username"/>
+
+        <ImageView
+            android:id="@+id/image_small_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/small_user_icon"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="@id/view_username"
+            app:layout_constraintTop_toTopOf="@id/view_username"
+            app:layout_constraintBottom_toBottomOf="@id/view_username"/>
+        <View
+            android:id="@+id/view_password"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="@id/view_background_datos"
+            app:layout_constraintEnd_toEndOf="@id/view_background_datos"
+            app:layout_constraintTop_toBottomOf="@id/view_username"
+            app:layout_constraintBottom_toTopOf="@id/button_log_in"
+            android:background="@color/white"/>
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/image_lock_icon"
+            app:layout_constraintEnd_toEndOf="@id/view_password"
+            app:layout_constraintTop_toTopOf="@id/view_password"
+            android:hint="Password"/>
+
+        <ImageView
+            android:id="@+id/image_lock_icon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/lock_icon"
+            android:scaleType="fitXY"
+            android:layout_marginStart="2dp"
+            app:layout_constraintStart_toStartOf="@id/view_password"
+            app:layout_constraintTop_toTopOf="@id/view_password"
+            app:layout_constraintBottom_toBottomOf="@id/view_password"/>
+
+        <Button
+            android:id="@+id/button_log_in"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/view_password"
+            app:layout_constraintStart_toStartOf="@id/view_background_datos"
+            app:layout_constraintBottom_toBottomOf="@id/view_background_datos"
+            android:backgroundTint="@color/dark_grey"
+            app:layout_constraintEnd_toStartOf="@id/button_new_user"
+            android:text="Log In"
+            android:textSize="11dp"/>
+
+        <Button
+            android:id="@+id/button_new_user"
+            android:layout_width="95dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toBottomOf="@id/view_password"
+            app:layout_constraintEnd_toEndOf="@id/view_background_datos"
+            app:layout_constraintBottom_toBottomOf="@id/view_background_datos"
+            app:layout_constraintStart_toEndOf="@id/button_log_in"
+            android:backgroundTint="@color/dark_grey"
+            android:text="New User"
+            android:textSize="11dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
