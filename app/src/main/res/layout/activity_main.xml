@@ -164,7 +164,7 @@
         android:layout_marginBottom="4dp"
         android:background="@drawable/rounded_corners"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf=" parent"
         android:text="@string/menu"
         android:textSize="30dp"/>
 

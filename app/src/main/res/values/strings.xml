@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">AyA: Weather Contracts</string>
     <string name="menu">MENU</string>
+    <string name="options">OPTIONS</string>
+    <string name="tutorial">TUTORIAL</string>
+    <string name="best_score">Best Score</string>
+    <string name="puntuacion_inicial">0</string>
+    <string name="last_score">Last Score</string>
 </resources>
