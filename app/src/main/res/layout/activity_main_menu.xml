@@ -18,20 +18,20 @@
         <androidx.constraintlayout.widget.Guideline
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintGuide_percent="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:orientation="horizontal"
-            android:id="@+id/guia_horizontal_50"/>
+            android:id="@+id/guia_horizontal_60"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintGuide_percent="0.25"
+            app:layout_constraintGuide_percent="0.3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:orientation="horizontal"
-            android:id="@+id/guia_horizontal_25"/>
+            android:id="@+id/guia_horizontal_30"/>
 
         <View
             android:id="@+id/view_background_niveles"
@@ -172,10 +172,26 @@
             android:layout_height="70dp"
             app:layout_constraintStart_toStartOf="@id/view_parte_izq"
             app:layout_constraintEnd_toEndOf="@id/view_parte_izq"
-            app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
+            app:layout_constraintTop_toBottomOf="@id/guia_horizontal_60"
             app:layout_constraintBottom_toBottomOf="@id/view_background_niveles"
             android:outlineProvider="bounds"
             android:background="@color/brown"
+            android:elevation="7dp"/>
+
+        <TextView
+            android:id="@+id/text_day_shift"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="@id/view_parte_izq"
+            app:layout_constraintEnd_toEndOf="@id/view_parte_izq"
+            app:layout_constraintTop_toTopOf="@id/view_background_niveles"
+            app:layout_constraintBottom_toBottomOf="@id/guia_horizontal_30"
+            android:outlineProvider="bounds"
+            android:textColor="@color/white"
+            android:text="@string/day_shift"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:background="@color/neutral_brown"
             android:elevation="7dp"/>
 
         <View
@@ -201,17 +217,32 @@
             app:layout_constraintTop_toTopOf="@id/view_background_niveles"
             app:layout_constraintBottom_toBottomOf="@id/view_parte_der" />
 
-
         <View
             android:id="@+id/view_tope_parte_der"
             android:layout_width="170dp"
             android:layout_height="70dp"
             app:layout_constraintStart_toStartOf="@id/view_parte_der"
             app:layout_constraintEnd_toEndOf="@id/view_parte_der"
-            app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
+            app:layout_constraintTop_toBottomOf="@id/guia_horizontal_60"
             app:layout_constraintBottom_toBottomOf="@id/view_background_niveles"
             android:outlineProvider="bounds"
             android:background="@color/brown"
+            android:elevation="7dp"/>
+
+        <TextView
+            android:id="@+id/text_night_shift"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="@id/view_parte_der"
+            app:layout_constraintEnd_toEndOf="@id/view_parte_der"
+            app:layout_constraintTop_toTopOf="@id/view_background_niveles"
+            app:layout_constraintBottom_toBottomOf="@id/guia_horizontal_30"
+            android:outlineProvider="bounds"
+            android:textColor="@color/white"
+            android:text="@string/night_shift"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:background="@color/neutral_brown"
             android:elevation="7dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
