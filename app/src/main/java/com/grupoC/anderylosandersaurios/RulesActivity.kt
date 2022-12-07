@@ -11,5 +11,6 @@ class RulesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRulesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 }
