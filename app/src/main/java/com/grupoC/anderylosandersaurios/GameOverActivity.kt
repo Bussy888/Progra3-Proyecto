@@ -11,5 +11,6 @@ class GameOverActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGameOverBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 }

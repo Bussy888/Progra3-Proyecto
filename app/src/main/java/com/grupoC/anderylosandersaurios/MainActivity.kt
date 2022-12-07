@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         val currentProgress = 1000
         ObjectAnimator.ofInt(binding.progressBar,"progress",currentProgress).setDuration(10000).start()
 
-        object : CountDownTimer(300000,1000){
+        object : CountDownTimer(300000,1000) {
             override fun onTick(millisUntilFinished: Long) {
-                var minute = (millisUntilFinished/1000)/60
-                var second = (millisUntilFinished/1000)%60
+                var minute = (millisUntilFinished / 1000) / 60
+                var second = (millisUntilFinished / 1000) % 60
                 binding.textViewTimer.setText("$minute:$second")
             }
 
