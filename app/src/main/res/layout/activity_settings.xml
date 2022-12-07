@@ -212,7 +212,7 @@
         app:layout_constraintTop_toTopOf="@id/image_note_blue"
         app:layout_constraintStart_toStartOf="@id/image_note_blue"
         app:layout_constraintEnd_toEndOf="@id/image_note_blue"
-        android:text="@string/vibration"
+        android:text="@string/music_volume"
         android:gravity="left"
         android:textColor="@color/dark_blue"
         android:textSize="20sp"/>
