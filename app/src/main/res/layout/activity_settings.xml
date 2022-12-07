@@ -222,7 +222,7 @@
         app:layout_constraintBottom_toBottomOf="@id/image_note_blue"
         app:layout_constraintStart_toStartOf="@id/image_note_blue"
         app:layout_constraintEnd_toEndOf="@id/image_note_blue"
-        android:background="@color/dark_blue"
+        android:background="@color/opaque_blue"
         android:layout_width="400dp"
         android:layout_height="30dp"
         android:thumbTint="@color/blue"

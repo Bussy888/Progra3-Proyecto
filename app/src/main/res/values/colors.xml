@@ -22,4 +22,5 @@
     <color name="dark_red">#670909</color>
     <color name="dark_yellow">#32310F</color>
     <color name="dark_blue">#110E2E</color>
+    <color name="opaque_blue">#6381BD</color>
 </resources>
