@@ -13,7 +13,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
-        android:id="@+id/guia_horizontal_60"/>
+        android:id="@+id/guia_horizontal_50"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
-        android:id="@+id/guia_vertical_45"/>
+        android:id="@+id/guia_vertical_50"/>
 
     <ImageView
         android:id="@+id/image_file_center"
@@ -30,7 +30,7 @@
         android:layout_height="94dp"
         android:src="@drawable/folder_blue"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_60"
+        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
     <ImageButton
@@ -39,7 +39,7 @@
         android:layout_height="84dp"
         android:src="@drawable/folder_red_plus"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_60"
+        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
         app:layout_constraintBottom_toBottomOf="@id/image_file_center"
         app:layout_constraintEnd_toStartOf="@id/image_file_center"
         android:layout_marginEnd="20dp"
@@ -63,7 +63,7 @@
         android:layout_height="84dp"
         android:src="@drawable/folder_blue_plus"
         android:scaleType="fitCenter"
-        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_60"
+        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
         app:layout_constraintBottom_toBottomOf="@id/image_file_center"
         app:layout_constraintStart_toEndOf="@id/image_file_center"
         android:layout_marginStart="20dp"
@@ -85,7 +85,7 @@
         android:id="@+id/image_cabinet_red"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintEnd_toEndOf="@id/guia_vertical_45"
+        app:layout_constraintEnd_toEndOf="@id/guia_vertical_50"
         app:layout_constraintBottom_toTopOf="@id/button_two"
         android:src="@drawable/file_cabinet_red"
         android:scaleType="fitCenter"
@@ -107,7 +107,7 @@
         android:scaleType="fitCenter"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:layout_constraintStart_toEndOf="@id/guia_vertical_45"
+        app:layout_constraintStart_toEndOf="@id/guia_vertical_50"
         app:layout_constraintBottom_toTopOf="@id/button_two"
         android:src="@drawable/file_cabinet_yellow"
         android:layout_marginStart="10dp"/>
