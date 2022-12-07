@@ -217,6 +217,18 @@
         android:textColor="@color/dark_blue"
         android:textSize="20sp"/>
 
+    <SeekBar
+        app:layout_constraintTop_toBottomOf="@id/text_music_volume"
+        app:layout_constraintBottom_toBottomOf="@id/image_note_blue"
+        app:layout_constraintStart_toStartOf="@id/image_note_blue"
+        app:layout_constraintEnd_toEndOf="@id/image_note_blue"
+        android:background="@color/dark_blue"
+        android:layout_width="400dp"
+        android:layout_height="30dp"
+        android:thumbTint="@color/blue"
+        android:progressTint="@color/white"
+        android:progressBackgroundTint="@color/almost_white"/>
+
     <ImageView
         android:layout_width="45dp"
         android:layout_height="45dp"
