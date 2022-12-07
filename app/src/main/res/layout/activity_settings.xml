@@ -5,12 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/backgroundgreen"
         android:scaleType="centerCrop"
-        />
+        android:src="@drawable/backgroundgreen"
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="136dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="match_parent"
@@ -129,20 +131,41 @@
         app:layout_constraintBottom_toBottomOf="@id/image_note"
         app:layout_constraintStart_toStartOf="@id/image_note"
         app:layout_constraintEnd_toEndOf="@id/image_note"
-        android:text="OPTIONS"
+        android:text="@string/uppercase_options"
         android:gravity="center"
         android:textSize="30sp"/>
 
     <TextView
+        android:id="@+id/text_language"
         android:layout_width="140dp"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/image_note_red"
-        app:layout_constraintBottom_toBottomOf="@id/image_note_red"
         app:layout_constraintStart_toStartOf="@id/image_note_red"
         app:layout_constraintEnd_toEndOf="@id/image_note_red"
-        android:text="Language:"
+        android:text="@string/language"
         android:gravity="left"
         android:textSize="20sp"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@id/image_note_red"
+        app:layout_constraintStart_toStartOf="@id/image_note_red"
+        app:layout_constraintTop_toBottomOf="@id/text_language"
+        app:layout_constraintBottom_toBottomOf="@id/image_note_red">
+
+        <RadioButton
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="English"/>
+
+        <RadioButton
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:text="Spanish"/>
+
+    </RadioGroup>
 
     <ImageView
         android:layout_width="45dp"
