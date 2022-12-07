@@ -15,6 +15,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="@color/black">
 
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            android:id="@+id/guia_horizontal_50"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintGuide_percent="0.25"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            android:id="@+id/guia_horizontal_25"/>
 
         <View
             android:id="@+id/view_background_niveles"
@@ -78,6 +95,7 @@
             android:elevation="6dp"
             android:text="@string/best_score"
             android:textSize="25sp"
+            android:textColor="@color/white"
             android:gravity="center" />
 
         <TextView
@@ -107,6 +125,7 @@
             android:elevation="6dp"
             android:text="@string/last_score"
             android:textSize="25sp"
+            android:textColor="@color/white"
             android:gravity="center" />
 
         <TextView
@@ -134,6 +153,31 @@
             android:outlineProvider="bounds"
             android:elevation="5dp"/>
 
+        <ImageButton
+            android:id="@+id/view_tarjeta_facil"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/tarjeta_nivel_dia"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="@id/view_parte_izq"
+            app:layout_constraintEnd_toEndOf="@id/view_parte_izq"
+            app:layout_constraintTop_toTopOf="@id/view_background_niveles"
+            app:layout_constraintBottom_toBottomOf="@id/view_parte_izq" />
+
+        <View
+            android:id="@+id/view_tope_parte_izq"
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            app:layout_constraintStart_toStartOf="@id/view_parte_izq"
+            app:layout_constraintEnd_toEndOf="@id/view_parte_izq"
+            app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
+            app:layout_constraintBottom_toBottomOf="@id/view_background_niveles"
+            android:outlineProvider="bounds"
+            android:background="@color/brown"
+            android:elevation="7dp"/>
+
         <View
             android:id="@+id/view_parte_der"
             android:layout_width="195dp"
@@ -143,6 +187,32 @@
             app:layout_constraintBottom_toBottomOf="@id/view_background_niveles"
             android:outlineProvider="bounds"
             android:elevation="5dp"/>
+
+        <ImageButton
+            android:id="@+id/view_tarjeta_dificil"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/tarjeta_nivel_noche"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:background="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="@id/view_parte_der"
+            app:layout_constraintEnd_toEndOf="@id/view_parte_der"
+            app:layout_constraintTop_toTopOf="@id/view_background_niveles"
+            app:layout_constraintBottom_toBottomOf="@id/view_parte_der" />
+
+
+        <View
+            android:id="@+id/view_tope_parte_der"
+            android:layout_width="170dp"
+            android:layout_height="70dp"
+            app:layout_constraintStart_toStartOf="@id/view_parte_der"
+            app:layout_constraintEnd_toEndOf="@id/view_parte_der"
+            app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
+            app:layout_constraintBottom_toBottomOf="@id/view_background_niveles"
+            android:outlineProvider="bounds"
+            android:background="@color/brown"
+            android:elevation="7dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
