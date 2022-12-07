@@ -10,4 +10,9 @@
     <string name="day_shift">DAY SHIFT</string>
     <string name="language">Language:</string>
     <string name="uppercase_options">OPTIONS</string>
+    <string name="vibration">Vibration:</string>
+    <string name="on">ON</string>
+    <string name="off">OFF</string>
+    <string name="english">English</string>
+    <string name="spanish">Spanish</string>
 </resources>
