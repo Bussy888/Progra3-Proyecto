@@ -15,7 +15,6 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
-    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
@@ -23,6 +22,7 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(view)
 
         mediaPlayer= MediaPlayer.create(this, R.raw.nokia1994)
+        mediaPlayer.start()
         audioManager=getSystemService(AUDIO_SERVICE) as AudioManager
 
         val max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
@@ -45,9 +45,6 @@ class SettingsActivity : AppCompatActivity() {
             }
 
         })
-
-        setVolumeControlStream(AudioManager.STREAM_MUSIC)
-        val audioManager = applicationContext.getSystemService(AUDIO_SERVICE) as AudioManager
 
     }
 
