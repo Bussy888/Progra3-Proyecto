@@ -27,5 +27,7 @@ data class MediatorGame(
         }
     }
 
+    fun identifyButtonColor(){
 
+    }
 }

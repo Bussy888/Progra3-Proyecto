@@ -201,7 +201,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:backgroundTint="@color/dark_grey"
-            android:text="Play"
+            android:text="Play Aux"
             android:textSize="11dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,12 +12,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
+        //Inicialización
         game = MediatorGame(
             Cabinet("blue", 0),
             Cabinet("red", 0),
@@ -28,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding.yellowScore.text = "0"
         binding.blueScore.text = "0"
         binding.greenScore.text = "0"
+
         // El timer
         binding.progressBar.max = 1000
         val currentProgress = 1000
