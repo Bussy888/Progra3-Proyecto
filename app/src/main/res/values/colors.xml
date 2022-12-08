@@ -23,4 +23,8 @@
     <color name="dark_yellow">#32310F</color>
     <color name="dark_blue">#110E2E</color>
     <color name="opaque_blue">#6381BD</color>
+    <color name="light_blue">#AAC2F1</color>
+    <color name="light_red">#FFB4B4</color>
+    <color name="light_yellow">#FFFEAE</color>
+    <color name="light_green">#A9FFAA</color>
 </resources>

@@ -12,54 +12,138 @@
         android:scaleType="centerCrop"
         />
 
-    <ScrollView
+    <androidx.constraintlayout.widget.Guideline
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        android:id="@+id/guia_horizontal_10"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="680dp"
+        android:layout_height="350dp"
+        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/blackboard"/>
 
-            <TextView
-                android:id="@+id/text_rules_title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="20dp"
-                android:layout_width="450dp"
-                android:layout_height="70dp"
-                app:layout_constraintTop_toTopOf="parent"
-                android:gravity="center"
-                android:text="@string/uppercase_rules"
-                android:textSize="50sp"
-                android:background="@color/almost_white"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/text_general_desc"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                app:layout_constraintBottom_toTopOf="@id/text_hierarchy_one"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_rules_title"
-                android:text="@string/rules_general_desc"
-                android:textSize="30sp"/>
+                android:layout_height="wrap_content">
 
-            <!--TODO: FACTORIZAR TEXTO CADA PARRAFO EN UN VIEW-->
-            <!--TODO: IMÁGENES-->
-            <TextView
-                android:id="@+id/text_hierarchy_one"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_marginBottom="256dp"
-                android:text="@string/rules_hierarchy"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/text_rules_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="450dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:gravity="center"
+                    android:text="@string/uppercase_rules"
+                    android:textSize="50sp"
+                    android:textColor="@color/almost_white"/>
 
-    </ScrollView>
+                <TextView
+                    android:id="@+id/text_general_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_one"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_rules_title"
+                    android:text="@string/rules_general_desc"
+                    android:textSize="30sp"
+                    android:textColor="@color/almost_white"
+                    android:gravity="center"
+                    android:padding="10dp"/>
+
+                <!--TODO: IMÁGENES-->
+                <TextView
+                    android:id="@+id/text_hierarchy_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_marginBottom="256dp"
+                    android:text="@string/rules_hierarchy_one"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@id/text_general_desc"
+                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_two"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/light_blue"
+                    android:gravity="center"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/text_hierarchy_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_marginBottom="256dp"
+                    android:text="@string/rules_hierarchy_two"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@id/text_general_desc"
+                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_two"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/light_red"
+                    android:gravity="center"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/text_hierarchy_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_marginBottom="256dp"
+                    android:text="@string/rules_hierarchy_three"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@id/text_general_desc"
+                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_two"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/light_yellow"
+                    android:gravity="center"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/text_hierarchy_four"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:layout_marginBottom="256dp"
+                    android:text="@string/rules_hierarchy_four"
+                    android:textSize="30sp"
+                    app:layout_constraintTop_toBottomOf="@id/text_general_desc"
+                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_two"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="@color/light_green"
+                    android:gravity="center"
+                    android:padding="10dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
