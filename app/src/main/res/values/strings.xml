@@ -16,4 +16,12 @@
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
     <string name="music_volume">Music Volume:</string>
+    <string name="uppercase_rules">RULES</string>
+    <string name="rules_general_desc"> - Colocar el contrato en el centro en la pila correspondiente de acuerdo a su color</string>
+    <string name="rules_hierarchy">
+        <p> - Si el contrato no tiene texto, el fondo será el color del contrato </p>
+        <p>- Si el texto de un contrato es igual al color del texto, ese será el color del contrato</p>
+    <p> Si el color del fondo es igual al texto, ese será el color del contrato </p>
+        <p> - Si todos los atributos describen un color distinto, el color del contrato dependerá del fondo </p>
+    </string>
 </resources>
