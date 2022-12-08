@@ -21,6 +21,7 @@ class SettingsActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        //TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
         mediaPlayer= MediaPlayer.create(this, R.raw.nokia1994)
         mediaPlayer.start()
         audioManager=getSystemService(AUDIO_SERVICE) as AudioManager
