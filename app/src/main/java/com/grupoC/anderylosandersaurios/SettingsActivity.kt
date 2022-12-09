@@ -2,9 +2,16 @@ package com.grupoC.anderylosandersaurios
 
 import android.media.AudioManager
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.widget.SeekBar
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
+import androidx.viewpager.widget.ViewPager.DecorView
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
 import java.util.*
 
@@ -12,11 +19,14 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
+    private lateinit var decorWindow: View
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        decorWindow=window.decorView
+        hideSystemUI()
 
         // TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
         mediaPlayer= MediaPlayer.create(this, R.raw.nokia1994)
@@ -56,6 +66,13 @@ class SettingsActivity : AppCompatActivity() {
         }
         binding.spanish.setOnClickListener {
             setLocale("es")
+        }
+    }
+
+    private fun hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window, decorWindow).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.navigationBars())
         }
     }
 
