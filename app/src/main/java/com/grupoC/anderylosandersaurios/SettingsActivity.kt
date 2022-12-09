@@ -1,16 +1,12 @@
 package com.grupoC.anderylosandersaurios
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
-import android.os.Build
+import android.os.Bundle
 import android.widget.SeekBar
-import androidx.annotation.RequiresApi
-import androidx.core.content.getSystemService
+import androidx.appcompat.app.AppCompatActivity
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
-import java.util.Locale
+import java.util.*
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
@@ -24,7 +20,7 @@ class SettingsActivity : AppCompatActivity() {
 
         // TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
         mediaPlayer= MediaPlayer.create(this, R.raw.nokia1994)
-        mediaPlayer.start()
+        //mediaPlayer.start()
         audioManager=getSystemService(AUDIO_SERVICE) as AudioManager
 
         val max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
@@ -48,12 +44,17 @@ class SettingsActivity : AppCompatActivity() {
 
         })
 
+
         // TODO: COMPROBAR QUE FUNCA EL CAMBIO DE IDIOMA
 
         //FUNCA EL ESPAÑOL, PERO NO VUELVE A INGLES O PASA AL REVES
 
+        val locale = this.resources.configuration.locales
+
+        println(locale[0])
+
         binding.english.setOnClickListener {
-            setLocale("en")
+            setLocale("default")
         }
         binding.spanish.setOnClickListener {
             setLocale("es")
@@ -66,6 +67,7 @@ class SettingsActivity : AppCompatActivity() {
         this.resources.configuration.setLocale(locale)
         this.recreate()
     }
+
     private fun initControls(){
 
 
