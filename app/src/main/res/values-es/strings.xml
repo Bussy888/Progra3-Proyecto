@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <resources>
         <string name="app_name">AyA: Weather Contracts</string>
         <string name="menu">MENU</string>
         <string name="options">OPCIONES</string>
@@ -24,6 +23,5 @@
         <string name="rules_hierarchy_two">Si el texto de un contrato es igual al color del texto, ese será el color del contrato</string>
         <string name="rules_hierarchy_three">Si el color del fondo es igual al texto, ese será el color del contrato</string>
         <string name="rules_hierarchy_four">Si todos los atributos describen un color distinto, el color del contrato dependerá del fondo</string>
-    </resources>
 
 </resources>
