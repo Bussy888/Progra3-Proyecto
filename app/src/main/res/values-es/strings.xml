@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <resources>
+        <string name="app_name">AyA: Weather Contracts</string>
+        <string name="menu">MENU</string>
+        <string name="options">OPCIONES</string>
+        <string name="tutorial">TUTORIAL</string>
+        <string name="best_score">Best Score</string>
+        <string name="puntuacion_inicial">0</string>
+        <string name="last_score">Last Score</string>
+        <string name="night_shift">TURNO NOCHE</string>
+        <string name="day_shift">TURNO DIA</string>
+        <string name="language">Idioma:</string>
+        <string name="vibration">Vibration:</string>
+        <string name="on">ON</string>
+        <string name="off">OFF</string>
+        <string name="english">English</string>
+        <string name="spanish">Spanish</string>
+        <string name="music_volume">Music Volume:</string>
+        <string name="uppercase_rules">RULES</string>
+        <string name="rules_general_desc">Colocar el contrato en el centro en la pila correspondiente presionando el botón cuyo color corresponde al de la pila</string>
+        <string name="rules_hierarchy_one">Si el contrato no tiene texto, el fondo será el color del contrato</string>
+        <string name="rules_hierarchy_two">Si el texto de un contrato es igual al color del texto, ese será el color del contrato</string>
+        <string name="rules_hierarchy_three">Si el color del fondo es igual al texto, ese será el color del contrato</string>
+        <string name="rules_hierarchy_four">Si todos los atributos describen un color distinto, el color del contrato dependerá del fondo</string>
+    </resources>
+
+</resources>

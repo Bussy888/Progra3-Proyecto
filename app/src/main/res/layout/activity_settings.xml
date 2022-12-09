@@ -131,7 +131,7 @@
         app:layout_constraintBottom_toBottomOf="@id/image_note"
         app:layout_constraintStart_toStartOf="@id/image_note"
         app:layout_constraintEnd_toEndOf="@id/image_note"
-        android:text="@string/uppercase_options"
+        android:text="@string/options"
         android:gravity="center"
         android:textSize="30sp"/>
 
