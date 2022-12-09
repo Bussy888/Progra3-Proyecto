@@ -15,7 +15,7 @@
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
     <string name="music_volume">Music Volume:</string>
-    <string name="uppercase_rules">RULES</string>
+    <string name="hired">Congratulations, you\'re hired!</string>
     <string name="rules_general_desc">Place the contract at the center on the right pile by pressing the button which color matches that of the pile</string>
     <string name="rules_hierarchy_one">If the contract has no text, the contract\'s color will be that of its background</string>
     <string name="rules_hierarchy_two">If the contract\'s text matches the text color, the contract\'s color will be defined by this color</string>

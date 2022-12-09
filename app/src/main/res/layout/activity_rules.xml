@@ -53,12 +53,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="20dp"
-                    android:layout_width="450dp"
+                    android:layout_width="530dp"
                     android:layout_height="70dp"
                     app:layout_constraintTop_toTopOf="parent"
                     android:gravity="center"
-                    android:text="@string/uppercase_rules"
-                    android:textSize="50sp"
+                    android:text="@string/hired"
+                    android:textSize="40sp"
                     android:textColor="@color/almost_white"/>
 
                 <TextView
