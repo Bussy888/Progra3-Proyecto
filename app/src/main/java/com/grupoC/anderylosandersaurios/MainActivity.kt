@@ -1,6 +1,7 @@
 package com.grupoC.anderylosandersaurios
 
 import android.animation.ObjectAnimator
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -12,9 +13,9 @@ import androidx.core.view.isGone
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var thunderSound : MediaPlayer
 
     private lateinit var binding : ActivityMainBinding
-    lateinit var hand : Handler
     var i = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         binding.progressBar.max = 100
         progressBarCycle()
         timer()
+        thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
     }
     fun timer(){
@@ -54,7 +56,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 i++;
-                thunder(2000, 1000, binding.backgroundWhite)
+                thunder(3000, 1000, binding.backgroundWhite)
+                thunderSound.start()
                 binding.progressBar.progress = 0
                 i = 0
 
