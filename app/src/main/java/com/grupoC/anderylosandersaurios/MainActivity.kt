@@ -77,19 +77,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-   // fun run(){
-     //   binding.backgroundBlack.visibility = View.GONE
-    //}
-    fun run(view: View){
-        view.visibility = if (view.visibility == View.VISIBLE){
-            View.GONE
-        }else{
-            View.VISIBLE
-        }
-    }
-    fun hide(view: View ){
-        View.GONE
-    }
     fun seconds(millisUntilFinished: Long): String{
         return if((millisUntilFinished/ 1000) % 60<10){
             "0${(millisUntilFinished/ 1000) % 60}"
