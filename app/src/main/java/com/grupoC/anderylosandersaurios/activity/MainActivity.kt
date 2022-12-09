@@ -1,23 +1,31 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.animation.ObjectAnimator
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
+import android.view.View
+import android.view.WindowManager
+import com.grupoC.anderylosandersaurios.R
 import com.grupoC.anderylosandersaurios.classes.Cabinet
 import com.grupoC.anderylosandersaurios.classes.MediatorGame
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var thunderSound : MediaPlayer
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
+    var i = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         //Inicialización
         game = MediatorGame(
@@ -32,22 +40,11 @@ class MainActivity : AppCompatActivity() {
         binding.greenScore.text = "0"
 
         // El timer
-        binding.progressBar.max = 1000
-        val currentProgress = 1000
-        ObjectAnimator.ofInt(binding.progressBar, "progress", currentProgress).setDuration(10000)
-            .start()
+        binding.progressBar.max = 100
+        progressBarCycle()
+        timer()
+        thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
-        object : CountDownTimer(300000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                var minute = (millisUntilFinished / 1000) / 60
-                var second = (millisUntilFinished / 1000) % 60
-                binding.textViewTimer.setText("$minute:$second")
-            }
-
-            override fun onFinish() {
-                binding.textViewTimer.setText("You Lose!")
-            }
-        }
 
 
         // Los botones
@@ -65,6 +62,62 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonFour.setOnClickListener {
             binding.greenScore.text = game.checking(4).toString()
+        }
+    }
+    fun timer(){
+        object : CountDownTimer(300000,1000){
+            override fun onTick(millisUntilFinished: Long) {
+                val minute = (millisUntilFinished / 1000) / 60
+                val seconds = seconds(millisUntilFinished)
+                binding.textViewTimer.setText("$minute:$seconds")
+            }
+
+            override fun onFinish() {
+                binding.textViewTimer.setText("You Lose!")
+            }
+        }.start()
+
+    }
+    fun progressBarCycle(){
+        object  : CountDownTimer(20000, 1000){
+            override fun onTick(millisUntilFinished: Long) {
+                Log.v("Log_tag", "Tickprogress $i $millisUntilFinished  ")
+                i++
+                binding.progressBar.progress = i*100/(20000/1000)
+            }
+
+            override fun onFinish() {
+                i++;
+                thunder(3000, 1000, binding.backgroundWhite)
+                thunderSound.start()
+                binding.progressBar.progress = 0
+                i = 0
+
+
+            }
+        }.start()
+    }
+    fun thunder(millisInFuture : Long, countDownInterval : Long, view: View){
+        object : CountDownTimer(millisInFuture,countDownInterval){
+            override fun onTick(millisUntilFinished: Long) {
+                view.visibility = View.VISIBLE
+                binding.groupButtons.visibility = View.GONE
+            }
+
+            override fun onFinish() {
+                view.visibility = View.GONE
+                binding.groupButtons.visibility = View.VISIBLE
+                progressBarCycle()
+            }
+        }.start()
+
+
+    }
+    fun seconds(millisUntilFinished: Long): String{
+        return if((millisUntilFinished/ 1000) % 60<10){
+            "0${(millisUntilFinished/ 1000) % 60}"
+        }else{
+            "${(millisUntilFinished/ 1000) % 60}"
         }
     }
 }

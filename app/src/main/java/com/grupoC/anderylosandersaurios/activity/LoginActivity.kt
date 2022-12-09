@@ -1,4 +1,4 @@
-package com.grupoC.anderylosandersaurios
+package com.grupoC.anderylosandersaurios.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

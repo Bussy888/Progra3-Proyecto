@@ -154,6 +154,7 @@
         android:layout_width="140dp"
         android:layout_height="80dp"
         android:gravity="center"
+        android:background="@color/dark_grey"
         app:layout_constraintBottom_toBottomOf="@id/view_back_timer"
         app:layout_constraintEnd_toEndOf="@id/view_back_timer"
         app:layout_constraintStart_toStartOf="@id/view_back_timer"
@@ -275,5 +276,12 @@
         android:layout_marginBottom="40dp"
         android:layout_marginLeft="30dp"
         android:textColor="@color/white"/>
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="button_four, button_three, button_two, button_one, button_menu, image_coffee_cup_s"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
