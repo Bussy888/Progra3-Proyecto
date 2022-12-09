@@ -2,6 +2,7 @@ package com.grupoC.anderylosandersaurios
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainMenuBinding
 
@@ -12,5 +13,6 @@ class MainMenuActivity : AppCompatActivity() {
         binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }
 }

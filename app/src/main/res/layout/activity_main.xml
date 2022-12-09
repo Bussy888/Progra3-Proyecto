@@ -9,9 +9,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/wood"
         android:scaleType="centerCrop"
-        />
+        android:src="@drawable/wood"
+        tools:layout_editor_absoluteX="-483dp"
+        tools:layout_editor_absoluteY="-15dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="match_parent"
@@ -37,6 +38,7 @@
         android:layout_height="94dp"
         android:src="@drawable/folder_blue"
         android:scaleType="fitCenter"
+
         app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -192,8 +194,8 @@
     <!--TODO: CREAR TEMPORIZADOR DE LUZ, POR AHORA ES SOLO UN STAND-IN-->
 
     <View
-        android:layout_width="25dp"
-        android:layout_height="300dp"
+        android:layout_width="40dp"
+        android:layout_height="250dp"
         app:layout_constraintBottom_toTopOf="@id/button_menu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -204,8 +206,8 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="15dp"
-        android:layout_height="285dp"
+        android:layout_width="30dp"
+        android:layout_height="235dp"
         android:progressDrawable="@drawable/progress_bar_theme"
         android:background="@color/white"
         app:layout_constraintTop_toTopOf="@id/progressBarBackGround"
@@ -213,5 +215,20 @@
         app:layout_constraintRight_toRightOf="@id/progressBarBackGround"
         app:layout_constraintLeft_toLeftOf="@id/progressBarBackGround"
         />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bulblight"
+        app:layout_constraintBottom_toBottomOf="@id/progressBarBackGround"
+        app:layout_constraintLeft_toLeftOf="@id/progressBar"
+        app:layout_constraintRight_toRightOf="@id/progressBar"
+
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backgroundWhite"
+        android:background="@color/white"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
