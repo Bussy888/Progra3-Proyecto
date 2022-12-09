@@ -1,7 +1,8 @@
-package com.grupoC.anderylosandersaurios.activity
+package com.grupoC.anderylosandersaurios
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import com.grupoC.anderylosandersaurios.databinding.ActivityGameOverBinding
 import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
 import com.grupoC.anderylosandersaurios.R
@@ -14,5 +15,6 @@ class GameOverActivity : AppCompatActivity() {
         binding = ActivityGameOverBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }
 }

@@ -187,7 +187,9 @@
         android:text="@string/menu"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf=" parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/menu"
+        android:textSize="30dp"/>
 
     <!--TODO: CREAR TEMPORIZADOR DE LUZ, POR AHORA ES SOLO UN STAND-IN-->
 
@@ -212,6 +214,23 @@
         app:layout_constraintBottom_toBottomOf="@id/progressBarBackGround"
         app:layout_constraintLeft_toLeftOf="@id/progressBarBackGround"
         app:layout_constraintRight_toRightOf="@id/progressBarBackGround"
+        app:layout_constraintLeft_toLeftOf="@id/progressBarBackGround"
+        />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bulblight"
+        app:layout_constraintBottom_toBottomOf="@id/progressBarBackGround"
+        app:layout_constraintLeft_toLeftOf="@id/progressBar"
+        app:layout_constraintRight_toRightOf="@id/progressBar"
+
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backgroundWhite"
+        android:background="@color/white"
+        android:visibility="gone"/>
         app:layout_constraintTop_toTopOf="@id/progressBarBackGround" />
 
     <TextView
