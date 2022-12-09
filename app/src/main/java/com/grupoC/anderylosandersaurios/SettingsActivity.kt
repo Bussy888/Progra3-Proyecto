@@ -51,10 +51,8 @@ class SettingsActivity : AppCompatActivity() {
 
         val locale = this.resources.configuration.locales
 
-        println(locale[0])
-
         binding.english.setOnClickListener {
-            setLocale("default")
+            setLocale("en")
         }
         binding.spanish.setOnClickListener {
             setLocale("es")
