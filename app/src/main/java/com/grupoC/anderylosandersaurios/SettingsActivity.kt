@@ -50,31 +50,11 @@ class SettingsActivity : AppCompatActivity() {
 
         // TODO: COMPROBAR QUE FUNCA EL CAMBIO DE IDIOMA
 
-
-
-        val primaryLocale: Locale = this.resources.configuration.locales[0]
-        val locale: String = primaryLocale.displayName
-
-        binding.radioButtonLanguage.setOnRa
-
-        val checked = view.isChecked
-
-        // Check which radio button was clicked
-        when (view.getId()) {
-            R.id.radio_pirates ->
-                if (checked) {
-                    // Pirates are the best
-                }
-            R.id.radio_ninjas ->
-                if (checked) {
-                    // Ninjas rule
-                }
-        }
+        //FUNCA EL ESPAÑOL, PERO NO VUELVE A INGLES O PASA AL REVES
 
         binding.english.setOnClickListener {
             setLocale("en")
         }
-        //FUNCA EL ESPAÑOL, PERO NO VUELVE A INGLES O PASA AL REVES
         binding.spanish.setOnClickListener {
             setLocale("es")
         }

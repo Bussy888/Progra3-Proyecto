@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RulesActivity">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -180,19 +181,19 @@
                     android:src="@drawable/ic_baseline_arrow_forward_24"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_three"
                     app:layout_constraintTop_toBottomOf="@id/text_hierarchy_two"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/image_arrow_two"/>
+                    app:layout_constraintEnd_toEndOf="@id/image_folder_plus_one"
+                    app:layout_constraintStart_toStartOf="@id/image_folder_plus_one"/>
 
                 <ImageView
-                    android:id="@+id/image_cabinet_blue_two"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
+                    android:id="@+id/image_cabinet_green"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:adjustViewBounds="true"
-                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_one"
-                    app:layout_constraintStart_toEndOf="@id/image_arrow_two"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/text_general_desc"
-                    android:src="@drawable/file_cabinet_blue"/>
+                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_three"
+                    app:layout_constraintStart_toEndOf="@id/image_arrow_three"
+                    app:layout_constraintEnd_toEndOf="@id/image_arrow_two"
+                    app:layout_constraintTop_toBottomOf="@id/text_hierarchy_two"
+                    android:src="@drawable/file_cabinet_green"/>
 
                 <TextView
                     android:id="@+id/text_hierarchy_three"
@@ -202,13 +203,45 @@
                     android:layout_marginEnd="20dp"
                     android:text="@string/rules_hierarchy_three"
                     android:textSize="30sp"
-                    app:layout_constraintTop_toBottomOf="@id/text_general_desc"
-                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_two"
+                    app:layout_constraintTop_toBottomOf="@id/image_arrow_three"
+                    app:layout_constraintBottom_toTopOf="@id/image_folder_blue_b_g"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textColor="@color/light_yellow"
                     android:gravity="center"
                     android:padding="10dp"/>
+
+                <ImageView
+                    android:id="@+id/image_folder_blue_b_g"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/folder_blue_b_g"
+                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_four"
+                    app:layout_constraintTop_toBottomOf="@id/text_hierarchy_three"
+                    app:layout_constraintStart_toStartOf="@id/image_arrow_one"
+                    app:layout_constraintEnd_toStartOf="@id/image_arrow_four"/>
+
+                <ImageView
+                    android:id="@+id/image_arrow_four"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_baseline_arrow_forward_24"
+                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_four"
+                    app:layout_constraintTop_toBottomOf="@id/text_hierarchy_three"
+                    app:layout_constraintEnd_toEndOf="@id/image_folder_plus_one"
+                    app:layout_constraintStart_toStartOf="@id/image_folder_plus_one"/>
+
+                <ImageView
+                    android:id="@+id/image_cabinet_blue_three"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:adjustViewBounds="true"
+                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_four"
+                    app:layout_constraintStart_toStartOf="@id/image_arrow_two"
+                    app:layout_constraintEnd_toEndOf="@id/image_arrow_two"
+                    app:layout_constraintTop_toBottomOf="@id/text_hierarchy_three"
+                    android:src="@drawable/file_cabinet_blue"/>
 
                 <TextView
                     android:id="@+id/text_hierarchy_four"
@@ -218,13 +251,16 @@
                     android:layout_marginEnd="20dp"
                     android:text="@string/rules_hierarchy_four"
                     android:textSize="30sp"
-                    app:layout_constraintTop_toBottomOf="@id/text_general_desc"
-                    app:layout_constraintBottom_toTopOf="@id/text_hierarchy_two"
+                    app:layout_constraintTop_toBottomOf="@id/image_cabinet_green"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textColor="@color/light_green"
                     android:gravity="center"
                     android:padding="10dp"/>
+
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </ScrollView>
