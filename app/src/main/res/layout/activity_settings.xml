@@ -148,6 +148,7 @@
         android:textSize="20sp"/>
 
     <RadioGroup
+        android:id="@+id/radio_button_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -157,12 +158,14 @@
         app:layout_constraintBottom_toBottomOf="@id/image_note_red">
 
         <RadioButton
+            android:id="@+id/english"
             android:layout_width="100dp"
             android:textColor="@color/dark_red"
             android:layout_height="25dp"
             android:text="@string/english"/>
 
         <RadioButton
+            android:id="@+id/spanish"
             android:layout_width="100dp"
             android:textColor="@color/dark_red"
             android:layout_height="25dp"

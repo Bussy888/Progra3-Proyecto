@@ -29,27 +29,11 @@
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                android:screenOrientation="landscape"/>
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:exported="true"
-            android:screenOrientation="landscape">
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainMenuActivity"
-            android:exported="false"
-            android:screenOrientation="landscape">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".LoginActivity"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -59,7 +43,26 @@
             </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                android:screenOrientation="landscape"/>
+        </activity>
+        <activity
+            android:name=".MainMenuActivity"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""
+                android:screenOrientation="landscape"/>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""
+                android:screenOrientation="landscape"/>
         </activity>
         <activity
             android:name=".MainActivity"
@@ -68,7 +71,8 @@
 
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                android:screenOrientation="landscape"/>
         </activity>
     </application>
 

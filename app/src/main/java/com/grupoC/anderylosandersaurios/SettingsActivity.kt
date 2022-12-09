@@ -10,6 +10,7 @@ import android.widget.SeekBar
 import androidx.annotation.RequiresApi
 import androidx.core.content.getSystemService
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
+import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
@@ -21,7 +22,7 @@ class SettingsActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        //TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
+        // TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
         mediaPlayer= MediaPlayer.create(this, R.raw.nokia1994)
         mediaPlayer.start()
         audioManager=getSystemService(AUDIO_SERVICE) as AudioManager
@@ -47,8 +48,44 @@ class SettingsActivity : AppCompatActivity() {
 
         })
 
+        // TODO: COMPROBAR QUE FUNCA EL CAMBIO DE IDIOMA
+
+
+
+        val primaryLocale: Locale = this.resources.configuration.locales[0]
+        val locale: String = primaryLocale.displayName
+
+        binding.radioButtonLanguage.setOnRa
+
+        val checked = view.isChecked
+
+        // Check which radio button was clicked
+        when (view.getId()) {
+            R.id.radio_pirates ->
+                if (checked) {
+                    // Pirates are the best
+                }
+            R.id.radio_ninjas ->
+                if (checked) {
+                    // Ninjas rule
+                }
+        }
+
+        binding.english.setOnClickListener {
+            setLocale("en")
+        }
+        //FUNCA EL ESPAÑOL, PERO NO VUELVE A INGLES O PASA AL REVES
+        binding.spanish.setOnClickListener {
+            setLocale("es")
+        }
     }
 
+    private fun setLocale(languageCode:String){
+        var locale= Locale(languageCode)
+        Locale.setDefault(locale)
+        this.resources.configuration.setLocale(locale)
+        this.recreate()
+    }
     private fun initControls(){
 
 
