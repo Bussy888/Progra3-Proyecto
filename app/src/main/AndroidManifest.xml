@@ -27,27 +27,7 @@
                 android:screenOrientation="landscape"/>
         </activity>
         <activity
-            android:name=".RulesActivity"
-            android:exported="true"
-            android:screenOrientation="landscape">
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value=""
-                android:screenOrientation="landscape"/>
-        </activity>
-        <activity
-            android:name=".SettingsActivity"
-            android:exported="true"
-            android:screenOrientation="landscape">
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value=""
-                android:screenOrientation="landscape"/>
-        </activity>
-        <activity
-            android:name=".MainMenuActivity"
+            android:name=".activity.RulesActivity"
             android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
@@ -56,7 +36,24 @@
                 android:screenOrientation="landscape"/>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.SettingsActivity"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""
+                android:screenOrientation="landscape"/>
+        </activity>
+        <activity
+            android:name=".activity.MainMenuActivity"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -70,7 +67,7 @@
                 android:screenOrientation="landscape"/>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="false"
             android:screenOrientation="landscape">
 

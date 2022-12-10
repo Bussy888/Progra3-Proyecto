@@ -1,7 +1,9 @@
-package com.grupoC.anderylosandersaurios
+package com.grupoC.anderylosandersaurios.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 
@@ -13,5 +15,11 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.play.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
     }
 }

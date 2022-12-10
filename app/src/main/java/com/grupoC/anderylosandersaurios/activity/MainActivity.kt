@@ -1,21 +1,24 @@
-package com.grupoC.anderylosandersaurios
+package com.grupoC.anderylosandersaurios.activity
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import androidx.core.view.isGone
+import com.grupoC.anderylosandersaurios.R
+import com.grupoC.anderylosandersaurios.classes.Cabinet
+import com.grupoC.anderylosandersaurios.classes.MediatorGame
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var thunderSound : MediaPlayer
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var thunderSound : MediaPlayer
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var game: MediatorGame
     var i = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,17 +26,48 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
+        //Inicialización
+        game = MediatorGame(
+            Cabinet("blue", 0),
+            Cabinet("red", 0),
+            Cabinet("yellow", 0),
+            Cabinet("green", 0)
+        )
+        binding.redScore.text = "0"
+        binding.yellowScore.text = "0"
+        binding.blueScore.text = "0"
+        binding.greenScore.text = "0"
+
+        // El timer
         binding.progressBar.max = 100
         progressBarCycle()
         timer()
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
+
+
+        // Los botones
+        binding.buttonOne.setOnClickListener {
+            binding.redScore.text = game.checking(1).toString()
+        }
+
+        binding.buttonTwo.setOnClickListener {
+            binding.yellowScore.text = game.checking(2).toString()
+        }
+
+        binding.buttonThree.setOnClickListener {
+            binding.blueScore.text = game.checking(3).toString()
+        }
+
+        binding.buttonFour.setOnClickListener {
+            binding.greenScore.text = game.checking(4).toString()
+        }
+
     }
     fun timer(){
-        object : CountDownTimer(300000,1000){
+        object : CountDownTimer(3000,1000){
             override fun onTick(millisUntilFinished: Long) {
                 val minute = (millisUntilFinished / 1000) / 60
                 val seconds = seconds(millisUntilFinished)
@@ -41,7 +75,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                binding.textViewTimer.setText("You Lose!")
+                    val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
+                    startActivity(intent)
             }
         }.start()
 
@@ -69,14 +104,15 @@ class MainActivity : AppCompatActivity() {
         object : CountDownTimer(millisInFuture,countDownInterval){
             override fun onTick(millisUntilFinished: Long) {
                 view.visibility = View.VISIBLE
+                binding.groupButtons.visibility = View.GONE
             }
 
             override fun onFinish() {
                 view.visibility = View.GONE
+                binding.groupButtons.visibility = View.VISIBLE
                 progressBarCycle()
             }
         }.start()
-
 
 
     }
@@ -87,5 +123,4 @@ class MainActivity : AppCompatActivity() {
             "${(millisUntilFinished/ 1000) % 60}"
         }
     }
-
 }
