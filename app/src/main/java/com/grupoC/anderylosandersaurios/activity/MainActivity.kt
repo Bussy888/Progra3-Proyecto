@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
 
     }
     fun timer(){
-        object : CountDownTimer(3000,1000){
+        object : CountDownTimer(30000,1000){
             override fun onTick(millisUntilFinished: Long) {
                 val minute = (millisUntilFinished / 1000) / 60
                 val seconds = seconds(millisUntilFinished)
@@ -95,8 +95,6 @@ class MainActivity : AppCompatActivity() {
                 thunderSound.start()
                 binding.progressBar.progress = 0
                 i = 0
-
-
             }
         }.start()
     }
