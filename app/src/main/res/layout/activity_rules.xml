@@ -22,8 +22,8 @@
         android:id="@+id/guia_horizontal_10"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="680dp"
-        android:layout_height="350dp"
+        android:layout_width="@dimen/six_eighty"
+        android:layout_height="@dimen/three_fifty"
         app:layout_constraintTop_toBottomOf="@id/guia_horizontal_10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,46 +52,46 @@
                     android:id="@+id/text_rules_title"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="530dp"
-                    android:layout_height="70dp"
+                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_width="@dimen/five_thirty"
+                    android:layout_height="@dimen/seventy"
                     app:layout_constraintTop_toTopOf="parent"
                     android:gravity="center"
                     android:text="@string/hired"
-                    android:textSize="40sp"
+                    android:textSize="@dimen/text_forty"
                     android:textColor="@color/almost_white"/>
 
                 <TextView
                     android:id="@+id/text_general_desc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="@dimen/fifteen"
                     app:layout_constraintBottom_toTopOf="@id/image_folder_plus_one"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_rules_title"
                     android:text="@string/rules_general_desc"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/text_thirty"
                     android:textColor="@color/almost_white"
                     android:gravity="center"
-                    android:padding="10dp"/>
+                    android:padding="@dimen/ten"/>
 
                 <ImageView
                     android:id="@+id/image_folder_blue_one"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:adjustViewBounds="true"
                     android:src="@drawable/folder_blue"
                     app:layout_constraintTop_toBottomOf="@id/text_general_desc"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/image_arrow_one"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_one"
-                    android:layout_marginEnd="10dp"/>
+                    android:layout_marginEnd="@dimen/ten"/>
 
                 <ImageView
                     android:id="@+id/image_arrow_one"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:src="@drawable/ic_baseline_arrow_forward_24"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_one"
                     app:layout_constraintTop_toBottomOf="@id/text_general_desc"
@@ -100,8 +100,8 @@
 
                 <ImageView
                     android:id="@+id/image_folder_plus_one"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:adjustViewBounds="true"
                     android:src="@drawable/folder_blue_plus"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_one"
@@ -111,8 +111,8 @@
 
                 <ImageView
                     android:id="@+id/image_arrow_two"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:src="@drawable/ic_baseline_arrow_forward_24"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_one"
                     app:layout_constraintTop_toBottomOf="@id/text_general_desc"
@@ -121,8 +121,8 @@
 
                 <ImageView
                     android:id="@+id/image_cabinet_blue"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:adjustViewBounds="true"
                     android:src="@drawable/file_cabinet_blue"
                     app:layout_constraintTop_toBottomOf="@id/text_general_desc"
@@ -134,38 +134,38 @@
                     android:id="@+id/text_hierarchy_one"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/twenty"
                     android:text="@string/rules_hierarchy_one"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/text_thirty"
                     app:layout_constraintTop_toBottomOf="@id/image_folder_plus_one"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_two"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textColor="@color/light_blue"
                     android:gravity="center"
-                    android:padding="10dp"/>
+                    android:padding="@dimen/ten"/>
 
                 <TextView
                     android:id="@+id/text_hierarchy_two"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/twenty"
                     android:text="@string/rules_hierarchy_two"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/text_thirty"
                     app:layout_constraintTop_toBottomOf="@id/text_hierarchy_one"
                     app:layout_constraintBottom_toTopOf="@id/image_arrow_three"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textColor="@color/light_red"
                     android:gravity="center"
-                    android:padding="10dp"/>
+                    android:padding="@dimen/ten"/>
 
                 <ImageView
                     android:id="@+id/image_folder_blue_g_g"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:adjustViewBounds="true"
                     android:src="@drawable/folder_blue_g_g"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_three"
@@ -175,8 +175,8 @@
 
                 <ImageView
                     android:id="@+id/image_arrow_three"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:src="@drawable/ic_baseline_arrow_forward_24"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_three"
                     app:layout_constraintTop_toBottomOf="@id/text_hierarchy_two"
@@ -185,8 +185,8 @@
 
                 <ImageView
                     android:id="@+id/image_cabinet_green"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:adjustViewBounds="true"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_three"
                     app:layout_constraintStart_toEndOf="@id/image_arrow_three"
@@ -198,22 +198,22 @@
                     android:id="@+id/text_hierarchy_three"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/twenty"
                     android:text="@string/rules_hierarchy_three"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/text_thirty"
                     app:layout_constraintTop_toBottomOf="@id/image_arrow_three"
                     app:layout_constraintBottom_toTopOf="@id/image_folder_blue_b_g"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textColor="@color/light_yellow"
                     android:gravity="center"
-                    android:padding="10dp"/>
+                    android:padding="@dimen/ten"/>
 
                 <ImageView
                     android:id="@+id/image_folder_blue_b_g"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:adjustViewBounds="true"
                     android:src="@drawable/folder_blue_b_g"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_four"
@@ -223,8 +223,8 @@
 
                 <ImageView
                     android:id="@+id/image_arrow_four"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:src="@drawable/ic_baseline_arrow_forward_24"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_four"
                     app:layout_constraintTop_toBottomOf="@id/text_hierarchy_three"
@@ -233,8 +233,8 @@
 
                 <ImageView
                     android:id="@+id/image_cabinet_blue_three"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:adjustViewBounds="true"
                     app:layout_constraintBottom_toTopOf="@id/text_hierarchy_four"
                     app:layout_constraintStart_toStartOf="@id/image_arrow_two"
@@ -246,22 +246,22 @@
                     android:id="@+id/text_hierarchy_four"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/twenty"
+                    android:layout_marginEnd="@dimen/twenty"
                     android:text="@string/rules_hierarchy_four"
-                    android:textSize="30sp"
+                    android:textSize="@dimen/text_thirty"
                     app:layout_constraintTop_toBottomOf="@id/image_cabinet_green"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:textColor="@color/light_green"
                     android:gravity="center"
-                    android:padding="10dp"/>
+                    android:padding="@dimen/ten"/>
 
                 <ImageView
                     android:id="@+id/image_folder_blue_g_y"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:adjustViewBounds="true"
                     android:src="@drawable/folder_blue_g_y"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -271,8 +271,8 @@
 
                 <ImageView
                     android:id="@+id/image_arrow_five"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:src="@drawable/ic_baseline_arrow_forward_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_hierarchy_four"
@@ -281,8 +281,8 @@
 
                 <ImageView
                     android:id="@+id/image_cabinet_blue_four"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/eighty"
+                    android:layout_height="@dimen/eighty"
                     android:adjustViewBounds="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@id/image_arrow_two"

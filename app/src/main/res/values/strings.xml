@@ -25,5 +25,6 @@
     <string name="new_user" translatable="false">New User</string>
     <string name="username" translatable="false">Username</string>
     <string name="password" translatable="false">Password</string>
-    <string name="score">SCORE:</string>
+    <string name="score" translatable="false">SCORE:</string>
+    <string name="nulo" translatable="false">null</string>
 </resources>
