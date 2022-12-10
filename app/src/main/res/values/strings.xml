@@ -15,4 +15,5 @@
     <string name="off">OFF</string>
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
+    <string name="score">SCORE:</string>
 </resources>

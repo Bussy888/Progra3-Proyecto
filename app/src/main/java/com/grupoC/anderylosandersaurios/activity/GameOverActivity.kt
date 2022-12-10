@@ -1,5 +1,6 @@
 package com.grupoC.anderylosandersaurios.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
@@ -16,5 +17,10 @@ class GameOverActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        binding.buttonMenu.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java).apply {}
+            startActivity(intent)
+        }
     }
 }

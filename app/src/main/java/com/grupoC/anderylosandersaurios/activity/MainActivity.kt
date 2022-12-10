@@ -1,6 +1,7 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -63,9 +64,10 @@ class MainActivity : AppCompatActivity() {
         binding.buttonFour.setOnClickListener {
             binding.greenScore.text = game.checking(4).toString()
         }
+
     }
     fun timer(){
-        object : CountDownTimer(300000,1000){
+        object : CountDownTimer(3000,1000){
             override fun onTick(millisUntilFinished: Long) {
                 val minute = (millisUntilFinished / 1000) / 60
                 val seconds = seconds(millisUntilFinished)
@@ -73,7 +75,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                binding.textViewTimer.setText("You Lose!")
+                    val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
+                    startActivity(intent)
             }
         }.start()
 
