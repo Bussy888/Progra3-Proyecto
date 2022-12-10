@@ -16,12 +16,18 @@
         android:id="@+id/guia_horizontal_50"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintGuide_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guia_horizontal_24"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.24"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -32,6 +38,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
         android:id="@+id/guia_vertical_50"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent="0.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:id="@+id/guia_vertical_24"/>
 
     <ImageView
         android:id="@+id/image_file_center"
@@ -61,7 +76,6 @@
         android:layout_height="84dp"
         android:layout_marginBottom="20dp"
         android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
         android:src="@drawable/folder_yellow_plus"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@id/image_file_center"
@@ -96,8 +110,6 @@
         android:id="@+id/image_cabinet_red"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginEnd="10dp"
-        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="@id/guia_vertical_50"
         app:layout_constraintBottom_toTopOf="@id/guia_horizontal_24"
         android:src="@drawable/file_cabinet_red"
@@ -193,17 +205,15 @@
         android:text="@string/menu"
         android:textSize="30dp"/>
 
-    <!--TODO: CREAR TEMPORIZADOR DE LUZ, POR AHORA ES SOLO UN STAND-IN-->
-
     <View
-        android:layout_width="25dp"
-        android:layout_height="300dp"
-        app:layout_constraintBottom_toTopOf="@id/button_menu"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/progressBarBackGround"
+        android:layout_width="40dp"
+        android:layout_height="250dp"
         android:layout_margin="15dp"
         android:layout_marginStart="30dp"
         android:background="@color/dark_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_menu"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
