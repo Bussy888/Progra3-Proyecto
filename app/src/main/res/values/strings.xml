@@ -21,4 +21,8 @@
     <string name="rules_hierarchy_two">If the contract\'s text matches the text color, the contract\'s color will be defined by this color</string>
     <string name="rules_hierarchy_three">If the contract\'s text matches the background color, the contract\'s color will be defined by this color</string>
     <string name="rules_hierarchy_four">If all attributes represent a different color, the contract\'s color will be that of its background</string>
+    <string name="log_in" translatable="false">Log In</string>
+    <string name="new_user" translatable="false">New User</string>
+    <string name="username" translatable="false">Username</string>
+    <string name="password" translatable="false">Password</string>
 </resources>

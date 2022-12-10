@@ -19,14 +19,15 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
-    private lateinit var decorWindow: View
+    // TODO: COPIAR CODIGO PARA OCULTAR BARRA DE NAVEGACION A TODAS LAS ACTIVIDADES
+    private lateinit var decorWindow: View //barraNaveg
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        decorWindow=window.decorView
-        hideSystemUI()
+        decorWindow=window.decorView //barranaveg
+        hideSystemUI() //barranaveg
 
         // TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
         mediaPlayer= MediaPlayer.create(this, R.raw.nokia1994)
@@ -55,7 +56,7 @@ class SettingsActivity : AppCompatActivity() {
         })
 
 
-        // TODO: COMPROBAR QUE FUNCA EL CAMBIO DE IDIOMA
+        // TODO: ARREGLAR CAMBIO DE IDIOMA, NO SÉ QUÉ LE PASA TnT
 
         //FUNCA EL ESPAÑOL, PERO NO VUELVE A INGLES O PASA AL REVES
 
@@ -69,6 +70,7 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
+    //BARRANAVEG
     private fun hideSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         WindowInsetsControllerCompat(window, decorWindow).let { controller ->

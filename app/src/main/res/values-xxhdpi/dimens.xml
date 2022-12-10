@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="six_hundred">420dp</dimen>
+    <dimen name="four_fifty_seven">320dp</dimen>
     <dimen name="four_fifty">315dp</dimen>
     <dimen name="four_twenty">294dp</dimen>
     <dimen name="four_hundred">280dp</dimen>
     <dimen name="three_fifty">245dp</dimen>
+    <dimen name="three_twenty">224dp</dimen>
+    <dimen name="two_fifty">175dp</dimen>
+    <dimen name="two_hundred">140dp</dimen>
     <dimen name="one_eighty">126dp</dimen>
+    <dimen name="one_seventy">119dp</dimen>
     <dimen name="one_forty">98dp</dimen>
     <dimen name="one_thirty_six">95dp</dimen>
     <dimen name="hundred">70dp</dimen>
+    <dimen name="ninety_five">66dp</dimen>
     <dimen name="eighty">56dp</dimen>
     <dimen name="sixty_six">46dp</dimen>
     <dimen name="sixty">42dp</dimen>
+    <dimen name="fifty">35dp</dimen>
     <dimen name="forty_five">31dp</dimen>
+    <dimen name="forty">28dp</dimen>
     <dimen name="thirty">21dp</dimen>
     <dimen name="twenty_eight">20dp</dimen>
     <dimen name="twenty_five">19dp</dimen>
+    <dimen name="twenty">14dp</dimen>
     <dimen name="ten">7dp</dimen>
 
     <dimen name="text_thirty">21sp</dimen>
     <dimen name="text_twenty">14sp</dimen>
     <dimen name="text_fifteen">10sp</dimen>
+    <dimen name="text_eleven">7sp</dimen>
+    <dimen name="text_nine">6sp</dimen>
 
 </resources>
