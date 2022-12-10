@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="six_hundred">600dp</dimen>
-    <dimen name="four_fifty">450dp</dimen>
-    <dimen name="four_twenty">420dp</dimen>
-    <dimen name="four_hundred">400dp</dimen>
-    <dimen name="three_fifty">350dp</dimen>
-    <dimen name="one_eighty">180dp</dimen>
-    <dimen name="one_forty">140dp</dimen>
-    <dimen name="one_thirty_six">140dp</dimen>
-    <dimen name="hundred">100dp</dimen>
-    <dimen name="eighty">80dp</dimen>
-    <dimen name="sixty_six">66dp</dimen>
-    <dimen name="sixty">60dp</dimen>
-    <dimen name="forty_five">45dp</dimen>
-    <dimen name="thirty">30dp</dimen>
-    <dimen name="twenty_five">25dp</dimen>
+    <dimen name="six_hundred">420dp</dimen>
+    <dimen name="four_fifty">315dp</dimen>
+    <dimen name="four_twenty">294dp</dimen>
+    <dimen name="four_hundred">280dp</dimen>
+    <dimen name="three_fifty">245dp</dimen>
+    <dimen name="one_eighty">126dp</dimen>
+    <dimen name="one_forty">98dp</dimen>
+    <dimen name="one_thirty_six">95dp</dimen>
+    <dimen name="hundred">70dp</dimen>
+    <dimen name="eighty">56dp</dimen>
+    <dimen name="sixty_six">46dp</dimen>
+    <dimen name="sixty">42dp</dimen>
+    <dimen name="forty_five">31dp</dimen>
+    <dimen name="thirty">21dp</dimen>
+    <dimen name="twenty_eight">20dp</dimen>
+    <dimen name="twenty_five">19dp</dimen>
+    <dimen name="ten">7dp</dimen>
 
-    <dimen name="text_thirty">30sp</dimen>
-    <dimen name="text_twenty">20sp</dimen>
+    <dimen name="text_thirty">21sp</dimen>
+    <dimen name="text_twenty">14sp</dimen>
+    <dimen name="text_fifteen">10sp</dimen>
 
 </resources>

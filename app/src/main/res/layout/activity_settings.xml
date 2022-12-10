@@ -88,6 +88,7 @@
         android:layout_width="@dimen/one_eighty"
         android:layout_height="@dimen/hundred"
         android:adjustViewBounds="true"
+        android:layout_marginStart="@dimen/twenty_eight"
         android:scaleType="fitXY"
         android:src="@drawable/note_red"
         app:layout_constraintBottom_toTopOf="@id/image_note_blue"
@@ -158,6 +159,7 @@
             android:layout_width="@dimen/hundred"
             android:layout_height="@dimen/twenty_five"
             android:text="@string/english"
+            android:textSize="@dimen/text_fifteen"
             android:textColor="@color/dark_red" />
 
         <RadioButton
@@ -165,6 +167,7 @@
             android:layout_width="@dimen/hundred"
             android:layout_height="@dimen/twenty_five"
             android:text="@string/spanish"
+            android:textSize="@dimen/text_fifteen"
             android:textColor="@color/dark_red" />
 
     </RadioGroup>
