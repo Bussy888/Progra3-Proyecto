@@ -12,6 +12,7 @@
     <color name="light_grey">#AEAEAE</color>
     <color name="grey">#777777</color>
     <color name="dark_grey">#2C2C2C</color>
+    <color name="darker_grey_low_opacity">#46222222</color>
     <color name="red">#FF0000</color>
     <color name="green">#00FF04</color>
     <color name="yellow">#FFFB00</color>
