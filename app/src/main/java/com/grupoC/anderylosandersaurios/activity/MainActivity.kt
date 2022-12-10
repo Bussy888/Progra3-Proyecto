@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 val minute = (millisUntilFinished / 1000) / 60
                 val seconds = seconds(millisUntilFinished)
-                binding.textViewTimer.setText("$minute:$seconds")
+                binding.textViewTimer.text = "$minute:$seconds"
             }
 
             override fun onFinish() {
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                i++;
+                i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
                 binding.progressBar.progress = 0
