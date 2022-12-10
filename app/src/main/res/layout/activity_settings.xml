@@ -11,250 +11,261 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/backgroundgreen"
-        tools:layout_editor_absoluteX="66dp"
-        tools:layout_editor_absoluteY="136dp" />
+        tools:layout_editor_absoluteX="@dimen/sixty_six"
+        tools:layout_editor_absoluteY="@dimen/one_thirty_six" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guia_horizontal_50"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintGuide_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
-        android:id="@+id/guia_horizontal_50"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guia_horizontal_35"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.35"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal"
-        android:id="@+id/guia_horizontal_35"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guia_vertical_50"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical"
-        android:id="@+id/guia_vertical_50"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guia_vertical_40"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical"
-        android:id="@+id/guia_vertical_40"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guia_vertical_55"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintGuide_percent="0.55"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical"
-        android:id="@+id/guia_vertical_55"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_percent="0.55"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/image_corkboard"
-        android:layout_width="600dp"
-        android:layout_height="350dp"
-        android:src="@drawable/corkboard"
+        android:layout_width="@dimen/six_hundred"
+        android:layout_height="@dimen/three_fifty"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
+        android:src="@drawable/corkboard"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/image_note_blue"
-        android:layout_width="450dp"
-        android:layout_height="80dp"
-        android:src="@drawable/note_blue_long"
+        android:layout_width="@dimen/four_fifty"
+        android:layout_height="@dimen/eighty"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
+        android:src="@drawable/note_blue_long"
+        app:layout_constraintBottom_toBottomOf="@id/image_corkboard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
-        app:layout_constraintBottom_toBottomOf="@id/image_corkboard"
-        />
+        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50" />
 
     <ImageView
         android:id="@+id/image_note_red"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
-        android:src="@drawable/note_red"
+        android:layout_width="@dimen/one_eighty"
+        android:layout_height="@dimen/hundred"
         android:adjustViewBounds="true"
+        android:layout_marginStart="@dimen/twenty_eight"
         android:scaleType="fitXY"
+        android:src="@drawable/note_red"
+        app:layout_constraintBottom_toTopOf="@id/image_note_blue"
         app:layout_constraintEnd_toEndOf="@id/guia_vertical_40"
         app:layout_constraintStart_toStartOf="@id/image_corkboard"
-        app:layout_constraintTop_toBottomOf="@id/image_note"
-        app:layout_constraintBottom_toTopOf="@id/image_note_blue"
-        />
+        app:layout_constraintTop_toBottomOf="@id/image_note" />
 
     <ImageView
         android:id="@+id/image_note_yellow"
-        android:layout_width="180dp"
-        android:layout_height="100dp"
-        android:src="@drawable/note_yellow"
+        android:layout_width="@dimen/one_eighty"
+        android:layout_height="@dimen/hundred"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
-        app:layout_constraintStart_toEndOf="@id/guia_vertical_55"
-        app:layout_constraintEnd_toEndOf="@id/image_corkboard"
-        app:layout_constraintTop_toBottomOf="@id/image_note"
+        android:src="@drawable/note_yellow"
         app:layout_constraintBottom_toTopOf="@id/image_note_blue"
-        />
+        app:layout_constraintEnd_toEndOf="@id/image_corkboard"
+        app:layout_constraintStart_toEndOf="@id/guia_vertical_55"
+        app:layout_constraintTop_toBottomOf="@id/image_note" />
 
     <ImageView
         android:id="@+id/image_note"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:src="@drawable/note"
+        android:layout_width="@dimen/one_eighty"
+        android:layout_height="@dimen/sixty"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
+        android:src="@drawable/note"
+        app:layout_constraintBottom_toBottomOf="@id/guia_horizontal_35"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/image_corkboard"
-        app:layout_constraintBottom_toBottomOf="@id/guia_horizontal_35"
-        />
+        app:layout_constraintTop_toTopOf="@id/image_corkboard" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        app:layout_constraintTop_toTopOf="@id/image_note"
-        app:layout_constraintBottom_toBottomOf="@id/image_note"
-        app:layout_constraintStart_toStartOf="@id/image_note"
-        app:layout_constraintEnd_toEndOf="@id/image_note"
-        android:text="@string/uppercase_options"
+        android:layout_height="@dimen/sixty"
         android:gravity="center"
-        android:textSize="30sp"/>
+        android:text="@string/options"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/text_thirty"
+        app:layout_constraintBottom_toBottomOf="@id/image_note"
+        app:layout_constraintEnd_toEndOf="@id/image_note"
+        app:layout_constraintStart_toStartOf="@id/image_note"
+        app:layout_constraintTop_toTopOf="@id/image_note" />
 
     <TextView
         android:id="@+id/text_language"
-        android:layout_width="140dp"
+        android:layout_width="@dimen/one_forty"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/image_note_red"
-        app:layout_constraintStart_toStartOf="@id/image_note_red"
-        app:layout_constraintEnd_toEndOf="@id/image_note_red"
+        android:gravity="start"
         android:text="@string/language"
         android:textColor="@color/dark_red"
-        android:gravity="left"
-        android:textSize="20sp"/>
+        android:textSize="@dimen/text_twenty"
+        app:layout_constraintEnd_toEndOf="@id/image_note_red"
+        app:layout_constraintStart_toStartOf="@id/image_note_red"
+        app:layout_constraintTop_toTopOf="@id/image_note_red" />
 
     <RadioGroup
+        android:id="@+id/radio_button_language"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/image_note_red"
         app:layout_constraintEnd_toEndOf="@id/image_note_red"
         app:layout_constraintStart_toStartOf="@id/image_note_red"
-        app:layout_constraintTop_toBottomOf="@id/text_language"
-        app:layout_constraintBottom_toBottomOf="@id/image_note_red">
+        app:layout_constraintTop_toBottomOf="@id/text_language">
 
         <RadioButton
-            android:layout_width="100dp"
-            android:textColor="@color/dark_red"
-            android:layout_height="25dp"
-            android:text="@string/english"/>
+            android:id="@+id/english"
+            android:layout_width="@dimen/hundred"
+            android:layout_height="@dimen/twenty_five"
+            android:text="@string/english"
+            android:textSize="@dimen/text_fifteen"
+            android:textColor="@color/dark_red" />
 
         <RadioButton
-            android:layout_width="100dp"
-            android:textColor="@color/dark_red"
-            android:layout_height="25dp"
-            android:text="@string/spanish"/>
+            android:id="@+id/spanish"
+            android:layout_width="@dimen/hundred"
+            android:layout_height="@dimen/twenty_five"
+            android:text="@string/spanish"
+            android:textSize="@dimen/text_fifteen"
+            android:textColor="@color/dark_red" />
 
     </RadioGroup>
 
     <TextView
         android:id="@+id/text_vibration"
-        android:layout_width="140dp"
+        android:layout_width="@dimen/one_forty"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/image_note_yellow"
-        app:layout_constraintStart_toStartOf="@id/image_note_yellow"
-        app:layout_constraintEnd_toEndOf="@id/image_note_yellow"
+        android:gravity="start"
         android:text="@string/vibration"
-        android:gravity="left"
         android:textColor="@color/dark_yellow"
-        android:textSize="20sp"/>
+        android:textSize="@dimen/text_twenty"
+        app:layout_constraintEnd_toEndOf="@id/image_note_yellow"
+        app:layout_constraintStart_toStartOf="@id/image_note_yellow"
+        app:layout_constraintTop_toTopOf="@id/image_note_yellow" />
 
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@id/image_note_yellow"
         app:layout_constraintEnd_toEndOf="@id/image_note_yellow"
         app:layout_constraintStart_toStartOf="@id/image_note_yellow"
-        app:layout_constraintTop_toBottomOf="@id/text_language"
-        app:layout_constraintBottom_toBottomOf="@id/image_note_yellow">
+        app:layout_constraintTop_toBottomOf="@id/text_language">
 
         <RadioButton
-            android:layout_width="100dp"
-            android:layout_height="25dp"
-            android:textColor="@color/dark_yellow"
-            android:text="@string/on"/>
+            android:layout_width="@dimen/hundred"
+            android:layout_height="@dimen/twenty_five"
+            android:text="@string/on"
+            android:textColor="@color/dark_yellow" />
 
         <RadioButton
-            android:layout_width="100dp"
-            android:layout_height="25dp"
-            android:textColor="@color/dark_yellow"
-            android:text="@string/off"/>
+            android:layout_width="@dimen/hundred"
+            android:layout_height="@dimen/twenty_five"
+            android:text="@string/off"
+            android:textColor="@color/dark_yellow" />
 
     </RadioGroup>
 
     <TextView
         android:id="@+id/text_music_volume"
-        android:layout_width="420dp"
+        android:layout_width="@dimen/four_twenty"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/image_note_blue"
-        app:layout_constraintStart_toStartOf="@id/image_note_blue"
-        app:layout_constraintEnd_toEndOf="@id/image_note_blue"
-        android:text="@string/vibration"
-        android:gravity="left"
+        android:gravity="start"
+        android:text="@string/music_volume"
         android:textColor="@color/dark_blue"
-        android:textSize="20sp"/>
-
-    <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:src="@drawable/pin"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="@id/image_note_red"
-        app:layout_constraintTop_toTopOf="@id/image_note_red"
-        />
-
-    <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:src="@drawable/pin"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
+        android:textSize="@dimen/text_twenty"
         app:layout_constraintEnd_toEndOf="@id/image_note_blue"
-        app:layout_constraintTop_toTopOf="@id/image_note_blue"
-        />
+        app:layout_constraintStart_toStartOf="@id/image_note_blue"
+        app:layout_constraintTop_toTopOf="@id/image_note_blue" />
+
+    <SeekBar
+        android:id="@+id/bar_volume"
+        android:layout_width="@dimen/four_hundred"
+        android:layout_height="@dimen/thirty"
+        android:background="@color/opaque_blue"
+        android:progressBackgroundTint="@color/almost_white"
+        android:progressTint="@color/white"
+        android:thumbTint="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@id/image_note_blue"
+        app:layout_constraintEnd_toEndOf="@id/image_note_blue"
+        app:layout_constraintStart_toStartOf="@id/image_note_blue"
+        app:layout_constraintTop_toBottomOf="@id/text_music_volume" />
 
     <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:src="@drawable/pin"
+        android:layout_width="@dimen/forty_five"
+        android:layout_height="@dimen/forty_five"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
+        android:src="@drawable/pin"
+        app:layout_constraintEnd_toEndOf="@id/image_note_red"
+        app:layout_constraintTop_toTopOf="@id/image_note_red" />
+
+    <ImageView
+        android:layout_width="@dimen/forty_five"
+        android:layout_height="@dimen/forty_five"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/pin"
+        app:layout_constraintEnd_toEndOf="@id/image_note_blue"
+        app:layout_constraintTop_toTopOf="@id/image_note_blue" />
+
+    <ImageView
+        android:layout_width="@dimen/forty_five"
+        android:layout_height="@dimen/forty_five"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/pin"
         app:layout_constraintEnd_toEndOf="@id/image_note_yellow"
-        app:layout_constraintTop_toTopOf="@id/image_note_yellow"
-        />
+        app:layout_constraintTop_toTopOf="@id/image_note_yellow" />
 
     <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:src="@drawable/pin"
+        android:layout_width="@dimen/forty_five"
+        android:layout_height="@dimen/forty_five"
         android:adjustViewBounds="true"
         android:scaleType="fitXY"
+        android:src="@drawable/pin"
         app:layout_constraintEnd_toEndOf="@id/image_note"
-        app:layout_constraintTop_toTopOf="@id/image_note"
-        />
+        app:layout_constraintTop_toTopOf="@id/image_note" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

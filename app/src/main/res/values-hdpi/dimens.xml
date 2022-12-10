@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="six_hundred">600dp</dimen>
+    <dimen name="four_fifty">450dp</dimen>
+    <dimen name="four_twenty">420dp</dimen>
+    <dimen name="four_hundred">400dp</dimen>
+    <dimen name="three_fifty">350dp</dimen>
+    <dimen name="one_eighty">180dp</dimen>
+    <dimen name="one_forty">140dp</dimen>
+    <dimen name="one_thirty_six">140dp</dimen>
+    <dimen name="hundred">100dp</dimen>
+    <dimen name="eighty">80dp</dimen>
+    <dimen name="sixty_six">66dp</dimen>
+    <dimen name="sixty">60dp</dimen>
+    <dimen name="forty_five">45dp</dimen>
+    <dimen name="thirty">30dp</dimen>
+    <dimen name="twenty_five">25dp</dimen>
+
+    <dimen name="text_thirty">30sp</dimen>
+    <dimen name="text_twenty">20sp</dimen>
+</resources>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <supports-screens
+        android:smallScreens="true"
+        android:anyDensity="true"/>
 
     <application
         android:allowBackup="true"
@@ -12,28 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AnderYLosAndersaurios"
         tools:targetApi="31">
+
         <activity
-            android:name=".activity.SplashScreenActivity"
-            android:exported="true"
-            android:screenOrientation="landscape">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".activity.GameOverActivity"
+            android:name=".GameOverActivity"
             android:exported="false"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            >
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                android:screenOrientation="landscape"/>
         </activity>
         <activity
             android:name=".activity.RulesActivity"
@@ -41,15 +32,17 @@
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                android:screenOrientation="landscape"/>
         </activity>
         <activity
             android:name=".activity.SettingsActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                android:screenOrientation="landscape"/>
         </activity>
         <activity
             android:name=".activity.MainMenuActivity"
@@ -61,20 +54,27 @@
         </activity>
         <activity
             android:name=".activity.LoginActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                android:screenOrientation="landscape"/>
         </activity>
         <activity
             android:name=".activity.MainActivity"
             android:exported="false"
             android:screenOrientation="landscape">
+
             <meta-data
                 android:name="android.app.lib_name"
-                android:value="" />
+                android:value=""
+                android:screenOrientation="landscape"/>
         </activity>
     </application>
 
