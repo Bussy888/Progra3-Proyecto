@@ -219,12 +219,6 @@
         app:layout_constraintRight_toRightOf="@id/progressBar"
 
         />
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/backgroundWhite"
-        android:background="@color/white"
-        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/blue_score"
