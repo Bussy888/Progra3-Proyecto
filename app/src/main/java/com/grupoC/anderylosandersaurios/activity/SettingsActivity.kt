@@ -1,4 +1,4 @@
-package com.grupoC.anderylosandersaurios
+package com.grupoC.anderylosandersaurios.activity
 
 import android.media.AudioManager
 import android.media.MediaPlayer
@@ -13,6 +13,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.viewpager.widget.ViewPager.DecorView
+import com.grupoC.anderylosandersaurios.R
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
 import java.util.*
 

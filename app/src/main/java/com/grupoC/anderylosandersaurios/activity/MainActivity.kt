@@ -1,7 +1,10 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.animation.ObjectAnimator
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -18,9 +21,12 @@ import com.grupoC.anderylosandersaurios.R
 import com.grupoC.anderylosandersaurios.classes.Cabinet
 import com.grupoC.anderylosandersaurios.classes.MediatorGame
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupMenuBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var bindingPopupMenu : ItemPopupMenuBinding
+    private lateinit var bindingPopupSettings : ItemPopupSettingsBinding
     private lateinit var thunderSound : MediaPlayer
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
@@ -33,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         hideSystemUI()
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+       // window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         var hard = intent.getBooleanExtra("HARD", true)
 
@@ -82,8 +88,25 @@ class MainActivity : AppCompatActivity() {
         binding.buttonFour.setOnClickListener {
             binding.greenScore.text = game.checking(4).toString()
         }
+        binding.buttonMenu.setOnClickListener{
+            managePopupMenu()
+        }
+        binding.imageCoffeeCupS.setOnClickListener {
+            managePopupSettings()
+        }
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        finishAll()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        finishAll()
+    }
+
     fun timer(){
         object : CountDownTimer(30000,1000){
             override fun onTick(millisUntilFinished: Long) {
@@ -140,6 +163,45 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun managePopupMenu(){
+        bindingPopupMenu = ItemPopupMenuBinding.inflate(layoutInflater)
+        val dialog = Dialog(this)
+        dialog.setContentView(bindingPopupMenu.root)
+        dialog.setCancelable(true)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        dialog.show()
+        bindingPopupMenu.buttonAccept.setOnClickListener{
+            val intent = Intent(applicationContext, MainMenuActivity::class.java).apply {}
+            startActivity(intent)
+            finishAll()
+
+        }
+        bindingPopupMenu.buttonCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+    }
+    fun managePopupSettings(){
+        bindingPopupSettings = ItemPopupSettingsBinding.inflate(layoutInflater)
+        val dialog = Dialog(this)
+        dialog.setContentView(bindingPopupSettings.root)
+        dialog.setCancelable(true)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        dialog.show()
+        bindingPopupSettings.buttonAccept.setOnClickListener{
+            val intent = Intent(applicationContext, SettingsActivity::class.java).apply {}
+            startActivity(intent)
+            finishAll()
+
+        }
+        bindingPopupSettings.buttonCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+    }
+
     @RequiresApi(Build.VERSION_CODES.R)
     private fun hideSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -152,5 +214,9 @@ class MainActivity : AppCompatActivity() {
             // appear for some time
             controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
+    }
+    fun finishAll(){
+        finish()
+        thunderSound.stop()
     }
 }
