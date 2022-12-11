@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/wood" />
+        android:src="@drawable/wood"
+        android:scaleType="centerCrop" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guia_horizontal_50"
@@ -22,13 +22,31 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guia_vertical_24"
+        android:id="@+id/guia_horizontal_24"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.24"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:id="@+id/guia_vertical_50"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintGuide_percent="0.24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:id="@+id/guia_vertical_24"/>
 
     <ImageView
         android:id="@+id/image_file_center"
@@ -207,17 +225,8 @@
         android:progressDrawable="@drawable/progress_bar_theme"
         app:layout_constraintTop_toTopOf="@id/progressBarBackGround"
         app:layout_constraintBottom_toBottomOf="@id/progressBarBackGround"
-        app:layout_constraintRight_toRightOf="@id/progressBarBackGround" />
-
-    <ImageView
-        android:id="@+id/lightBulb"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/bulblight"
-        app:layout_constraintBottom_toBottomOf="@id/progressBarBackGround"
-        app:layout_constraintLeft_toLeftOf="@id/progressBar"
-        app:layout_constraintRight_toRightOf="@id/progressBar"
-
+        app:layout_constraintRight_toRightOf="@id/progressBarBackGround"
+        app:layout_constraintLeft_toLeftOf="@id/progressBarBackGround"
         />
 
     <TextView
