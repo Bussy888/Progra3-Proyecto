@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.SeekBar
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -19,15 +20,14 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
-    // TODO: COPIAR CODIGO PARA OCULTAR BARRA DE NAVEGACION A TODAS LAS ACTIVIDADES
-    private lateinit var decorWindow: View //barraNaveg
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        decorWindow=window.decorView //barranaveg
-        hideSystemUI() //barranaveg
+        hideSystemUI()
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         // TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
         mediaPlayer= MediaPlayer.create(this, R.raw.nokia1994)
@@ -70,14 +70,6 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    //BARRANAVEG
-    private fun hideSystemUI() {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window, decorWindow).let { controller ->
-            controller.hide(WindowInsetsCompat.Type.navigationBars())
-        }
-    }
-
     private fun setLocale(languageCode:String){
         var locale= Locale(languageCode)
         Locale.setDefault(locale)
@@ -88,6 +80,20 @@ class SettingsActivity : AppCompatActivity() {
     private fun initControls(){
 
 
+    }
+
+    @RequiresApi(Build.VERSION_CODES.R)
+    private fun hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window,
+            window.decorView.findViewById(android.R.id.content)).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.systemBars())
+
+            // When the screen is swiped up at the bottom
+            // of the application, the navigationBar shall
+            // appear for some time
+            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        }
     }
 
 }

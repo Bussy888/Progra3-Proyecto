@@ -80,7 +80,7 @@
             android:layout_width="@dimen/eighty_five"
             android:layout_height="@dimen/forty"
             android:text="@string/tutorial"
-            android:textSize="@dimen/text_nine"
+            android:textSize="@dimen/text_eight"
             android:backgroundTint="@color/brown"
             android:outlineProvider="bounds"
             android:elevation="@dimen/five"
@@ -160,7 +160,7 @@
             android:elevation="@dimen/five"/>
 
         <ImageButton
-            android:id="@+id/view_tarjeta_facil"
+            android:id="@+id/button_tarjeta_facil"
             android:layout_width="@dimen/one_sixty"
             android:layout_height="@dimen/one_sixty"
             android:src="@drawable/tarjeta_nivel_dia"
@@ -211,7 +211,7 @@
             android:elevation="@dimen/five"/>
 
         <ImageButton
-            android:id="@+id/view_tarjeta_dificil"
+            android:id="@+id/button_tarjeta_dificil"
             android:layout_width="@dimen/one_sixty"
             android:layout_height="@dimen/one_sixty"
             android:src="@drawable/tarjeta_nivel_noche"

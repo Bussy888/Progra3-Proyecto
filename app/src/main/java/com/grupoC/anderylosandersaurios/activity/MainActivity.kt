@@ -3,12 +3,17 @@ package com.grupoC.anderylosandersaurios.activity
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.media.MediaPlayer
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import androidx.annotation.RequiresApi
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.R
 import com.grupoC.anderylosandersaurios.classes.Cabinet
 import com.grupoC.anderylosandersaurios.classes.MediatorGame
@@ -21,12 +26,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var game: MediatorGame
     var i = 0
 
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        hideSystemUI()
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        var hard = intent.getBooleanExtra("HARD", true)
 
         //Inicialización
         game = MediatorGame(
@@ -35,14 +44,23 @@ class MainActivity : AppCompatActivity() {
             Cabinet("yellow", 0),
             Cabinet("green", 0)
         )
+
         binding.redScore.text = "0"
         binding.yellowScore.text = "0"
         binding.blueScore.text = "0"
         binding.greenScore.text = "0"
 
+        //NIVEL DIFICIL
+        if(!hard){
+            binding.progressBarBackGround.visibility=View.GONE
+            binding.progressBar.visibility=View.GONE
+        } else{
+            binding.progressBarBackGround.visibility=View.VISIBLE
+            binding.progressBar.visibility=View.VISIBLE
+            binding.progressBar.max = 100
+            progressBarCycle()
+        }
         // El timer
-        binding.progressBar.max = 100
-        progressBarCycle()
         timer()
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
@@ -121,6 +139,20 @@ class MainActivity : AppCompatActivity() {
             "0${(millisUntilFinished/ 1000) % 60}"
         }else{
             "${(millisUntilFinished/ 1000) % 60}"
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.R)
+    private fun hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window,
+            window.decorView.findViewById(android.R.id.content)).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.systemBars())
+
+            // When the screen is swiped up at the bottom
+            // of the application, the navigationBar shall
+            // appear for some time
+            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
 }

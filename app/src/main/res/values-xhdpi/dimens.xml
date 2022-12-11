@@ -23,6 +23,7 @@
     <dimen name="one_forty">140dp</dimen>
     <dimen name="one_thirty_six">136dp</dimen>
     <dimen name="one_thirty">130dp</dimen>
+    <dimen name="one_twenty">120dp</dimen>
     <dimen name="hundred">100dp</dimen>
     <dimen name="ninety_five">95dp</dimen>
     <dimen name="ninety_four">94dp</dimen>
@@ -55,6 +56,6 @@
     <dimen name="text_fifteen">15sp</dimen>
     <dimen name="text_eleven">11sp</dimen>
     <dimen name="text_nine">9sp</dimen>
-
+    <dimen name="text_eight">8sp</dimen>
 
 </resources>
