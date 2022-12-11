@@ -214,6 +214,7 @@
         app:layout_constraintTop_toTopOf="@id/progressBarBackGround" />
 
     <ImageView
+        android:id="@+id/lightBulb"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:src="@drawable/bulblight"
