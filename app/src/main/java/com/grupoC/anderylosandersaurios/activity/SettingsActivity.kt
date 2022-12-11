@@ -1,4 +1,4 @@
-package com.grupoC.anderylosandersaurios
+package com.grupoC.anderylosandersaurios.activity
 
 import android.media.AudioManager
 import android.media.MediaPlayer
@@ -12,6 +12,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.viewpager.widget.ViewPager.DecorView
+import com.grupoC.anderylosandersaurios.R
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
 import java.util.*
 
@@ -19,6 +20,7 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
+
     // TODO: COPIAR CODIGO PARA OCULTAR BARRA DE NAVEGACION A TODAS LAS ACTIVIDADES
     private lateinit var decorWindow: View //barraNaveg
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,13 +28,13 @@ class SettingsActivity : AppCompatActivity() {
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        decorWindow=window.decorView //barranaveg
+        decorWindow = window.decorView //barranaveg
         hideSystemUI() //barranaveg
 
         // TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
-        mediaPlayer= MediaPlayer.create(this, R.raw.nokia1994)
+        mediaPlayer = MediaPlayer.create(this, R.raw.nokia1994)
         //mediaPlayer.start()
-        audioManager=getSystemService(AUDIO_SERVICE) as AudioManager
+        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
 
         val max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
         val currentVol = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
@@ -40,7 +42,7 @@ class SettingsActivity : AppCompatActivity() {
         binding.barVolume.max = max
         binding.barVolume.progress = currentVol
 
-        binding.barVolume.setOnSeekBarChangeListener( object: SeekBar.OnSeekBarChangeListener{
+        binding.barVolume.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0)
             }
@@ -78,14 +80,14 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    private fun setLocale(languageCode:String){
-        var locale= Locale(languageCode)
+    private fun setLocale(languageCode: String) {
+        var locale = Locale(languageCode)
         Locale.setDefault(locale)
         this.resources.configuration.setLocale(locale)
         this.recreate()
     }
 
-    private fun initControls(){
+    private fun initControls() {
 
 
     }

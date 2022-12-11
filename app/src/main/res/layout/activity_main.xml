@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -290,15 +290,6 @@
         android:layout_height="wrap_content"
         android:visibility="visible"
         app:constraint_referenced_ids="button_four, button_three, button_two, button_one, button_menu, image_coffee_cup_s" />
-
-    <Button
-        android:id="@+id/button_shuffle"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="Shuffle"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/button_one"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

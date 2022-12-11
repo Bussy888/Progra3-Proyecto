@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import com.grupoC.anderylosandersaurios.activity.SettingsActivity
 import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 
@@ -16,7 +17,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.play.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
         }
 

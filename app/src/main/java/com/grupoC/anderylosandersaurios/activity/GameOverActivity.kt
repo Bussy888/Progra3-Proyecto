@@ -19,7 +19,7 @@ class GameOverActivity : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         binding.buttonMenu.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java).apply {}
+            val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
         }
     }

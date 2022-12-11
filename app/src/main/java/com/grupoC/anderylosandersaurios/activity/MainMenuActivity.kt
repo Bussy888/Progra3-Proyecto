@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
-import com.grupoC.anderylosandersaurios.SettingsActivity
+import com.grupoC.anderylosandersaurios.activity.SettingsActivity
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainMenuBinding
 
@@ -21,8 +21,19 @@ class MainMenuActivity : AppCompatActivity() {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
         }
+
         binding.buttonTutorial.setOnClickListener {
             val intent = Intent(this, RulesActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.viewTarjetaFacil.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.viewTarjetaDificil.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
     }

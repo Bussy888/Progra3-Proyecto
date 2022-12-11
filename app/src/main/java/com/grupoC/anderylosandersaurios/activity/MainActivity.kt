@@ -2,24 +2,26 @@ package com.grupoC.anderylosandersaurios.activity
 
 import android.content.Intent
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import com.grupoC.anderylosandersaurios.R
 import com.grupoC.anderylosandersaurios.classes.ButtonContract
 import com.grupoC.anderylosandersaurios.classes.Cabinet
 import com.grupoC.anderylosandersaurios.classes.MediatorGame
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var thunderSound: MediaPlayer
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
-    var i = 0
+
+    private var i = 0
 
     private var colors: List<String> = listOf("red", "yellow", "blue", "green")
     private val colorDraw: Map<String, Int> = mapOf(
@@ -28,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         "blue" to R.drawable.folder_blue_plus,
         "green" to R.drawable.folder_green_plus
     )
+
+    private var easyLevel: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,14 +49,20 @@ class MainActivity : AppCompatActivity() {
             Cabinet("red", 0),
             Cabinet("yellow", 0),
             Cabinet("green", 0),
-            generatorButtonContracts()
+            generatorButtonContracts(),
+            this
         )
 
         initGame()
 
-        // El timer
+        // Progress bar
         binding.progressBar.max = 100
-        progressBarCycle()
+
+        if (!easyLevel) {
+            progressBarCycle()
+        }
+
+        // El timer
         timer()
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
@@ -73,11 +83,6 @@ class MainActivity : AppCompatActivity() {
         binding.buttonFour.setOnClickListener {
             clickButton(4)
         }
-
-        binding.buttonShuffle.setOnClickListener {
-            shuffleButtons()
-        }
-
     }
 
     fun clickButton(buttonPosition: Int) {
@@ -126,6 +131,7 @@ class MainActivity : AppCompatActivity() {
         binding.yellowScore.text = "0"
         binding.blueScore.text = "0"
         binding.greenScore.text = "0"
+        game.generateContract()
         setButtonColors()
     }
 
@@ -159,10 +165,9 @@ class MainActivity : AppCompatActivity() {
                 thunderSound.start()
                 binding.progressBar.progress = 0
                 i = 0
-
-
             }
         }.start()
+        shuffleButtons()
     }
 
     fun thunder(millisInFuture: Long, countDownInterval: Long, view: View) {
@@ -188,5 +193,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             "${(millisUntilFinished / 1000) % 60}"
         }
+    }
+
+    fun idSContracts(name: String) {
+        val id: Int = resources.getIdentifier("folder_yellow", "drawable", packageName)
+        binding.imageFileCenter.setImageResource(id)
     }
 }
