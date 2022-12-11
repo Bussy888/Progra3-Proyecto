@@ -5,29 +5,30 @@ data class MediatorGame(
     val redCabinet: Cabinet,
     val yellowCabinet: Cabinet,
     val greenCabinet: Cabinet,
+    val buttonsContracts: List<ButtonContract>
 ) {
-    fun checking(buttonNumber: Int): Int {
-        when (buttonNumber) {
-            1 -> {
+    fun checking(colorCheck: String): Int {
+        when (colorCheck) {
+            "blue" -> {
                 blueCabinet.score++
                 return blueCabinet.score
             }
-            2 -> {
+            "red" -> {
                 redCabinet.score++
                 return redCabinet.score
             }
-            3 -> {
+            "yellow" -> {
                 yellowCabinet.score++
                 return yellowCabinet.score
             }
             else -> {
-                blueCabinet.score++
-                return blueCabinet.score
+                greenCabinet.score++
+                return greenCabinet.score
             }
         }
     }
 
-    fun identifyButtonColor(){
+    fun identifyButtonColor() {
 
     }
 }
