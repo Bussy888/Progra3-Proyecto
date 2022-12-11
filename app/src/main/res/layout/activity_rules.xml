@@ -296,4 +296,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <ImageButton
+        android:id="@+id/button_menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/one_twenty"
+        android:layout_height="@dimen/one_twenty"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/house_icon"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.grupoC.anderylosandersaurios.activity
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -20,8 +21,12 @@ class RulesActivity : AppCompatActivity() {
         binding = ActivityRulesBinding.inflate(layoutInflater)
         setContentView(binding.root)
         hideSystemUI()
-
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        binding.buttonMenu.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java).apply {}
+            startActivity(intent)
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.R)

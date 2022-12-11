@@ -28,7 +28,7 @@
         </activity>
         <activity
             android:name=".activity.RulesActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
