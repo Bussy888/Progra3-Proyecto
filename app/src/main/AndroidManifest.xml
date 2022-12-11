@@ -17,7 +17,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".GameOverActivity"
+            android:name=".activity.GameOverActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             >
@@ -28,7 +28,7 @@
         </activity>
         <activity
             android:name=".activity.RulesActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
@@ -46,7 +46,7 @@
         </activity>
         <activity
             android:name=".activity.MainMenuActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"

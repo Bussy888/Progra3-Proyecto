@@ -2,12 +2,17 @@ package com.grupoC.anderylosandersaurios.activity
 
 import android.content.Intent
 import android.media.MediaPlayer
+import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import androidx.appcompat.app.AppCompatActivity
+import androidx.annotation.RequiresApi
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.R
 import com.grupoC.anderylosandersaurios.classes.ButtonContract
 import com.grupoC.anderylosandersaurios.classes.Cabinet
@@ -33,15 +38,19 @@ class MainActivity : AppCompatActivity() {
 
     private var easyLevel: Boolean = false
 
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        hideSystemUI()
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
+        var hard = intent.getBooleanExtra("HARD", true)
 
         //Inicialización
         game = MediatorGame(
@@ -53,6 +62,11 @@ class MainActivity : AppCompatActivity() {
             this
         )
 
+        binding.redScore.text = "0"
+        binding.yellowScore.text = "0"
+        binding.blueScore.text = "0"
+        binding.greenScore.text = "0"
+
         initGame()
 
         // Progress bar
@@ -62,6 +76,17 @@ class MainActivity : AppCompatActivity() {
             progressBarCycle()
         }
 
+        // El timer
+        //NIVEL DIFICIL
+        if(!hard){
+            binding.progressBarBackGround.visibility=View.GONE
+            binding.progressBar.visibility=View.GONE
+        } else{
+            binding.progressBarBackGround.visibility=View.VISIBLE
+            binding.progressBar.visibility=View.VISIBLE
+            binding.progressBar.max = 100
+            progressBarCycle()
+        }
         // El timer
         timer()
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
@@ -140,7 +165,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 val minute = (millisUntilFinished / 1000) / 60
                 val seconds = seconds(millisUntilFinished)
-                binding.textViewTimer.setText("$minute:$seconds")
+                binding.textViewTimer.text = "$minute:$seconds"
             }
 
             override fun onFinish() {
@@ -156,11 +181,11 @@ class MainActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 Log.v("Log_tag", "Tickprogress $i $millisUntilFinished  ")
                 i++
-                binding.progressBar.progress = i * 100 / (20000 / 1000)
+                binding.progressBar.progress = i*100/(20000/1000)
             }
 
             override fun onFinish() {
-                i++;
+                i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
                 binding.progressBar.progress = 0
@@ -186,12 +211,25 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    fun seconds(millisUntilFinished: Long): String{
+        return if((millisUntilFinished/ 1000) % 60<10){
+            "0${(millisUntilFinished/ 1000) % 60}"
+        }else{
+            "${(millisUntilFinished/ 1000) % 60}"
+        }
+    }
 
-    fun seconds(millisUntilFinished: Long): String {
-        return if ((millisUntilFinished / 1000) % 60 < 10) {
-            "0${(millisUntilFinished / 1000) % 60}"
-        } else {
-            "${(millisUntilFinished / 1000) % 60}"
+    @RequiresApi(Build.VERSION_CODES.R)
+    private fun hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        WindowInsetsControllerCompat(window,
+            window.decorView.findViewById(android.R.id.content)).let { controller ->
+            controller.hide(WindowInsetsCompat.Type.systemBars())
+
+            // When the screen is swiped up at the bottom
+            // of the application, the navigationBar shall
+            // appear for some time
+            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
 

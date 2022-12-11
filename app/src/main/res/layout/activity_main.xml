@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/wood" />
+        android:src="@drawable/wood"
+        android:scaleType="centerCrop" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guia_horizontal_50"
@@ -31,165 +31,163 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guia_vertical_50"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:id="@+id/guia_vertical_50"/>
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guia_vertical_24"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.24"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:id="@+id/guia_vertical_24"/>
 
     <ImageView
         android:id="@+id/image_file_center"
-        android:layout_width="100dp"
-        android:layout_height="94dp"
-        android:scaleType="fitCenter"
+        android:layout_width="@dimen/hundred"
+        android:layout_height="@dimen/ninety_four"
         android:src="@drawable/folder_blue"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageButton
         android:id="@+id/button_one"
-        android:layout_width="90dp"
-        android:layout_height="84dp"
-        android:layout_marginEnd="20dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
+        android:layout_width="@dimen/ninety"
+        android:layout_height="@dimen/eighty_four"
         android:src="@drawable/folder_red_plus"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
         app:layout_constraintBottom_toBottomOf="@id/image_file_center"
         app:layout_constraintEnd_toStartOf="@id/image_file_center"
-        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50" />
+        android:layout_marginEnd="@dimen/twenty"
+        android:background="@android:color/transparent"/>
 
     <ImageButton
         android:id="@+id/button_two"
-        android:layout_width="90dp"
-        android:layout_height="84dp"
-        android:layout_marginBottom="20dp"
+        android:layout_width="@dimen/ninety"
+        android:layout_height="@dimen/eighty_four"
+        android:layout_marginBottom="@dimen/twenty"
         android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
         android:src="@drawable/folder_yellow_plus"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@id/image_file_center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageButton
         android:id="@+id/button_three"
-        android:layout_width="90dp"
-        android:layout_height="84dp"
-        android:layout_marginStart="20dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
+        android:layout_width="@dimen/ninety"
+        android:layout_height="@dimen/eighty_four"
         android:src="@drawable/folder_blue_plus"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50"
         app:layout_constraintBottom_toBottomOf="@id/image_file_center"
         app:layout_constraintStart_toEndOf="@id/image_file_center"
-        app:layout_constraintTop_toBottomOf="@id/guia_horizontal_50" />
+        android:layout_marginStart="@dimen/twenty"
+        android:background="@android:color/transparent"/>
 
     <ImageButton
         android:id="@+id/button_four"
-        android:layout_width="90dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
+        android:layout_width="@dimen/ninety"
+        android:layout_height="@dimen/eighty_four"
         android:src="@drawable/folder_green_plus"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toBottomOf="@id/image_file_center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_file_center" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/twenty"
+        android:background="@android:color/transparent"/>
 
     <ImageView
         android:id="@+id/image_cabinet_red"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="10dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/file_cabinet_red"
+        android:layout_width="@dimen/hundred"
+        android:layout_height="@dimen/hundred"
+        app:layout_constraintEnd_toEndOf="@id/guia_vertical_50"
         app:layout_constraintBottom_toTopOf="@id/guia_horizontal_24"
-        app:layout_constraintEnd_toEndOf="@id/guia_vertical_50" />
+        android:src="@drawable/file_cabinet_red"
+        android:scaleType="fitCenter"
+        android:layout_marginEnd="@dimen/ten" />
 
 
     <ImageView
         android:id="@+id/image_cabinet_blue"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="20dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/file_cabinet_blue"
+        android:layout_width="@dimen/hundred"
+        android:layout_height="@dimen/hundred"
+        app:layout_constraintEnd_toStartOf="@id/image_cabinet_red"
         app:layout_constraintBottom_toTopOf="@id/guia_horizontal_24"
-        app:layout_constraintEnd_toStartOf="@id/image_cabinet_red" />
+        android:src="@drawable/file_cabinet_blue"
+        android:scaleType="fitCenter"
+        android:layout_marginEnd="@dimen/twenty"/>
 
     <ImageView
         android:id="@+id/image_cabinet_yellow"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="10dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/file_cabinet_yellow"
+        android:layout_width="@dimen/hundred"
+        android:layout_height="@dimen/hundred"
+        app:layout_constraintStart_toEndOf="@id/guia_vertical_50"
         app:layout_constraintBottom_toTopOf="@id/guia_horizontal_24"
-        app:layout_constraintStart_toEndOf="@id/guia_vertical_50" />
+        android:src="@drawable/file_cabinet_yellow"
+        android:layout_marginStart="@dimen/ten"/>
 
     <ImageView
         android:id="@+id/image_cabinet_green"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="10dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/file_cabinet_green"
+        android:layout_width="@dimen/hundred"
+        android:layout_height="@dimen/hundred"
+        app:layout_constraintStart_toEndOf="@id/image_cabinet_yellow"
         app:layout_constraintBottom_toTopOf="@id/guia_horizontal_24"
-        app:layout_constraintStart_toEndOf="@id/image_cabinet_yellow" />
+        android:src="@drawable/file_cabinet_green"
+        android:layout_marginStart="@dimen/ten"/>
 
     <ImageButton
         android:id="@+id/image_coffee_cup_s"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
-        android:layout_margin="10dp"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
+        android:layout_width="@dimen/one_forty"
+        android:layout_height="@dimen/one_forty"
         android:src="@drawable/settings_icon_coffee"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/ten"
+        android:background="@android:color/transparent"/>
     <View
         android:id="@+id/view_back_timer"
-        android:layout_width="150dp"
-        android:layout_height="90dp"
-        android:layout_margin="15dp"
-        android:background="@color/grey"
+        android:layout_width="@dimen/one_fifty"
+        android:layout_height="@dimen/ninety"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/fifteen"
+        android:background="@color/grey"/>
 
     <View
-        android:layout_width="140dp"
-        android:layout_height="80dp"
-        android:layout_margin="15dp"
-        android:background="@color/dark_grey"
+        android:layout_width="@dimen/one_forty"
+        android:layout_height="@dimen/eighty"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/view_back_timer"
         app:layout_constraintEnd_toEndOf="@id/view_back_timer"
         app:layout_constraintStart_toStartOf="@id/view_back_timer"
-        app:layout_constraintTop_toTopOf="@id/view_back_timer" />
-
+        app:layout_constraintTop_toTopOf="@id/view_back_timer"
+        android:layout_margin="@dimen/fifteen"
+        android:background="@color/dark_grey"/>
     <TextView
         android:id="@+id/textViewTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:background="@color/dark_grey"
         android:gravity="center_horizontal|center_vertical"
         android:text="5:00"
         android:textColor="#FF0000"
-        android:textSize="50sp"
+        android:textSize="@dimen/text_fifty"
         android:textStyle="bold"
+        android:layout_margin="@dimen/ten"
         app:layout_constraintBottom_toBottomOf="@id/view_back_timer"
         app:layout_constraintEnd_toEndOf="@id/view_back_timer"
         app:layout_constraintStart_toStartOf="@id/view_back_timer"
@@ -197,54 +195,55 @@
 
     <Button
         android:id="@+id/button_menu"
-        android:layout_width="130dp"
-        android:layout_height="80dp"
-        android:layout_margin="15dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="@dimen/one_thirty"
+        android:layout_height="@dimen/eighty"
+        android:layout_margin="@dimen/fifteen"
+        android:layout_marginBottom="@dimen/four"
         android:background="@drawable/rounded_corners"
-        android:text="@string/menu"
-        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf=" parent" />
+        app:layout_constraintStart_toStartOf=" parent"
+        android:text="@string/menu"
+        android:textSize="@dimen/text_twenty_five"/>
 
     <View
         android:id="@+id/progressBarBackGround"
-        android:layout_width="40dp"
-        android:layout_height="250dp"
-        android:layout_margin="15dp"
-        android:layout_marginStart="30dp"
+        android:layout_width="@dimen/forty"
+        android:layout_height="@dimen/two_fifty"
+        android:layout_margin="@dimen/fifteen"
+        android:layout_marginStart="@dimen/thirty"
         android:background="@color/dark_grey"
-        app:layout_constraintBottom_toTopOf="@id/button_menu"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_menu"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="30dp"
-        android:layout_height="235dp"
+        android:layout_width="@dimen/thirty"
+        android:layout_height="@dimen/two_thirty_five"
         android:background="@color/white"
         android:progressDrawable="@drawable/progress_bar_theme"
+        app:layout_constraintTop_toTopOf="@id/progressBarBackGround"
         app:layout_constraintBottom_toBottomOf="@id/progressBarBackGround"
-        app:layout_constraintLeft_toLeftOf="@id/progressBarBackGround"
         app:layout_constraintRight_toRightOf="@id/progressBarBackGround"
-        app:layout_constraintTop_toTopOf="@id/progressBarBackGround" />
-
+        app:layout_constraintLeft_toLeftOf="@id/progressBarBackGround"
+        />
     <View
-        android:id="@+id/backgroundWhite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/backgroundWhite"
         android:background="@color/white"
-        android:visibility="gone" />
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/blue_score"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="40dp"
-        android:text="null"
+        android:layout_marginLeft="@dimen/thirty"
+        android:layout_marginBottom="@dimen/forty"
+        android:text="@string/nulo"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="@dimen/text_twenty_five"
         app:layout_constraintBottom_toBottomOf="@id/image_cabinet_blue"
         app:layout_constraintLeft_toLeftOf="@id/image_cabinet_blue" />
 
@@ -252,11 +251,11 @@
         android:id="@+id/red_score"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="40dp"
-        android:text="null"
+        android:layout_marginLeft="@dimen/thirty"
+        android:layout_marginBottom="@dimen/forty"
+        android:text="@string/nulo"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="@dimen/text_twenty_five"
         app:layout_constraintBottom_toBottomOf="@id/image_cabinet_red"
         app:layout_constraintLeft_toLeftOf="@id/image_cabinet_red" />
 
@@ -264,11 +263,11 @@
         android:id="@+id/yellow_score"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="40dp"
-        android:text="null"
+        android:layout_marginLeft="@dimen/thirty"
+        android:layout_marginBottom="@dimen/forty"
+        android:text="@string/nulo"
         android:textColor="@color/white"
-        android:textSize="25sp"
+        android:textSize="@dimen/text_twenty_five"
         app:layout_constraintBottom_toBottomOf="@id/image_cabinet_yellow"
         app:layout_constraintLeft_toLeftOf="@id/image_cabinet_yellow" />
 
@@ -276,20 +275,20 @@
         android:id="@+id/green_score"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginBottom="40dp"
-        android:text="null"
-        android:textColor="@color/white"
-        android:textSize="25sp"
+        android:text="@string/nulo"
+        android:textSize="@dimen/text_twenty_five"
         app:layout_constraintBottom_toBottomOf="@id/image_cabinet_green"
-        app:layout_constraintLeft_toLeftOf="@id/image_cabinet_green" />
+        app:layout_constraintLeft_toLeftOf="@id/image_cabinet_green"
+        android:layout_marginBottom="@dimen/forty"
+        android:layout_marginLeft="@dimen/thirty"
+        android:textColor="@color/white"/>
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/groupButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids="button_four, button_three, button_two, button_one, button_menu, image_coffee_cup_s" />
+        app:constraint_referenced_ids="button_four, button_three, button_two, button_one, button_menu, image_coffee_cup_s"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

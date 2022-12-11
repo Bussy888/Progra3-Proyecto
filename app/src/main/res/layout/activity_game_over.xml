@@ -9,61 +9,65 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/alley" />
+        android:src="@drawable/alley"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/darker_grey_low_opacity"/>
 
     <ImageView
         android:id="@+id/contract"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/contract" />
-
+        android:src="@drawable/contract"
+        android:layout_marginTop="@dimen/ten"
+        android:layout_marginBottom="@dimen/ten"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="45dp"
         android:text="@string/score"
         android:textColor="@color/red"
-        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="@+id/guideScore"
         app:layout_constraintEnd_toEndOf="@+id/halfguide"
-        app:layout_constraintTop_toTopOf="@+id/guideScore" />
+        android:layout_marginTop="@dimen/ten"
+        android:layout_marginEnd="@dimen/fifty"
+        android:textSize="@dimen/text_twenty_five"
 
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:text="100"
+        android:text="@string/hundred"
         android:textColor="@color/red"
-        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="@+id/guideScore"
         app:layout_constraintStart_toStartOf="@+id/halfguide"
-        app:layout_constraintTop_toTopOf="@+id/guideScore" />
-
+        android:layout_marginStart="@dimen/fifty"
+        android:layout_marginTop="@dimen/ten"
+        android:textSize="@dimen/text_twenty_five"/>
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideScore"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.75" />
-
+        app:layout_constraintGuide_percent="0.75"
+        android:orientation="horizontal"/>
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/halfguide"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
+        android:id="@+id/halfguide"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"/>
     <Button
         android:id="@+id/button_menu"
-        android:layout_width="130dp"
-        android:layout_height="80dp"
-        android:layout_margin="15dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="@dimen/one_thirty"
+        android:layout_height="@dimen/eighty"
+        android:layout_margin="@dimen/fifteen"
+        android:layout_marginBottom="@dimen/four"
         android:background="@drawable/rounded_corners"
         android:text="@string/menu"
-        android:textSize="30sp"
+        android:textSize="@dimen/text_twenty_five"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

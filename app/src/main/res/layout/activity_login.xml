@@ -195,6 +195,8 @@
             android:text="@string/new_user"
             android:textSize="@dimen/text_nine"/>
 
+        <!--TODO: QUITAR BOTON CUANDO TENGAMOS LISTO EL LOG IN-->
+
         <Button
             android:id="@+id/play"
             android:layout_width="95dp"
