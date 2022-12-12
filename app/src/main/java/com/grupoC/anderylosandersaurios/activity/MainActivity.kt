@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var thunderSound : MediaPlayer
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
-
+    private var change = true
     private var i = 0
 
     private var colors: List<String> = listOf("red", "yellow", "blue", "green")
@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
         "blue" to R.drawable.folder_blue_plus,
         "green" to R.drawable.folder_green_plus
     )
-    var change = true
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
