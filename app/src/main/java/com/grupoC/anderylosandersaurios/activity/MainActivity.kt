@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity() {
         "green" to R.drawable.folder_green_plus
     )
 
-    private var easyLevel: Boolean = false
-
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,18 +70,14 @@ class MainActivity : AppCompatActivity() {
         // Progress bar
         binding.progressBar.max = 100
 
-        if (!easyLevel) {
-            progressBarCycle()
-        }
-
         // El timer
         //NIVEL DIFICIL
-        if(!hard){
-            binding.progressBarBackGround.visibility=View.GONE
-            binding.progressBar.visibility=View.GONE
-        } else{
-            binding.progressBarBackGround.visibility=View.VISIBLE
-            binding.progressBar.visibility=View.VISIBLE
+        if (!hard) {
+            binding.progressBarBackGround.visibility = View.GONE
+            binding.progressBar.visibility = View.GONE
+        } else {
+            binding.progressBarBackGround.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.VISIBLE
             binding.progressBar.max = 100
             progressBarCycle()
         }
@@ -181,7 +175,7 @@ class MainActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 Log.v("Log_tag", "Tickprogress $i $millisUntilFinished  ")
                 i++
-                binding.progressBar.progress = i*100/(20000/1000)
+                binding.progressBar.progress = i * 100 / (20000 / 1000)
             }
 
             override fun onFinish() {
@@ -211,25 +205,29 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-    fun seconds(millisUntilFinished: Long): String{
-        return if((millisUntilFinished/ 1000) % 60<10){
-            "0${(millisUntilFinished/ 1000) % 60}"
-        }else{
-            "${(millisUntilFinished/ 1000) % 60}"
+
+    fun seconds(millisUntilFinished: Long): String {
+        return if ((millisUntilFinished / 1000) % 60 < 10) {
+            "0${(millisUntilFinished / 1000) % 60}"
+        } else {
+            "${(millisUntilFinished / 1000) % 60}"
         }
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
     private fun hideSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window,
-            window.decorView.findViewById(android.R.id.content)).let { controller ->
+        WindowInsetsControllerCompat(
+            window,
+            window.decorView.findViewById(android.R.id.content)
+        ).let { controller ->
             controller.hide(WindowInsetsCompat.Type.systemBars())
 
             // When the screen is swiped up at the bottom
             // of the application, the navigationBar shall
             // appear for some time
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            controller.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
 

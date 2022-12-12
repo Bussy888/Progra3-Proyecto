@@ -10,8 +10,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.grupoC.anderylosandersaurios.SettingsActivity
-import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
+
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainMenuBinding
 
 class MainMenuActivity : AppCompatActivity() {

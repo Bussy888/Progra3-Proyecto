@@ -24,6 +24,7 @@ class SettingsActivity : AppCompatActivity() {
 
     // TODO: COPIAR CODIGO PARA OCULTAR BARRA DE NAVEGACION A TODAS LAS ACTIVIDADES
     private lateinit var decorWindow: View //barraNaveg
+
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,10 @@ class SettingsActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         hideSystemUI()
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         decorWindow = window.decorView //barranaveg
         hideSystemUI() //barranaveg
 
@@ -76,16 +80,6 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    private fun setLocale(languageCode:String){
-        var locale= Locale(languageCode)
-    //BARRANAVEG
-    private fun hideSystemUI() {
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window, decorWindow).let { controller ->
-            controller.hide(WindowInsetsCompat.Type.navigationBars())
-        }
-    }
-
     private fun setLocale(languageCode: String) {
         var locale = Locale(languageCode)
         Locale.setDefault(locale)
@@ -101,14 +95,17 @@ class SettingsActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.R)
     private fun hideSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window,
-            window.decorView.findViewById(android.R.id.content)).let { controller ->
+        WindowInsetsControllerCompat(
+            window,
+            window.decorView.findViewById(android.R.id.content)
+        ).let { controller ->
             controller.hide(WindowInsetsCompat.Type.systemBars())
 
             // When the screen is swiped up at the bottom
             // of the application, the navigationBar shall
             // appear for some time
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            controller.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
 
