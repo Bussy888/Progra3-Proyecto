@@ -27,5 +27,6 @@
     <string name="password" translatable="false">Password</string>
     <string name="score" translatable="false">SCORE:</string>
     <string name="nulo" translatable="false">null</string>
-    <string name="hundred">100</string>
+    <string name="continuar" translatable="false">CONTINUE</string>
+    <string name="hundred" translatable="false">100</string>
 </resources>

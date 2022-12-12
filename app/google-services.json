@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "516061509174",
-    "project_id": "ander-y-los-andersaurios",
-    "storage_bucket": "ander-y-los-andersaurios.appspot.com"
+    "project_number": "261690484537",
+    "project_id": "anderylosandersaurios",
+    "storage_bucket": "anderylosandersaurios.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:516061509174:android:599829fccf9d4c334eca97",
+        "mobilesdk_app_id": "1:261690484537:android:7303ed45de60004d9aeae8",
         "android_client_info": {
           "package_name": "com.grupoC.anderylosandersaurios"
         }
       },
       "oauth_client": [
         {
-          "client_id": "516061509174-tivbusu18hhed6mq72frp0jqrb3d1b1a.apps.googleusercontent.com",
+          "client_id": "261690484537-t2dqf1midhrso7dago6u0s47ee32545b.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.grupoC.anderylosandersaurios",
-            "certificate_hash": "bdb9789a3f9d0cae45f98953939758836ab434dc"
+            "certificate_hash": "16b1742b2581a80417fbd5bfded288980f7d765c"
           }
         },
         {
-          "client_id": "516061509174-t4h8iupivh1tf98i1d0nfk11drl16od2.apps.googleusercontent.com",
+          "client_id": "261690484537-5n0h910qfq2dbvv31d7phlghi65f93lf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAey9VnGWTtFIctoxaQMQi3juxtUCSLzPA"
+          "current_key": "AIzaSyAXurF4zZJrujevBeyn2XQkOy_5YeHSJuo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "516061509174-t4h8iupivh1tf98i1d0nfk11drl16od2.apps.googleusercontent.com",
+              "client_id": "261690484537-5n0h910qfq2dbvv31d7phlghi65f93lf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

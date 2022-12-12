@@ -17,10 +17,7 @@ import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 
 class LoginActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityLoginBinding
-
-    //Nuevo onjeto de la implementación de la librería
     private lateinit var auth: FirebaseAuth
     var currentUser: FirebaseUser? = null
 
@@ -30,54 +27,13 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.play.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java)
-            startActivity(intent)
-        }
-
         hideSystemUI()
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-    }
 
-    private fun initUi() {
-        auth = FirebaseAuth.getInstance()
-        currentUser = auth.currentUser
-
-        binding.buttonLogIn.setOnClickListener {
-
-        }
-
-        binding.buttonNewUser.setOnClickListener {
-
-        }
-    }
-
-    private fun validateData(email: String, password: String) {
-
-    }
-
-    private fun loginUser(email: String, password: String) {
-        // El siguiente listener maneja internet para consultar un login
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                println()
-            } else {
-
-            }
-        }
-    }
-
-    private fun createUser(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                println("Nuevo usuario creado")
-            } else {
-                println("Algo salió mal, intenet nuevamente")
-            }
-        }
+        initUi()
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -95,5 +51,79 @@ class LoginActivity : AppCompatActivity() {
             controller.systemBarsBehavior =
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
+    }
+
+    private fun initUi() {
+        auth = FirebaseAuth.getInstance()
+        currentUser = auth.currentUser
+
+        binding.run {
+            buttonLogIn.setOnClickListener {
+                val email = editEmail.text.toString()
+                val password = editPassword.text.toString()
+                if (validateData(email, password)) {
+                    loginUser(email, password)
+                }
+            }
+            buttonNewUser.setOnClickListener {
+                val email = editEmail.text.toString()
+                val password = editPassword.text.toString()
+                if (validateData(email, password)) {
+                    createNewUser(email, password)
+                }
+            }
+            play.setOnClickListener {
+                if (currentUser != null) {
+                    redirectActivity()
+                } else {
+                    sendToast()
+                }
+            }
+        }
+    }
+
+    private fun validateData(email: String, password: String): Boolean {
+        var valid = true
+        if (email.isEmpty()) {
+            valid = false
+
+        } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            valid = false
+        }
+        return valid
+    }
+
+    private fun createNewUser(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this)
+        { task ->
+            if (task.isSuccessful) {
+                sendToast()
+            } else {
+                sendToast()
+            }
+        }
+
+    }
+
+    private fun loginUser(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
+                redirectActivity()
+            } else {
+                sendToast()
+            }
+        }
+    }
+
+    // TODO: IR A MAIN MENU ACTIVITY
+    private fun redirectActivity() {
+        val intentRedirect = Intent(this, MainMenuActivity::class.java)
+        startActivity(intentRedirect)
+        finish()
+    }
+
+    // TODO: MANDAR TOAST
+    private fun sendToast() {
+
     }
 }
