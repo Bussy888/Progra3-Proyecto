@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             progressBarCycle()
         }
         // El timer
-        timer(30000)
+        timer(300000)
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
 
