@@ -1,11 +1,13 @@
 package com.grupoC.anderylosandersaurios.activity
 
+import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Vibrator
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -119,6 +121,7 @@ class MainActivity : AppCompatActivity() {
                 binding.greenScore.text = game.checking("green").toString()
             }
         }
+        game.generateContract()
     }
 
     fun generatorButtonContracts(): List<ButtonContract> {
@@ -182,11 +185,18 @@ class MainActivity : AppCompatActivity() {
                 i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
+                vibration()
                 binding.progressBar.progress = 0
                 i = 0
             }
         }.start()
+
         shuffleButtons()
+    }
+
+    fun vibration() {
+        val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        vibratorService.vibrate(1500)
     }
 
     fun thunder(millisInFuture: Long, countDownInterval: Long, view: View) {
@@ -232,7 +242,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun idSContracts(name: String) {
-        val id: Int = resources.getIdentifier("folder_yellow", "drawable", packageName)
+        val id: Int = resources.getIdentifier("$name", "drawable", packageName)
         binding.imageFileCenter.setImageResource(id)
     }
 }

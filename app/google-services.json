@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "516061509174",
+    "project_id": "ander-y-los-andersaurios",
+    "storage_bucket": "ander-y-los-andersaurios.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516061509174:android:599829fccf9d4c334eca97",
+        "android_client_info": {
+          "package_name": "com.grupoC.anderylosandersaurios"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516061509174-tivbusu18hhed6mq72frp0jqrb3d1b1a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.grupoC.anderylosandersaurios",
+            "certificate_hash": "bdb9789a3f9d0cae45f98953939758836ab434dc"
+          }
+        },
+        {
+          "client_id": "516061509174-t4h8iupivh1tf98i1d0nfk11drl16od2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAey9VnGWTtFIctoxaQMQi3juxtUCSLzPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516061509174-t4h8iupivh1tf98i1d0nfk11drl16od2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
