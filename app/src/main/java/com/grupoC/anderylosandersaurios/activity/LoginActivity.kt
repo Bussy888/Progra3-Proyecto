@@ -27,13 +27,10 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.play.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java)
-            startActivity(intent)
-        }
-
         hideSystemUI()
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        initUi()
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -67,6 +64,13 @@ class LoginActivity : AppCompatActivity() {
                 val password=editPassword.text.toString()
                 if(validateData(email, password)){
                     createNewUser(email,password)
+                }
+            }
+            play.setOnClickListener {
+                if(currentUser != null){
+                    redirectActivity()
+                } else{
+                    sendToast()
                 }
             }
         }
