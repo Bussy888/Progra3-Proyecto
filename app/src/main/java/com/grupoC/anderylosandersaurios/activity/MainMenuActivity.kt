@@ -1,9 +1,16 @@
 package com.grupoC.anderylosandersaurios.activity
 
+import android.R
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.annotation.RequiresApi
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
+import com.grupoC.anderylosandersaurios.SettingsActivity
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainMenuBinding
 
