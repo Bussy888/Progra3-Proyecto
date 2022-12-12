@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
     var i = 0
+    var change = true
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             progressBarCycle()
         }
         // El timer
-        timer()
+        timer(30000)
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
 
@@ -102,25 +103,31 @@ class MainActivity : AppCompatActivity() {
         finishAll()
     }
 
+    override fun onPause() {
+        super.onPause()
+        finishAll()
+    }
+
     override fun onStop() {
         super.onStop()
         finishAll()
     }
 
-    fun timer(){
-        object : CountDownTimer(30000,1000){
-            override fun onTick(millisUntilFinished: Long) {
-                val minute = (millisUntilFinished / 1000) / 60
-                val seconds = seconds(millisUntilFinished)
-                binding.textViewTimer.text = "$minute:$seconds"
-            }
+    fun timer(n : Long){
+            object : CountDownTimer(n, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    val minute = (millisUntilFinished / 1000) / 60
+                    val seconds = seconds(millisUntilFinished)
+                    binding.textViewTimer.text = "$minute:$seconds"
+                }
 
-            override fun onFinish() {
-                    val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
-                    startActivity(intent)
-            }
-        }.start()
-
+                override fun onFinish() {
+                    if(change) {
+                        val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
+                        startActivity(intent)
+                    }
+                }
+            }.start()
     }
     fun progressBarCycle(){
         object  : CountDownTimer(20000, 1000){
@@ -172,7 +179,7 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
         bindingPopupMenu.buttonAccept.setOnClickListener{
-            val intent = Intent(applicationContext, MainMenuActivity::class.java).apply {}
+            val intent = Intent(this, MainMenuActivity::class.java).apply {}
             startActivity(intent)
             finishAll()
 
@@ -191,7 +198,7 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
         bindingPopupSettings.buttonAccept.setOnClickListener{
-            val intent = Intent(applicationContext, SettingsActivity::class.java).apply {}
+            val intent = Intent(this, SettingsActivity::class.java).apply {}
             startActivity(intent)
             finishAll()
 
@@ -216,7 +223,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun finishAll(){
-        finish()
         thunderSound.stop()
+        finish()
+        change = false
     }
 }
