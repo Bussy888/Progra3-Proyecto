@@ -67,7 +67,7 @@
             android:layout_width="@dimen/eighty_five"
             android:layout_height="@dimen/forty"
             android:text="@string/options"
-            android:textSize="@dimen/text_nine"
+            android:textSize="@dimen/text_eight"
             android:backgroundTint="@color/brown"
             android:outlineProvider="bounds"
             android:elevation="@dimen/five"
