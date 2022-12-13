@@ -195,7 +195,7 @@
             app:layout_constraintStart_toEndOf="@id/button_log_in"
             android:backgroundTint="@color/dark_grey"
             android:text="@string/new_user"
-            android:textSize="@dimen/text_nine"/>
+            android:textSize="@dimen/text_eight"/>
 
         <Button
             android:id="@+id/play"
