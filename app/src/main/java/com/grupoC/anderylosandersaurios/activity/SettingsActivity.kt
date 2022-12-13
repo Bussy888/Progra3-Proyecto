@@ -1,5 +1,6 @@
 package com.grupoC.anderylosandersaurios.activity
 
+import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
@@ -38,7 +39,6 @@ class SettingsActivity : AppCompatActivity() {
         decorWindow = window.decorView //barranaveg
         hideSystemUI() //barranaveg
 
-        // TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
         mediaPlayer = MediaPlayer.create(this, R.raw.thunder)
         //mediaPlayer.start()
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
@@ -64,18 +64,16 @@ class SettingsActivity : AppCompatActivity() {
 
         })
 
-
-        // TODO: ARREGLAR CAMBIO DE IDIOMA, NO SÉ QUÉ LE PASA TnT
-
-        //FUNCA EL ESPAÑOL, PERO NO VUELVE A INGLES O PASA AL REVES
-
-        val locale = this.resources.configuration.locales
-
         binding.english.setOnClickListener {
             setLocale("enus")
         }
         binding.spanish.setOnClickListener {
             setLocale("es")
+        }
+
+        binding.buttonMenu.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java).apply {}
+            startActivity(intent)
         }
     }
 
