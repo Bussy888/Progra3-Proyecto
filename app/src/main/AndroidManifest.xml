@@ -26,9 +26,25 @@
                 android:value=""
                 android:screenOrientation="landscape"/>
         </activity>
+
+        <activity
+            android:name=".activity.SplashScreenActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""
+                android:screenOrientation="landscape"/>
+        </activity>
         <activity
             android:name=".activity.RulesActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
@@ -37,7 +53,7 @@
         </activity>
         <activity
             android:name=".activity.SettingsActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
@@ -46,7 +62,7 @@
         </activity>
         <activity
             android:name=".activity.MainMenuActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="landscape">
             <meta-data
                 android:name="android.app.lib_name"
@@ -54,13 +70,9 @@
         </activity>
         <activity
             android:name=".activity.LoginActivity"
-            android:exported="true"
+            android:exported="false"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value=""
@@ -76,6 +88,10 @@
                 android:value=""
                 android:screenOrientation="landscape"/>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -23,5 +23,9 @@
         <string name="rules_hierarchy_two">Si el texto de un contrato es igual al color del texto, ese será el color del contrato</string>
         <string name="rules_hierarchy_three">Si el color del fondo es igual al texto, ese será el color del contrato</string>
         <string name="rules_hierarchy_four">Si todos los atributos describen un color distinto, el color del contrato dependerá del fondo</string>
-
+        <string name="new_user_created">NUEVO USUARIO CREADO</string>
+        <string name="enter_an_email_address">INGRESE UN EMAIL</string>
+        <string name="invalid_email">EMAIL NO VÁLIDO</string>
+        <string name="invalid_password">CONTRASEÑA NO VÁLIDA</string>
+        <string name="login_to_an_account">INGRESAR A UNA CUENTA</string>
 </resources>

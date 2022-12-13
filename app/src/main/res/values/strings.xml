@@ -29,4 +29,10 @@
     <string name="nulo" translatable="false">null</string>
     <string name="continuar" translatable="false">CONTINUE</string>
     <string name="hundred" translatable="false">100</string>
+    <string name="error_login" translatable="false">ERROR</string>
+    <string name="new_user_created">NEW USER CREATED</string>
+    <string name="enter_an_email_address">ENTER AN EMAIL ADDRESS</string>
+    <string name="invalid_email">INVALID EMAIL</string>
+    <string name="invalid_password">INVALID PASSWORD</string>
+    <string name="login_to_an_account">LOGIN TO AN ACCOUNT</string>
 </resources>
