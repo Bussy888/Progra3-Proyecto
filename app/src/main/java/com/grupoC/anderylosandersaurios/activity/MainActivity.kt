@@ -1,6 +1,10 @@
 package com.grupoC.anderylosandersaurios.activity
 
+import android.animation.ObjectAnimator
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -18,14 +22,17 @@ import com.grupoC.anderylosandersaurios.classes.ButtonContract
 import com.grupoC.anderylosandersaurios.classes.Cabinet
 import com.grupoC.anderylosandersaurios.classes.MediatorGame
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupMenuBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
 
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var thunderSound: MediaPlayer
+    private lateinit var bindingPopupMenu : ItemPopupMenuBinding
+    private lateinit var bindingPopupSettings : ItemPopupSettingsBinding
+    private lateinit var thunderSound : MediaPlayer
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
-
+    private var change = true
     private var i = 0
 
     private var colors: List<String> = listOf("red", "yellow", "blue", "green")
@@ -82,8 +89,9 @@ class MainActivity : AppCompatActivity() {
             progressBarCycle()
         }
         // El timer
-        timer()
+        timer(300000)
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
+
 
 
         // Los botones
@@ -101,6 +109,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonFour.setOnClickListener {
             clickButton(4)
+        }
+        binding.buttonMenu.setOnClickListener {
+            managePopupMenu()
+        }
+        binding.imageCoffeeCupS.setOnClickListener {
+            managePopupSettings()
         }
     }
 
@@ -126,6 +140,8 @@ class MainActivity : AppCompatActivity() {
         for (i in 0..3) {
             buttonContracts.add(ButtonContract(colors[i], i + 1))
         }
+
+
         return buttonContracts.toList()
     }
 
@@ -154,20 +170,37 @@ class MainActivity : AppCompatActivity() {
         setButtonColors()
     }
 
-    fun timer() {
-        object : CountDownTimer(300000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                val minute = (millisUntilFinished / 1000) / 60
-                val seconds = seconds(millisUntilFinished)
-                binding.textViewTimer.text = "$minute:$seconds"
-            }
 
-            override fun onFinish() {
-                val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
-                startActivity(intent)
-            }
-        }.start()
+    override fun onDestroy() {
+        super.onDestroy()
+        finishAll()
+    }
 
+    override fun onPause() {
+        super.onPause()
+        finishAll()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        finishAll()
+    }
+
+    fun timer(n : Long){
+            object : CountDownTimer(n, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    val minute = (millisUntilFinished / 1000) / 60
+                    val seconds = seconds(millisUntilFinished)
+                    binding.textViewTimer.text = "$minute:$seconds"
+                }
+
+                override fun onFinish() {
+                    if(change) {
+                        val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
+                        startActivity(intent)
+                    }
+                }
+            }.start()
     }
 
     fun progressBarCycle() {
@@ -214,6 +247,45 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun managePopupMenu(){
+        bindingPopupMenu = ItemPopupMenuBinding.inflate(layoutInflater)
+        val dialog = Dialog(this)
+        dialog.setContentView(bindingPopupMenu.root)
+        dialog.setCancelable(true)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        dialog.show()
+        bindingPopupMenu.buttonAccept.setOnClickListener{
+            val intent = Intent(this, MainMenuActivity::class.java).apply {}
+            startActivity(intent)
+            finishAll()
+
+        }
+        bindingPopupMenu.buttonCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+    }
+    fun managePopupSettings(){
+        bindingPopupSettings = ItemPopupSettingsBinding.inflate(layoutInflater)
+        val dialog = Dialog(this)
+        dialog.setContentView(bindingPopupSettings.root)
+        dialog.setCancelable(true)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        dialog.show()
+        bindingPopupSettings.buttonAccept.setOnClickListener{
+            val intent = Intent(this, SettingsActivity::class.java).apply {}
+            startActivity(intent)
+            finishAll()
+
+        }
+        bindingPopupSettings.buttonCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+    }
+
     @RequiresApi(Build.VERSION_CODES.R)
     private fun hideSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -229,6 +301,11 @@ class MainActivity : AppCompatActivity() {
             controller.systemBarsBehavior =
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
+    }
+    fun finishAll(){
+        thunderSound.stop()
+        finish()
+        change = false
     }
 
     fun idSContracts(name: String) {
