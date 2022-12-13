@@ -229,8 +229,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun vibration() {
-        val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        vibratorService.vibrate(1500)
+        if(change) {
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(1500)
+        }
     }
 
     fun thunder(millisInFuture: Long, countDownInterval: Long, view: View) {
@@ -319,6 +321,7 @@ class MainActivity : AppCompatActivity() {
         thunderSound.stop()
         finish()
         change = false
+
     }
 
     fun idSContracts(name: String) {
