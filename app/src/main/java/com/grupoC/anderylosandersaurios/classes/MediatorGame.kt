@@ -16,6 +16,8 @@ data class MediatorGame(
 
     private lateinit var contract: Contract
 
+    private val timeVibration: Long = 200
+
     fun checking(colorCheck: String): Int {
         when (colorCheck) {
             "blue" -> {
@@ -23,6 +25,7 @@ data class MediatorGame(
                     blueCabinet.score++
                 } else {
                     blueCabinet.score--
+                    activity.vibration(timeVibration)
                 }
                 return blueCabinet.score
             }
@@ -31,6 +34,7 @@ data class MediatorGame(
                     redCabinet.score++
                 } else {
                     redCabinet.score--
+                    activity.vibration(timeVibration)
                 }
                 return redCabinet.score
             }
@@ -39,6 +43,7 @@ data class MediatorGame(
                     yellowCabinet.score++
                 } else {
                     yellowCabinet.score--
+                    activity.vibration(timeVibration)
                 }
                 return yellowCabinet.score
             }
@@ -47,6 +52,7 @@ data class MediatorGame(
                     greenCabinet.score++
                 } else {
                     greenCabinet.score--
+                    activity.vibration(timeVibration)
                 }
                 return greenCabinet.score
             }

@@ -163,7 +163,6 @@ class MainActivity : AppCompatActivity() {
         binding.buttonFour.setImageResource(colorDraw[game.buttonsContracts[3].color]!!)
     }
 
-
     fun initGame() {
         binding.redScore.text = "0"
         binding.yellowScore.text = "0"
@@ -172,7 +171,6 @@ class MainActivity : AppCompatActivity() {
         game.generateContract()
         setButtonColors()
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
