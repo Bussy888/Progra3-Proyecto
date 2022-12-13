@@ -200,7 +200,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 if (change) {
-                    val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
+                    val intent = Intent(applicationContext, GameOverActivity::class.java).apply {
+
+                    }
                     startActivity(intent)
                 }
             }
@@ -218,7 +220,7 @@ class MainActivity : AppCompatActivity() {
                 i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
-                vibration()
+                vibration(1500)
                 binding.progressBar.progress = 0
                 i = 0
             }
@@ -227,10 +229,10 @@ class MainActivity : AppCompatActivity() {
         shuffleButtons()
     }
 
-    fun vibration() {
-        if(change) {
+    fun vibration(duration: Long) {
+        if (change) {
             val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-            vibratorService.vibrate(1500)
+            vibratorService.vibrate(duration)
         }
     }
 
