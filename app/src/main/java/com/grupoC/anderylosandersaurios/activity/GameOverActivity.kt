@@ -16,13 +16,25 @@ import com.grupoC.anderylosandersaurios.R
 class GameOverActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameOverBinding
 
+    companion object {
+        val SCORE: String = "new_Message"
+    }
+
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityGameOverBinding.inflate(layoutInflater)
+
+        val score: String = intent.getStringExtra(SCORE).orEmpty()
+
         setContentView(binding.root)
         hideSystemUI()
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
+
+        binding.scoreNumber.text = score
 
         binding.buttonMenu.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
@@ -33,14 +45,17 @@ class GameOverActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.R)
     private fun hideSystemUI() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
-        WindowInsetsControllerCompat(window,
-            window.decorView.findViewById(android.R.id.content)).let { controller ->
+        WindowInsetsControllerCompat(
+            window,
+            window.decorView.findViewById(android.R.id.content)
+        ).let { controller ->
             controller.hide(WindowInsetsCompat.Type.systemBars())
 
             // When the screen is swiped up at the bottom
             // of the application, the navigationBar shall
             // appear for some time
-            controller.systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            controller.systemBarsBehavior =
+                WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
 }

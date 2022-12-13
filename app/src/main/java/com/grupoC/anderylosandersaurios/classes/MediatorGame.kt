@@ -67,6 +67,9 @@ data class MediatorGame(
         activity.idSContracts("folder_${contract.colorPaper}")
     }
 
+    fun getFinalScore(): String =
+        "${blueCabinet.score + redCabinet.score + yellowCabinet.score + greenCabinet.score}"
+
     fun identifyButtonColor() {
 
     }

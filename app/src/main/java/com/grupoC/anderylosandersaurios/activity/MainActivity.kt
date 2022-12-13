@@ -38,6 +38,10 @@ class MainActivity : AppCompatActivity() {
         "green" to R.drawable.folder_green_plus
     )
 
+    companion object {
+        val SCORE: String = "new_Message"
+    }
+
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -166,7 +170,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
+                val intent = Intent(applicationContext, GameOverActivity::class.java)
+                intent.apply {
+                    putExtra(SCORE, generateFinalScore())
+                }
                 startActivity(intent)
             }
         }.start()
@@ -245,4 +252,6 @@ class MainActivity : AppCompatActivity() {
         val id: Int = resources.getIdentifier("$name", "drawable", packageName)
         binding.imageFileCenter.setImageResource(id)
     }
+
+    fun generateFinalScore(): String = game.getFinalScore()
 }
