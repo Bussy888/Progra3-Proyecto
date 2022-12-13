@@ -40,7 +40,7 @@ class SettingsActivity : AppCompatActivity() {
         hideSystemUI() //barranaveg
 
         // TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
-        mediaPlayer = MediaPlayer.create(this, R.raw.nokia1994)
+        mediaPlayer = MediaPlayer.create(this, R.raw.thunder)
         //mediaPlayer.start()
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
 
@@ -85,11 +85,6 @@ class SettingsActivity : AppCompatActivity() {
         Locale.setDefault(locale)
         this.resources.configuration.setLocale(locale)
         this.recreate()
-    }
-
-    private fun initControls() {
-
-
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
