@@ -1,7 +1,5 @@
 package com.grupoC.anderylosandersaurios.classes
 
-import android.media.Image
-
 data class Contract(
     val colorPaper: String,
     val colorTextContract: String,
@@ -28,6 +26,10 @@ data class Contract(
     fun defineImage() {
         image =
             "${colorPaper}${if (textContract.isEmpty()) "" else "_$textContract"}${if (textContract.isEmpty()) "" else "_$colorTextContract"}"
+    }
+
+    fun calculateFinalScore(hard: Boolean): Int {
+        return 0
     }
 }
 
