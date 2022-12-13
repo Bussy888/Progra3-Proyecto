@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
 import com.grupoC.anderylosandersaurios.activity.SettingsActivity
 import androidx.annotation.RequiresApi
 import androidx.core.view.WindowCompat
@@ -70,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
                 if(currentUser != null){
                     redirectActivity()
                 } else{
-                    sendToast()
+                    sendToast(getString(com.grupoC.anderylosandersaurios.R.string.login_to_an_account))
                 }
             }
         }
@@ -80,9 +81,13 @@ class LoginActivity : AppCompatActivity() {
         var valid = true
         if(email.isEmpty()){
             valid = false
-
+            sendToast(getString(com.grupoC.anderylosandersaurios.R.string.enter_an_email_address))
         } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             valid = false
+            sendToast(getString(com.grupoC.anderylosandersaurios.R.string.invalid_email))
+        } else if (!validPassword(password)){
+            valid = false
+            sendToast(getString(com.grupoC.anderylosandersaurios.R.string.invalid_password))
         }
         return valid
     }
@@ -91,9 +96,9 @@ class LoginActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this)
         { task ->
             if(task.isSuccessful){
-                sendToast()
+                sendToast(getString(com.grupoC.anderylosandersaurios.R.string.new_user_created))
             } else{
-                sendToast()
+                sendToast(getString(com.grupoC.anderylosandersaurios.R.string.error_login))
             }
         }
 
@@ -105,20 +110,22 @@ class LoginActivity : AppCompatActivity() {
             if(task.isSuccessful){
                 redirectActivity()
             } else{
-                sendToast()
+                sendToast(getString(com.grupoC.anderylosandersaurios.R.string.error_login))
             }
         }
     }
 
-    // TODO: IR A MAIN MENU ACTIVITY
     private fun redirectActivity(){
         val intentRedirect = Intent(this, MainMenuActivity::class.java)
         startActivity(intentRedirect)
         finish()
     }
 
-    // TODO: MANDAR TOAST
-    private fun sendToast(){
+    private fun sendToast(text:String){
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+    }
 
+    private fun validPassword(password:String):Boolean {
+        return Regex(pattern = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}\$").matches(password)
     }
 }
