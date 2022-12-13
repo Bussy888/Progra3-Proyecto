@@ -1,7 +1,7 @@
 package com.grupoC.anderylosandersaurios.activity
 
-import android.animation.ObjectAnimator
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -10,6 +10,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Vibrator
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -27,9 +28,9 @@ import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var bindingPopupMenu : ItemPopupMenuBinding
-    private lateinit var bindingPopupSettings : ItemPopupSettingsBinding
-    private lateinit var thunderSound : MediaPlayer
+    private lateinit var bindingPopupMenu: ItemPopupMenuBinding
+    private lateinit var bindingPopupSettings: ItemPopupSettingsBinding
+    private lateinit var thunderSound: MediaPlayer
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
     private var change = true
@@ -42,6 +43,10 @@ class MainActivity : AppCompatActivity() {
         "blue" to R.drawable.folder_blue_plus,
         "green" to R.drawable.folder_green_plus
     )
+
+    companion object {
+        val SCORE: String = "new_Message"
+    }
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,7 +98,6 @@ class MainActivity : AppCompatActivity() {
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
 
-
         // Los botones
         binding.buttonOne.setOnClickListener {
             clickButton(1)
@@ -133,6 +137,7 @@ class MainActivity : AppCompatActivity() {
                 binding.greenScore.text = game.checking("green").toString()
             }
         }
+        game.generateContract()
     }
 
     fun generatorButtonContracts(): List<ButtonContract> {
@@ -140,8 +145,6 @@ class MainActivity : AppCompatActivity() {
         for (i in 0..3) {
             buttonContracts.add(ButtonContract(colors[i], i + 1))
         }
-
-
         return buttonContracts.toList()
     }
 
@@ -186,21 +189,22 @@ class MainActivity : AppCompatActivity() {
         finishAll()
     }
 
-    fun timer(n : Long){
-            object : CountDownTimer(n, 1000) {
-                override fun onTick(millisUntilFinished: Long) {
-                    val minute = (millisUntilFinished / 1000) / 60
-                    val seconds = seconds(millisUntilFinished)
-                    binding.textViewTimer.text = "$minute:$seconds"
-                }
+    fun timer(n: Long) {
+        object : CountDownTimer(n, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                val minute = (millisUntilFinished / 1000) / 60
+                val seconds = seconds(millisUntilFinished)
+                binding.textViewTimer.text = "$minute:$seconds"
+            }
 
-                override fun onFinish() {
-                    if(change) {
-                        val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
-                        startActivity(intent)
-                    }
+
+            override fun onFinish() {
+                if (change) {
+                    val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
+                    startActivity(intent)
                 }
-            }.start()
+            }
+        }.start()
     }
 
     fun progressBarCycle() {
@@ -215,11 +219,18 @@ class MainActivity : AppCompatActivity() {
                 i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
+                vibration()
                 binding.progressBar.progress = 0
                 i = 0
             }
         }.start()
+
         shuffleButtons()
+    }
+
+    fun vibration() {
+        val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        vibratorService.vibrate(1500)
     }
 
     fun thunder(millisInFuture: Long, countDownInterval: Long, view: View) {
@@ -247,7 +258,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun managePopupMenu(){
+    fun managePopupMenu() {
         bindingPopupMenu = ItemPopupMenuBinding.inflate(layoutInflater)
         val dialog = Dialog(this)
         dialog.setContentView(bindingPopupMenu.root)
@@ -255,7 +266,7 @@ class MainActivity : AppCompatActivity() {
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
-        bindingPopupMenu.buttonAccept.setOnClickListener{
+        bindingPopupMenu.buttonAccept.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java).apply {}
             startActivity(intent)
             finishAll()
@@ -266,7 +277,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-    fun managePopupSettings(){
+
+    fun managePopupSettings() {
         bindingPopupSettings = ItemPopupSettingsBinding.inflate(layoutInflater)
         val dialog = Dialog(this)
         dialog.setContentView(bindingPopupSettings.root)
@@ -274,7 +286,7 @@ class MainActivity : AppCompatActivity() {
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         dialog.show()
-        bindingPopupSettings.buttonAccept.setOnClickListener{
+        bindingPopupSettings.buttonAccept.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java).apply {}
             startActivity(intent)
             finishAll()
@@ -302,14 +314,17 @@ class MainActivity : AppCompatActivity() {
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
     }
-    fun finishAll(){
+
+    fun finishAll() {
         thunderSound.stop()
         finish()
         change = false
     }
 
     fun idSContracts(name: String) {
-        val id: Int = resources.getIdentifier("folder_yellow", "drawable", packageName)
+        val id: Int = resources.getIdentifier("$name", "drawable", packageName)
         binding.imageFileCenter.setImageResource(id)
     }
+
+    fun generateFinalScore(): String = game.getFinalScore()
 }
