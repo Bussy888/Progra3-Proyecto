@@ -268,4 +268,14 @@
         app:layout_constraintEnd_toEndOf="@id/image_note"
         app:layout_constraintTop_toTopOf="@id/image_note" />
 
+    <ImageButton
+        android:id="@+id/button_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="@dimen/one_twenty"
+        android:layout_height="@dimen/one_twenty"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/house_icon"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
