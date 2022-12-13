@@ -206,7 +206,6 @@ class MainActivity : AppCompatActivity() {
     fun progressBarCycle() {
         object : CountDownTimer(20000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                Log.v("Log_tag", "Tickprogress $i $millisUntilFinished  ")
                 i++
                 binding.progressBar.progress = i * 100 / (20000 / 1000)
             }
