@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import androidx.viewpager.widget.ViewPager.DecorView
 import com.grupoC.anderylosandersaurios.R
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
 import java.util.*
@@ -73,7 +72,7 @@ class SettingsActivity : AppCompatActivity() {
         val locale = this.resources.configuration.locales
 
         binding.english.setOnClickListener {
-            setLocale("en")
+            setLocale("enus")
         }
         binding.spanish.setOnClickListener {
             setLocale("es")
@@ -81,9 +80,12 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setLocale(languageCode: String) {
-        var locale = Locale(languageCode)
+        val locale = Locale(languageCode)
         Locale.setDefault(locale)
-        this.resources.configuration.setLocale(locale)
+        val resources = this.resources
+        val config = resources.configuration
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
         this.recreate()
     }
 
