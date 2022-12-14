@@ -127,6 +127,7 @@
         android:text="@string/options"
         android:textColor="@color/grey"
         android:textSize="@dimen/text_thirty"
+        android:fontFamily="@font/amaranth"
         app:layout_constraintBottom_toBottomOf="@id/image_note"
         app:layout_constraintEnd_toEndOf="@id/image_note"
         app:layout_constraintStart_toStartOf="@id/image_note"
@@ -140,6 +141,7 @@
         android:text="@string/language"
         android:textColor="@color/dark_red"
         android:textSize="@dimen/text_twenty"
+        android:fontFamily="@font/amaranth"
         app:layout_constraintEnd_toEndOf="@id/image_note_red"
         app:layout_constraintStart_toStartOf="@id/image_note_red"
         app:layout_constraintTop_toTopOf="@id/image_note_red" />
@@ -160,6 +162,7 @@
             android:layout_height="@dimen/twenty_five"
             android:text="@string/english"
             android:textSize="@dimen/text_fifteen"
+            android:fontFamily="@font/amaranth"
             android:textColor="@color/dark_red" />
 
         <RadioButton
@@ -168,6 +171,7 @@
             android:layout_height="@dimen/twenty_five"
             android:text="@string/spanish"
             android:textSize="@dimen/text_fifteen"
+            android:fontFamily="@font/amaranth"
             android:textColor="@color/dark_red" />
 
     </RadioGroup>
@@ -180,6 +184,7 @@
         android:text="@string/vibration"
         android:textColor="@color/dark_yellow"
         android:textSize="@dimen/text_twenty"
+        android:fontFamily="@font/amaranth"
         app:layout_constraintEnd_toEndOf="@id/image_note_yellow"
         app:layout_constraintStart_toStartOf="@id/image_note_yellow"
         app:layout_constraintTop_toTopOf="@id/image_note_yellow" />
@@ -197,12 +202,14 @@
             android:layout_width="@dimen/hundred"
             android:layout_height="@dimen/twenty_five"
             android:text="@string/on"
+            android:fontFamily="@font/amaranth"
             android:textColor="@color/dark_yellow" />
 
         <RadioButton
             android:layout_width="@dimen/hundred"
             android:layout_height="@dimen/twenty_five"
             android:text="@string/off"
+            android:fontFamily="@font/amaranth"
             android:textColor="@color/dark_yellow" />
 
     </RadioGroup>
@@ -215,6 +222,7 @@
         android:text="@string/music_volume"
         android:textColor="@color/dark_blue"
         android:textSize="@dimen/text_twenty"
+        android:fontFamily="@font/amaranth"
         app:layout_constraintEnd_toEndOf="@id/image_note_blue"
         app:layout_constraintStart_toStartOf="@id/image_note_blue"
         app:layout_constraintTop_toTopOf="@id/image_note_blue" />

@@ -199,8 +199,6 @@ class MainActivity : AppCompatActivity() {
                 val seconds = seconds(millisUntilFinished)
                 binding.textViewTimer.text = "$minute:$seconds"
             }
-
-
             override fun onFinish() {
                 if (change) {
                     val intent = Intent(applicationContext, GameOverActivity::class.java).apply {

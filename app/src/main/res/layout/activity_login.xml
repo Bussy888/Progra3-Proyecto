@@ -183,6 +183,7 @@
             android:backgroundTint="@color/dark_grey"
             app:layout_constraintEnd_toStartOf="@id/button_new_user"
             android:text="@string/log_in"
+            android:fontFamily="@font/oxanium_medium"
             android:textSize="@dimen/text_eleven"/>
 
         <Button
@@ -195,6 +196,7 @@
             app:layout_constraintStart_toEndOf="@id/button_log_in"
             android:backgroundTint="@color/dark_grey"
             android:text="@string/new_user"
+            android:fontFamily="@font/oxanium_medium"
             android:textSize="@dimen/text_eight"/>
 
         <Button

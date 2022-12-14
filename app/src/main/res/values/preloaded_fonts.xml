@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/amaranth</item>
         <item>@font/asap</item>
         <item>@font/asap_bold</item>
         <item>@font/asap_medium</item>
+        <item>@font/kalam</item>
+        <item>@font/margarine</item>
+        <item>@font/oxanium_medium</item>
+        <item>@font/press_start_2p</item>
+        <item>@font/volkhov</item>
+        <item>@font/vt323</item>
     </array>
 </resources>

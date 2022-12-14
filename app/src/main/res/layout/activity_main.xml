@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -121,11 +121,11 @@
         android:id="@+id/image_cabinet_blue"
         android:layout_width="@dimen/hundred"
         android:layout_height="@dimen/hundred"
-        app:layout_constraintEnd_toStartOf="@id/image_cabinet_red"
-        app:layout_constraintBottom_toTopOf="@id/guia_horizontal_24"
-        android:src="@drawable/file_cabinet_blue"
+        android:layout_marginEnd="12dp"
         android:scaleType="fitCenter"
-        android:layout_marginEnd="@dimen/twenty"/>
+        android:src="@drawable/file_cabinet_blue"
+        app:layout_constraintBottom_toTopOf="@id/guia_horizontal_24"
+        app:layout_constraintEnd_toStartOf="@id/image_cabinet_red" />
 
     <ImageView
         android:id="@+id/image_cabinet_yellow"
@@ -184,6 +184,7 @@
         android:background="@color/dark_grey"
         android:gravity="center_horizontal|center_vertical"
         android:text="5:00"
+        android:fontFamily="@font/oxanium_medium"
         android:textColor="#FF0000"
         android:textSize="@dimen/text_fifty"
         android:textStyle="bold"
@@ -203,7 +204,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf=" parent"
         android:text="@string/menu"
-        android:textSize="@dimen/text_twenty_five"/>
+        android:textSize="@dimen/text_twenty_five"
+        android:fontFamily="@font/oxanium_medium"
+        android:textStyle="bold"
+        />
 
     <View
         android:id="@+id/progressBarBackGround"
@@ -242,6 +246,9 @@
         android:layout_marginLeft="@dimen/thirty"
         android:layout_marginBottom="@dimen/forty"
         android:text="@string/nulo"
+        android:fontFamily="@font/oxanium_medium"
+        android:textStyle="bold"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textSize="@dimen/text_twenty_five"
         app:layout_constraintBottom_toBottomOf="@id/image_cabinet_blue"
@@ -254,6 +261,9 @@
         android:layout_marginLeft="@dimen/thirty"
         android:layout_marginBottom="@dimen/forty"
         android:text="@string/nulo"
+        android:fontFamily="@font/oxanium_medium"
+        android:textStyle="bold"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textSize="@dimen/text_twenty_five"
         app:layout_constraintBottom_toBottomOf="@id/image_cabinet_red"
@@ -266,6 +276,9 @@
         android:layout_marginLeft="@dimen/thirty"
         android:layout_marginBottom="@dimen/forty"
         android:text="@string/nulo"
+        android:fontFamily="@font/oxanium_medium"
+        android:textStyle="bold"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textSize="@dimen/text_twenty_five"
         app:layout_constraintBottom_toBottomOf="@id/image_cabinet_yellow"
@@ -277,6 +290,9 @@
         android:layout_height="0dp"
         android:text="@string/nulo"
         android:textSize="@dimen/text_twenty_five"
+        android:fontFamily="@font/oxanium_medium"
+        android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/image_cabinet_green"
         app:layout_constraintLeft_toLeftOf="@id/image_cabinet_green"
         android:layout_marginBottom="@dimen/forty"
