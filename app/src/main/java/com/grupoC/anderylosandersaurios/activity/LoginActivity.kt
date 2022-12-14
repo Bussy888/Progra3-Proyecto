@@ -140,7 +140,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initVolumen() {
-        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.thunder)
+        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.the_consequence_of_style)
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         VOLUME = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
         mediaPlayer.start()
