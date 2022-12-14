@@ -122,6 +122,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        //super.onBackPressed()
+        managePopupMenu()
+    }
+
     fun clickButton(buttonPosition: Int) {
         when (colors[buttonPosition - 1]) {
             "red" -> {
@@ -163,7 +168,6 @@ class MainActivity : AppCompatActivity() {
         binding.buttonFour.setImageResource(colorDraw[game.buttonsContracts[3].color]!!)
     }
 
-
     fun initGame() {
         binding.redScore.text = "0"
         binding.yellowScore.text = "0"
@@ -172,7 +176,6 @@ class MainActivity : AppCompatActivity() {
         game.generateContract()
         setButtonColors()
     }
-
 
     override fun onDestroy() {
         super.onDestroy()
@@ -200,7 +203,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 if (change) {
-                    val intent = Intent(applicationContext, GameOverActivity::class.java).apply {}
+                    val intent = Intent(applicationContext, GameOverActivity::class.java).apply {
+
+                    }
                     startActivity(intent)
                 }
             }
@@ -218,7 +223,7 @@ class MainActivity : AppCompatActivity() {
                 i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
-                vibration()
+                vibration(1500)
                 binding.progressBar.progress = 0
                 i = 0
             }
@@ -227,10 +232,10 @@ class MainActivity : AppCompatActivity() {
         shuffleButtons()
     }
 
-    fun vibration() {
-        if(change) {
+    fun vibration(duration: Long) {
+        if (change) {
             val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-            vibratorService.vibrate(1500)
+            vibratorService.vibrate(duration)
         }
     }
 

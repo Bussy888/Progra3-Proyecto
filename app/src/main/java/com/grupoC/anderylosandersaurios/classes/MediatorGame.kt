@@ -11,10 +11,12 @@ data class MediatorGame(
     val activity: MainActivity
 ) {
     private var colors: List<String> = listOf("red", "yellow", "blue", "green")
-    private var colorTexts: List<String> = listOf("r", "y", "b", "g")
-    private var texts: List<String> = listOf("r", "y", "b", "g", "")
+    private var colorTexts: List<String> = listOf("red", "yellow", "blue", "green")
+    private var texts: List<String> = listOf("red", "yellow", "blue", "green", "")
 
     private lateinit var contract: Contract
+
+    private val timeVibration: Long = 200
 
     fun checking(colorCheck: String): Int {
         when (colorCheck) {
@@ -23,6 +25,7 @@ data class MediatorGame(
                     blueCabinet.score++
                 } else {
                     blueCabinet.score--
+                    activity.vibration(timeVibration)
                 }
                 return blueCabinet.score
             }
@@ -31,6 +34,7 @@ data class MediatorGame(
                     redCabinet.score++
                 } else {
                     redCabinet.score--
+                    activity.vibration(timeVibration)
                 }
                 return redCabinet.score
             }
@@ -39,6 +43,7 @@ data class MediatorGame(
                     yellowCabinet.score++
                 } else {
                     yellowCabinet.score--
+                    activity.vibration(timeVibration)
                 }
                 return yellowCabinet.score
             }
@@ -47,6 +52,7 @@ data class MediatorGame(
                     greenCabinet.score++
                 } else {
                     greenCabinet.score--
+                    activity.vibration(timeVibration)
                 }
                 return greenCabinet.score
             }
@@ -59,18 +65,17 @@ data class MediatorGame(
         texts = texts.shuffled()
     }
 
-    // TODO: Usar color image
     fun generateContract() {
         shuffleParameters()
         contract = Contract(colors[0], colorTexts[0], texts[0])
         contract.defineColor()
-        activity.idSContracts("folder_${contract.colorPaper}")
+        println("folder_${contract.image}")
+        activity.idSContracts("folder_${contract.image}")
     }
 
-    fun getFinalScore(): String =
-        "${blueCabinet.score + redCabinet.score + yellowCabinet.score + greenCabinet.score}"
-
-    fun identifyButtonColor() {
-
+    fun getFinalScore(): String {
+        val finalScore: Int =
+            blueCabinet.score + redCabinet.score + yellowCabinet.score + greenCabinet.score
+        return "${if (finalScore < 0) "$finalScore" else "0"}"
     }
 }
