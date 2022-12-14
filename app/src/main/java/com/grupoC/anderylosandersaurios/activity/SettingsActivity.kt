@@ -65,20 +65,14 @@ class SettingsActivity : AppCompatActivity() {
         binding.spanish.setOnClickListener {
             setLocale("es")
         }
-        binding.offVibration.setOnClickListener{
-
+        binding.offVib.setOnClickListener{
             val intentMain = Intent(this, MainActivity::class.java).apply { }
             intentMain.putExtra("vibration", false)
-         //   game.timeVibration = 0
-          //  mainActivity.isVib = false
         }
-        binding.onVibration.setOnClickListener{
+        binding.onVib.setOnClickListener{
 
-            val intentMain = Intent(this, MainActivity::class.java).apply { }
-            intentMain.putExtra("vibration", true)
-          //  game.timeVibration = 200
-          //  mainActivity.isVib = true
-
+           val intentMain = Intent(this, MainActivity::class.java).apply { }
+           intentMain.putExtra("vibration", true)
         }
 
         binding.buttonMenu.setOnClickListener {

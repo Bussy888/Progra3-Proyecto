@@ -212,6 +212,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun progressBarCycle() {
+        val isVib = intent.getBooleanExtra("vibration", true)
         object : CountDownTimer(20000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 i++
@@ -222,7 +223,11 @@ class MainActivity : AppCompatActivity() {
                 i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
-                vibration(1500)
+                if(isVib) {
+                    vibration(1500)
+                }else{
+                    println("Deberia funcionar AAAAAAAAAAAAAAAAAAAA")
+                }
                 binding.progressBar.progress = 0
                 i = 0
             }
@@ -230,17 +235,18 @@ class MainActivity : AppCompatActivity() {
 
         shuffleButtons()
     }
+    fun cancelVibration(){
+        val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        vibratorService.cancel()
+    }
 
     fun vibration(duration: Long) {
 
-        var isVib = intent.getBooleanExtra("vibration", true)
-        if(isVib) {
-            if (change) {
-                val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-                vibratorService.vibrate(duration)
-            }
-        }
+        val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
+                if (change) {
+                    vibratorService.vibrate(duration)
+                }
     }
 
     fun thunder(millisInFuture: Long, countDownInterval: Long, view: View) {
