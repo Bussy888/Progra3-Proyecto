@@ -1,6 +1,8 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.content.Intent
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +17,9 @@ import com.grupoC.anderylosandersaurios.R
 
 class GameOverActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameOverBinding
+
+    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var audioManager: AudioManager
 
     companion object {
         val SCORE: String = "new_Message"
@@ -34,11 +39,14 @@ class GameOverActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
+        initVolumen()
+
         binding.scoreNumber.text = score
 
         binding.buttonMenu.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -57,5 +65,45 @@ class GameOverActivity : AppCompatActivity() {
             controller.systemBarsBehavior =
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
+    }
+
+    private fun initVolumen() {
+        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.thunder)
+        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+        LoginActivity.VOLUME = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+        mediaPlayer.start()
+        mediaPlayer.isLooping = true
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainMenuActivity::class.java).apply {}
+        startActivity(intent)
+        finish()
+    }
+
+    override fun onPause() {
+        mediaPlayer.stop()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        mediaPlayer.stop()
+        super.onDestroy()
+    }
+
+    override fun onStop() {
+        mediaPlayer.stop()
+        super.onStop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        mediaPlayer.start()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mediaPlayer.start()
     }
 }

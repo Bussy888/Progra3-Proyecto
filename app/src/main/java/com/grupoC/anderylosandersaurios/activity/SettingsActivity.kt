@@ -16,6 +16,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.R
+import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VIBRATION
 import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VOLUME
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
 import java.util.*
@@ -64,6 +65,14 @@ class SettingsActivity : AppCompatActivity() {
             val intent = Intent(this, MainMenuActivity::class.java).apply {}
             startActivity(intent)
         }
+
+        binding.vibrationOn.setOnClickListener{
+            VIBRATION = true
+        }
+
+        binding.vibrationOff.setOnClickListener {
+            VIBRATION = false
+        }
     }
 
     private fun setLocale(languageCode: String) {
@@ -94,6 +103,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onBackPressed()
         val intent = Intent(this, MainMenuActivity::class.java).apply {}
         startActivity(intent)
+        finish()
     }
 
     private fun initVolumen(){

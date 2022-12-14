@@ -21,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
     companion object{
         var VOLUME: Int = 0
+        var VIBRATION = true
     }
 
     private lateinit var binding: ActivityLoginBinding
