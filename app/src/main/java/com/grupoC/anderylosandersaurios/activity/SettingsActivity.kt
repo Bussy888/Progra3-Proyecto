@@ -1,11 +1,13 @@
 package com.grupoC.anderylosandersaurios.activity
 
-import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.content.Context
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.os.Vibrator
 import android.view.View
 import android.view.WindowManager
@@ -17,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.R
 import com.grupoC.anderylosandersaurios.classes.MediatorGame
+import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VOLUME
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
 import java.util.*
 
@@ -27,9 +30,6 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var mainActivity: MainActivity
     private lateinit var game: MediatorGame
 
-
-    // TODO: COPIAR CODIGO PARA OCULTAR BARRA DE NAVEGACION A TODAS LAS ACTIVIDADES
-    private lateinit var decorWindow: View //barraNaveg
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,41 +42,22 @@ class SettingsActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        decorWindow = window.decorView //barranaveg
-        hideSystemUI() //barranaveg
-
-        // TODO: VER CÓMO PASAR EL VOLUMEN SETEADO POR LA BARRA AL RESTO DE LA APLICACIÓN
-        mediaPlayer = MediaPlayer.create(this, R.raw.thunder)
-        //mediaPlayer.start()
-        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
-
-        val max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
-        val currentVol = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
-
-        binding.barVolume.max = max
-        binding.barVolume.progress = currentVol
+        hideSystemUI()
+        initVolumen()
 
         binding.barVolume.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0)
+                VOLUME = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
-                // you can probably leave this empty
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-                // you can probably leave this empty
             }
 
         })
-
-
-        // TODO: ARREGLAR CAMBIO DE IDIOMA, NO SÉ QUÉ LE PASA TnT
-
-        //FUNCA EL ESPAÑOL, PERO NO VUELVE A INGLES O PASA AL REVES
-
-        val locale = this.resources.configuration.locales
 
         binding.english.setOnClickListener {
             setLocale("enus")
@@ -98,6 +79,11 @@ class SettingsActivity : AppCompatActivity() {
           //  game.timeVibration = 200
           //  mainActivity.isVib = true
 
+        }
+
+        binding.buttonMenu.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java).apply {}
+            startActivity(intent)
         }
     }
 
@@ -126,6 +112,50 @@ class SettingsActivity : AppCompatActivity() {
             controller.systemBarsBehavior =
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainMenuActivity::class.java).apply {}
+        startActivity(intent)
+    }
+
+    private fun initVolumen(){
+        mediaPlayer = MediaPlayer.create(this, R.raw.thunder)
+        mediaPlayer.start()
+        mediaPlayer.isLooping = true
+        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+
+        val max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+        val currentVol = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+
+        binding.barVolume.max = max
+        binding.barVolume.progress = currentVol
+    }
+
+    override fun onPause() {
+        mediaPlayer.stop()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        mediaPlayer.stop()
+        super.onDestroy()
+    }
+
+    override fun onStop() {
+        mediaPlayer.stop()
+        super.onStop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        mediaPlayer.start()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mediaPlayer.start()
     }
 
 }
