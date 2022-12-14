@@ -1,10 +1,12 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.View
 import android.view.WindowManager
 import android.widget.SeekBar
@@ -14,6 +16,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.R
+import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VOLUME
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
 import java.util.*
 
@@ -21,9 +24,6 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
-
-    // TODO: COPIAR CODIGO PARA OCULTAR BARRA DE NAVEGACION A TODAS LAS ACTIVIDADES
-    private lateinit var decorWindow: View //barraNaveg
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,30 +36,19 @@ class SettingsActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-        decorWindow = window.decorView //barranaveg
-        hideSystemUI() //barranaveg
-
-        mediaPlayer = MediaPlayer.create(this, R.raw.thunder)
-        //mediaPlayer.start()
-        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
-
-        val max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
-        val currentVol = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
-
-        binding.barVolume.max = max
-        binding.barVolume.progress = currentVol
+        hideSystemUI()
+        initVolumen()
 
         binding.barVolume.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0)
+                VOLUME = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {
-                // you can probably leave this empty
             }
 
             override fun onStopTrackingTouch(seekBar: SeekBar) {
-                // you can probably leave this empty
             }
 
         })
@@ -96,12 +85,53 @@ class SettingsActivity : AppCompatActivity() {
         ).let { controller ->
             controller.hide(WindowInsetsCompat.Type.systemBars())
 
-            // When the screen is swiped up at the bottom
-            // of the application, the navigationBar shall
-            // appear for some time
             controller.systemBarsBehavior =
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainMenuActivity::class.java).apply {}
+        startActivity(intent)
+    }
+
+    private fun initVolumen(){
+        mediaPlayer = MediaPlayer.create(this, R.raw.thunder)
+        mediaPlayer.start()
+        mediaPlayer.isLooping = true
+        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+
+        val max = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+        val currentVol = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+
+        binding.barVolume.max = max
+        binding.barVolume.progress = currentVol
+    }
+
+    override fun onPause() {
+        mediaPlayer.stop()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        mediaPlayer.stop()
+        super.onDestroy()
+    }
+
+    override fun onStop() {
+        mediaPlayer.stop()
+        super.onStop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        mediaPlayer.start()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mediaPlayer.start()
     }
 
 }

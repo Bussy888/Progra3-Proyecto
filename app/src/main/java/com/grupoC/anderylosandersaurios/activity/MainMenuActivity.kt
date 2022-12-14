@@ -2,6 +2,8 @@ package com.grupoC.anderylosandersaurios.activity
 
 import android.R
 import android.content.Intent
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,12 +12,14 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
-import com.grupoC.anderylosandersaurios.activity.SettingsActivity
+import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VOLUME
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainMenuBinding
 
 class MainMenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainMenuBinding
+    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var audioManager: AudioManager
 
     companion object {
         val SCORE: String = "new_Message"
@@ -31,10 +35,11 @@ class MainMenuActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-
+        initVolumen()
         binding.buttonOptions.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java).apply {}
-            startActivity(intent)
+            val intentRedirect = Intent(this, SettingsActivity::class.java)
+            startActivity(intentRedirect)
+            finish()
         }
 
         binding.buttonTutorial.setOnClickListener {
@@ -70,5 +75,38 @@ class MainMenuActivity : AppCompatActivity() {
             controller.systemBarsBehavior =
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
+    }
+
+    private fun initVolumen() {
+        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.thunder)
+        mediaPlayer.start()
+        mediaPlayer.isLooping = true
+        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, VOLUME, 0)
+    }
+
+    override fun onPause() {
+        mediaPlayer.stop()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        mediaPlayer.stop()
+        super.onDestroy()
+    }
+
+    override fun onStop() {
+        mediaPlayer.stop()
+        super.onStop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        mediaPlayer.start()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mediaPlayer.start()
     }
 }

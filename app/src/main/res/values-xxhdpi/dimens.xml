@@ -56,5 +56,6 @@
     <dimen name="text_eleven">7sp</dimen>
     <dimen name="text_nine">6sp</dimen>
     <dimen name="text_eight">5sp</dimen>
+    <dimen name="text_seven">4sp</dimen>
 
 </resources>
