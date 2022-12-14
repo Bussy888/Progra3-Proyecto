@@ -162,7 +162,6 @@
             android:layout_height="@dimen/twenty_five"
             android:text="@string/english"
             android:textSize="@dimen/text_fifteen"
-            android:fontFamily="@font/amaranth"
             android:textColor="@color/dark_red" />
 
         <RadioButton
@@ -171,7 +170,6 @@
             android:layout_height="@dimen/twenty_five"
             android:text="@string/spanish"
             android:textSize="@dimen/text_fifteen"
-            android:fontFamily="@font/amaranth"
             android:textColor="@color/dark_red" />
 
     </RadioGroup>
@@ -199,7 +197,7 @@
         app:layout_constraintTop_toBottomOf="@id/text_language">
 
         <RadioButton
-            android:id="@+id/onVib"
+            android:id="@+id/vibration_on"
             android:layout_width="@dimen/hundred"
             android:layout_height="@dimen/twenty_five"
             android:text="@string/on"
@@ -207,7 +205,7 @@
             android:textColor="@color/dark_yellow" />
 
         <RadioButton
-            android:id="@+id/offVib"
+            android:id="@+id/vibration_off"
             android:layout_width="@dimen/hundred"
             android:layout_height="@dimen/twenty_five"
             android:text="@string/off"
@@ -224,7 +222,6 @@
         android:text="@string/music_volume"
         android:textColor="@color/dark_blue"
         android:textSize="@dimen/text_twenty"
-        android:fontFamily="@font/amaranth"
         app:layout_constraintEnd_toEndOf="@id/image_note_blue"
         app:layout_constraintStart_toStartOf="@id/image_note_blue"
         app:layout_constraintTop_toTopOf="@id/image_note_blue" />

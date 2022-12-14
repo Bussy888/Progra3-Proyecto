@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.R
+import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VIBRATION
 import com.grupoC.anderylosandersaurios.classes.ButtonContract
 import com.grupoC.anderylosandersaurios.classes.Cabinet
 import com.grupoC.anderylosandersaurios.classes.MediatorGame
@@ -28,6 +30,10 @@ import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var audioManager: AudioManager
+
     private lateinit var bindingPopupMenu: ItemPopupMenuBinding
     private lateinit var bindingPopupSettings: ItemPopupSettingsBinding
     private lateinit var thunderSound: MediaPlayer
@@ -60,8 +66,9 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        var hard = intent.getBooleanExtra("HARD", true)
+        initVolumen()
 
+        var hard = intent.getBooleanExtra("HARD", true)
 
         //Inicialización
         game = MediatorGame(
@@ -200,19 +207,20 @@ class MainActivity : AppCompatActivity() {
                 val seconds = seconds(millisUntilFinished)
                 binding.textViewTimer.text = "$minute:$seconds"
             }
+
+
             override fun onFinish() {
-                if (change ) {
+                if (change) {
                     val intent = Intent(applicationContext, GameOverActivity::class.java).apply {
+
                     }
                     startActivity(intent)
-
                 }
             }
         }.start()
     }
 
     fun progressBarCycle() {
-        val isVib = intent.getBooleanExtra("vibration", true)
         object : CountDownTimer(20000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 i++
@@ -223,10 +231,8 @@ class MainActivity : AppCompatActivity() {
                 i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
-                if(isVib) {
+                if(VIBRATION){
                     vibration(1500)
-                }else{
-                    println("Deberia funcionar AAAAAAAAAAAAAAAAAAAA")
                 }
                 binding.progressBar.progress = 0
                 i = 0
@@ -235,18 +241,12 @@ class MainActivity : AppCompatActivity() {
 
         shuffleButtons()
     }
-    fun cancelVibration(){
-        val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        vibratorService.cancel()
-    }
 
     fun vibration(duration: Long) {
-
-        val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-
-                if (change) {
-                    vibratorService.vibrate(duration)
-                }
+        if (change) {
+            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            vibratorService.vibrate(duration)
+        }
     }
 
     fun thunder(millisInFuture: Long, countDownInterval: Long, view: View) {
@@ -333,6 +333,7 @@ class MainActivity : AppCompatActivity() {
 
     fun finishAll() {
         thunderSound.stop()
+        mediaPlayer.stop()
         finish()
         change = false
 
@@ -344,4 +345,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun generateFinalScore(): String = game.getFinalScore()
+
+    private fun initVolumen() {
+        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.thunder)
+        //mediaPlayer.start()
+        mediaPlayer.isLooping = true
+        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, LoginActivity.VOLUME, 0)
+    }
 }

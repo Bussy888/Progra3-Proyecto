@@ -1,5 +1,6 @@
 package com.grupoC.anderylosandersaurios.classes
 
+import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VIBRATION
 import com.grupoC.anderylosandersaurios.activity.MainActivity
 
 data class MediatorGame(
@@ -25,7 +26,9 @@ data class MediatorGame(
                     blueCabinet.score++
                 } else {
                     blueCabinet.score--
-                    activity.vibration(timeVibration)
+                    if(VIBRATION){
+                        activity.vibration(timeVibration)
+                    }
                 }
                 return blueCabinet.score
             }
@@ -34,7 +37,9 @@ data class MediatorGame(
                     redCabinet.score++
                 } else {
                     redCabinet.score--
-                    activity.vibration(timeVibration)
+                    if(VIBRATION) {
+                        activity.vibration(timeVibration)
+                    }
                 }
                 return redCabinet.score
             }
@@ -43,7 +48,9 @@ data class MediatorGame(
                     yellowCabinet.score++
                 } else {
                     yellowCabinet.score--
-                    activity.vibration(timeVibration)
+                    if(VIBRATION) {
+                        activity.vibration(timeVibration)
+                    }
                 }
                 return yellowCabinet.score
             }
@@ -52,7 +59,9 @@ data class MediatorGame(
                     greenCabinet.score++
                 } else {
                     greenCabinet.score--
-                    activity.vibration(timeVibration)
+                    if(VIBRATION) {
+                        activity.vibration(timeVibration)
+                    }
                 }
                 return greenCabinet.score
             }

@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="@dimen/twenty"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,22 +17,22 @@
 
             <TextView
                 android:id="@+id/text_title"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/ten"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:text="Are you sure you want to go to settings?"
-                android:textSize="15sp"
+                android:text="@string/sure_settings"
+                android:textSize="@dimen/text_fifteen"
                 android:textColor="@color/teal_700"
                 android:fontFamily="@font/asap_medium"/>
             <View
                 android:id="@+id/lineView"
                 android:layout_width="match_parent"
-                android:layout_height="3dp"
+                android:layout_height="@dimen/four"
                 android:background="@color/teal_700"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/ten"
                 app:layout_constraintTop_toBottomOf="@id/text_title"/>
 
             <TextView
@@ -42,9 +42,9 @@
                 app:layout_constraintTop_toBottomOf="@id/lineView"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginTop="10dp"
-                android:text="You will have to start your game again"
-                android:textSize="15sp"
+                android:layout_marginTop="@dimen/ten"
+                android:text="@string/start_again"
+                android:textSize="@dimen/text_fifteen"
                 android:fontFamily="@font/asap"
                 android:textColor="@color/white"/>
             <androidx.constraintlayout.widget.Guideline
@@ -60,8 +60,8 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/darker_grey_low_opacity"
                 android:textColor="@color/almost_white"
-                android:layout_marginTop="10dp"
-                android:text="accept"
+                android:layout_marginTop="@dimen/ten"
+                android:text="@string/accept"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_content"
                 app:layout_constraintStart_toStartOf="@id/guidePopup"
@@ -73,7 +73,7 @@
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/darker_grey_low_opacity"
                 android:textColor="@color/almost_white"
-                android:text="Cancel"
+                android:text="@string/cancel"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_content"
                 app:layout_constraintStart_toStartOf="parent"

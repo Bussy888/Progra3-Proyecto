@@ -2,13 +2,11 @@ package com.grupoC.anderylosandersaurios.activity
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.Context
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.os.Vibrator
 import android.view.View
 import android.view.WindowManager
 import android.widget.SeekBar
@@ -18,7 +16,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.R
-import com.grupoC.anderylosandersaurios.classes.MediatorGame
+import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VIBRATION
 import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VOLUME
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
 import java.util.*
@@ -27,9 +25,6 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
-    private lateinit var mainActivity: MainActivity
-    private lateinit var game: MediatorGame
-
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,19 +60,18 @@ class SettingsActivity : AppCompatActivity() {
         binding.spanish.setOnClickListener {
             setLocale("es")
         }
-        binding.offVib.setOnClickListener{
-            val intentMain = Intent(this, MainActivity::class.java).apply { }
-            intentMain.putExtra("vibration", false)
-        }
-        binding.onVib.setOnClickListener{
-
-           val intentMain = Intent(this, MainActivity::class.java).apply { }
-           intentMain.putExtra("vibration", true)
-        }
 
         binding.buttonMenu.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java).apply {}
             startActivity(intent)
+        }
+
+        binding.vibrationOn.setOnClickListener{
+            VIBRATION = true
+        }
+
+        binding.vibrationOff.setOnClickListener {
+            VIBRATION = false
         }
     }
 
@@ -100,9 +94,6 @@ class SettingsActivity : AppCompatActivity() {
         ).let { controller ->
             controller.hide(WindowInsetsCompat.Type.systemBars())
 
-            // When the screen is swiped up at the bottom
-            // of the application, the navigationBar shall
-            // appear for some time
             controller.systemBarsBehavior =
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
@@ -112,10 +103,11 @@ class SettingsActivity : AppCompatActivity() {
         super.onBackPressed()
         val intent = Intent(this, MainMenuActivity::class.java).apply {}
         startActivity(intent)
+        finish()
     }
 
     private fun initVolumen(){
-        mediaPlayer = MediaPlayer.create(this, R.raw.thunder)
+        mediaPlayer = MediaPlayer.create(this, R.raw.the_consequence_of_style)
         mediaPlayer.start()
         mediaPlayer.isLooping = true
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager

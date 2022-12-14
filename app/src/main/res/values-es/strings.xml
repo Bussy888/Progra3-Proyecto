@@ -28,4 +28,9 @@
         <string name="invalid_email">EMAIL NO VÁLIDO</string>
         <string name="invalid_password">CONTRASEÑA NO VÁLIDA</string>
         <string name="login_to_an_account">INGRESAR A UNA CUENTA</string>
+        <string name="cancel">Cancelar</string>
+        <string name="accept">aceptar</string>
+        <string name="start_again">Tendrá que iniciar una nueva partida</string>
+        <string name="sure_menu">¿Está seguro que quiere ir al menú?</string>
+        <string name="sure_settings">¿Está seguro que quiere ir a opciones?</string>
 </resources>
