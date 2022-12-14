@@ -122,6 +122,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        //super.onBackPressed()
+        managePopupMenu()
+    }
+
     fun clickButton(buttonPosition: Int) {
         when (colors[buttonPosition - 1]) {
             "red" -> {
