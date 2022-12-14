@@ -1,9 +1,12 @@
 package com.grupoC.anderylosandersaurios.activity
 
+import android.content.Context
+import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
+import android.os.Vibrator
 import android.view.View
 import android.view.WindowManager
 import android.widget.SeekBar
@@ -13,6 +16,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.R
+import com.grupoC.anderylosandersaurios.classes.MediatorGame
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
 import java.util.*
 
@@ -20,6 +24,9 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
+    private lateinit var mainActivity: MainActivity
+    private lateinit var game: MediatorGame
+
 
     // TODO: COPIAR CODIGO PARA OCULTAR BARRA DE NAVEGACION A TODAS LAS ACTIVIDADES
     private lateinit var decorWindow: View //barraNaveg
@@ -76,6 +83,21 @@ class SettingsActivity : AppCompatActivity() {
         }
         binding.spanish.setOnClickListener {
             setLocale("es")
+        }
+        binding.offVibration.setOnClickListener{
+
+            val intentMain = Intent(this, MainActivity::class.java).apply { }
+            intentMain.putExtra("vibration", false)
+         //   game.timeVibration = 0
+          //  mainActivity.isVib = false
+        }
+        binding.onVibration.setOnClickListener{
+
+            val intentMain = Intent(this, MainActivity::class.java).apply { }
+            intentMain.putExtra("vibration", true)
+          //  game.timeVibration = 200
+          //  mainActivity.isVib = true
+
         }
     }
 

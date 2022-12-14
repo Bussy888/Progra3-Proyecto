@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         var hard = intent.getBooleanExtra("HARD", true)
 
+
         //Inicialización
         game = MediatorGame(
             Cabinet("blue", 0),
@@ -200,11 +201,11 @@ class MainActivity : AppCompatActivity() {
                 binding.textViewTimer.text = "$minute:$seconds"
             }
             override fun onFinish() {
-                if (change) {
+                if (change ) {
                     val intent = Intent(applicationContext, GameOverActivity::class.java).apply {
-
                     }
                     startActivity(intent)
+
                 }
             }
         }.start()
@@ -231,10 +232,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun vibration(duration: Long) {
-        if (change) {
-            val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-            vibratorService.vibrate(duration)
+
+        var isVib = intent.getBooleanExtra("vibration", true)
+        if(isVib) {
+            if (change) {
+                val vibratorService = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+                vibratorService.vibrate(duration)
+            }
         }
+
     }
 
     fun thunder(millisInFuture: Long, countDownInterval: Long, view: View) {
