@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
             progressBarCycle()
         }
         // El timer
-        timer(300000)
+        timer(10000)
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
 
@@ -199,7 +199,7 @@ class MainActivity : AppCompatActivity() {
             override fun onFinish() {
                 if (change) {
                     val intent = Intent(applicationContext, GameOverActivity::class.java).apply {
-
+                        putExtra(SCORE, generateFinalScore())
                     }
                     startActivity(intent)
                 }

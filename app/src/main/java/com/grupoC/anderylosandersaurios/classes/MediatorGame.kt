@@ -76,6 +76,6 @@ data class MediatorGame(
     fun getFinalScore(): String {
         val finalScore: Int =
             blueCabinet.score + redCabinet.score + yellowCabinet.score + greenCabinet.score
-        return "${if (finalScore < 0) "$finalScore" else "0"}"
+        return "${if (finalScore > 0) "$finalScore" else "0"}"
     }
 }
