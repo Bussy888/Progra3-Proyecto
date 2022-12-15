@@ -33,4 +33,6 @@
         <string name="start_again">Tendrá que iniciar una nueva partida</string>
         <string name="sure_menu">¿Está seguro que quiere ir al menú?</string>
         <string name="sure_settings">¿Está seguro que quiere ir a opciones?</string>
+        <string name="go_to_tutorial">¿Quieres ir al tutorial?</string>
+        <string name="tutorial_recommendation">Se recomienda leer el tutorial antes de jugar</string>
 </resources>

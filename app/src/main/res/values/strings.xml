@@ -40,4 +40,6 @@
     <string name="start_again">You will have to start your game again</string>
     <string name="sure_menu">Are you sure you want to go to menu?</string>
     <string name="sure_settings">Are you sure you want to go to settings?</string>
+    <string name="go_to_tutorial">Do you want to go to the tutorial?</string>
+    <string name="tutorial_recommendation">It is recommended to see the tutorial before playing</string>
 </resources>
