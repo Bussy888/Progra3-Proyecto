@@ -26,7 +26,7 @@ data class MediatorGame(
                     blueCabinet.score++
                 } else {
                     blueCabinet.score--
-                    if(VIBRATION){
+                    if (VIBRATION) {
                         activity.vibration(timeVibration)
                     }
                 }
@@ -37,7 +37,7 @@ data class MediatorGame(
                     redCabinet.score++
                 } else {
                     redCabinet.score--
-                    if(VIBRATION) {
+                    if (VIBRATION) {
                         activity.vibration(timeVibration)
                     }
                 }
@@ -48,7 +48,7 @@ data class MediatorGame(
                     yellowCabinet.score++
                 } else {
                     yellowCabinet.score--
-                    if(VIBRATION) {
+                    if (VIBRATION) {
                         activity.vibration(timeVibration)
                     }
                 }
@@ -59,7 +59,7 @@ data class MediatorGame(
                     greenCabinet.score++
                 } else {
                     greenCabinet.score--
-                    if(VIBRATION) {
+                    if (VIBRATION) {
                         activity.vibration(timeVibration)
                     }
                 }
@@ -82,9 +82,9 @@ data class MediatorGame(
         activity.idSContracts("folder_${contract.image}")
     }
 
-    fun getFinalScore(): String {
+    fun getFinalScore(): Int {
         val finalScore: Int =
             blueCabinet.score + redCabinet.score + yellowCabinet.score + greenCabinet.score
-        return "${if (finalScore > 0) "$finalScore" else "0"}"
+        return if (finalScore > 0) finalScore else 0
     }
 }

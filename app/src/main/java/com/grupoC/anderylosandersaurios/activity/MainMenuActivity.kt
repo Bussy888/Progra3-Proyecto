@@ -2,6 +2,7 @@ package com.grupoC.anderylosandersaurios.activity
 
 import android.R
 import android.content.Intent
+import android.content.SharedPreferences
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
@@ -83,6 +84,10 @@ class MainMenuActivity : AppCompatActivity() {
         mediaPlayer.isLooping = true
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, VOLUME, 0)
+    }
+
+    private fun managePreferences(){
+
     }
 
     override fun onPause() {

@@ -344,7 +344,7 @@ class MainActivity : AppCompatActivity() {
         binding.imageFileCenter.setImageResource(id)
     }
 
-    fun generateFinalScore(): String = game.getFinalScore()
+    fun generateFinalScore(): Int = game.getFinalScore()
 
     private fun initVolumen() {
         mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.thunder)

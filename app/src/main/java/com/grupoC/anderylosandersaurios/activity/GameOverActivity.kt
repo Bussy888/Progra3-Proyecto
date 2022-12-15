@@ -30,7 +30,7 @@ class GameOverActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGameOverBinding.inflate(layoutInflater)
 
-        val score: String = intent.getStringExtra(SCORE).orEmpty()
+        val score: Int = intent.getIntExtra(SCORE, 0)
 
         setContentView(binding.root)
         hideSystemUI()
@@ -41,10 +41,13 @@ class GameOverActivity : AppCompatActivity() {
 
         initVolumen()
 
-        binding.scoreNumber.text = score
+        binding.scoreNumber.text = score.toString()
 
         binding.buttonMenu.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
+            intent.apply {
+                putExtra(SCORE, score)
+            }
             startActivity(intent)
             finish()
         }
