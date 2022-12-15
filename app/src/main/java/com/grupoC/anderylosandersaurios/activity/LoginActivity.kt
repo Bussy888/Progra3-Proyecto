@@ -2,6 +2,8 @@ package com.grupoC.anderylosandersaurios.activity
 
 import android.R
 import android.content.Intent
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,8 +18,16 @@ import com.google.firebase.auth.FirebaseUser
 import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
+
+    companion object{
+        var VOLUME: Int = 0
+        var VIBRATION = true
+    }
+
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var mediaPlayer: MediaPlayer
+    private lateinit var audioManager: AudioManager
     var currentUser: FirebaseUser?=null
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -28,6 +38,8 @@ class LoginActivity : AppCompatActivity() {
 
         hideSystemUI()
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        initVolumen()
 
         initUi()
     }
@@ -125,5 +137,38 @@ class LoginActivity : AppCompatActivity() {
 
     private fun validPassword(password:String):Boolean {
         return Regex(pattern = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}\$").matches(password)
+    }
+
+    private fun initVolumen() {
+        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.the_consequence_of_style)
+        audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
+        VOLUME = audioManager.getStreamVolume(AudioManager.STREAM_MUSIC)
+        mediaPlayer.start()
+        mediaPlayer.isLooping = true
+    }
+
+    override fun onPause() {
+        mediaPlayer.stop()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        mediaPlayer.stop()
+        super.onDestroy()
+    }
+
+    override fun onStop() {
+        mediaPlayer.stop()
+        super.onStop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        mediaPlayer.start()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mediaPlayer.start()
     }
 }

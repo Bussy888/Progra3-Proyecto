@@ -194,12 +194,14 @@
         app:layout_constraintTop_toBottomOf="@id/text_language">
 
         <RadioButton
+            android:id="@+id/vibration_on"
             android:layout_width="@dimen/hundred"
             android:layout_height="@dimen/twenty_five"
             android:text="@string/on"
             android:textColor="@color/dark_yellow" />
 
         <RadioButton
+            android:id="@+id/vibration_off"
             android:layout_width="@dimen/hundred"
             android:layout_height="@dimen/twenty_five"
             android:text="@string/off"
