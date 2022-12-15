@@ -120,7 +120,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onPause()
     }
 
@@ -130,7 +130,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onStop()
     }
 

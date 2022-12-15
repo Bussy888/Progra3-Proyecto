@@ -64,10 +64,10 @@
 
         <Button
             android:id="@+id/button_options"
-            android:layout_width="@dimen/eighty_five"
-            android:layout_height="@dimen/forty"
+            android:layout_width="@dimen/ninety_five"
+            android:layout_height="@dimen/fifty"
             android:text="@string/options"
-            android:textSize="@dimen/text_seven"
+            android:textSize="@dimen/text_nine"
             android:backgroundTint="@color/brown"
             android:outlineProvider="bounds"
             android:elevation="@dimen/five"
@@ -78,10 +78,10 @@
 
         <Button
             android:id="@+id/button_tutorial"
-            android:layout_width="@dimen/eighty_five"
-            android:layout_height="@dimen/forty"
+            android:layout_width="@dimen/ninety_four"
+            android:layout_height="@dimen/fifty"
             android:text="@string/tutorial"
-            android:textSize="@dimen/text_seven"
+            android:textSize="@dimen/text_nine"
             android:backgroundTint="@color/brown"
             android:outlineProvider="bounds"
             android:elevation="@dimen/five"
