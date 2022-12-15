@@ -56,7 +56,7 @@
 
             <Button
                 android:id="@+id/buttonAccept"
-                android:layout_width="160dp"
+                android:layout_width="@dimen/one_fifty"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/darker_grey_low_opacity"
                 android:textColor="@color/almost_white"
@@ -68,7 +68,7 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
             <Button
                 android:id="@+id/buttonCancel"
-                android:layout_width="160dp"
+                android:layout_width="@dimen/one_fifty"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/ten"
                 android:backgroundTint="@color/darker_grey_low_opacity"
