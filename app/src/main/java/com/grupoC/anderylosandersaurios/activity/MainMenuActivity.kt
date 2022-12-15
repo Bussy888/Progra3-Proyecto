@@ -1,8 +1,8 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.R
-import android.content.Context
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
@@ -108,6 +108,7 @@ class MainMenuActivity : AppCompatActivity() {
         popupTutorialBinding.buttonAccept.setOnClickListener {
             val intent = Intent(this, RulesActivity::class.java).apply {}
             startActivity(intent)
+            dialog.dismiss()
 
         }
         popupTutorialBinding.buttonCancel.setOnClickListener {
@@ -171,16 +172,11 @@ class MainMenuActivity : AppCompatActivity() {
     override fun onRestart() {
         mediaPlayer.start()
         super.onRestart()
-
+        mediaPlayer.start()
     }
 
     override fun onResume() {
-        mediaPlayer.start()
         super.onResume()
-    }
-
-    override fun onStart() {
         mediaPlayer.start()
-        super.onStart()
     }
 }

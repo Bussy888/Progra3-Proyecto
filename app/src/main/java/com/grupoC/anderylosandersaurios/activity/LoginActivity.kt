@@ -16,6 +16,8 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupTutorialBinding
 
 class LoginActivity : AppCompatActivity() {
 
