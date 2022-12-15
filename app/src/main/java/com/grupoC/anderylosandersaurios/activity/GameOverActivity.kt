@@ -12,8 +12,6 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.databinding.ActivityGameOverBinding
-import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
-import com.grupoC.anderylosandersaurios.R
 
 class GameOverActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameOverBinding

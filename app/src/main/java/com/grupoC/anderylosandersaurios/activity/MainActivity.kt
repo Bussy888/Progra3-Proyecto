@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var thunderSound: MediaPlayer
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
+
     private var change = true
     private var i = 0
 
@@ -50,6 +51,11 @@ class MainActivity : AppCompatActivity() {
         "blue" to R.drawable.folder_blue_plus,
         "green" to R.drawable.folder_green_plus
     )
+
+    private lateinit var timerGame: CountDownTimer
+    private var currentTime: Long = 0
+
+    private var hard: Boolean = false
 
     companion object {
         val SCORE: String = "new_Message"
@@ -79,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             this
         )
 
-        var hard = intent.getBooleanExtra("HARD", true)
+        hard = intent.getBooleanExtra("HARD", true)
 
         binding.redScore.text = "0"
         binding.yellowScore.text = "0"
@@ -103,7 +109,9 @@ class MainActivity : AppCompatActivity() {
             progressBarCycle()
         }
         // El timer
-        timer(10000, hard)
+        timerGame = timer(60000)
+        timerGame.start()
+
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
 
@@ -123,9 +131,11 @@ class MainActivity : AppCompatActivity() {
         binding.buttonFour.setOnClickListener {
             clickButton(4)
         }
+
         binding.buttonMenu.setOnClickListener {
             managePopupMenu()
         }
+
         binding.imageCoffeeCupS.setOnClickListener {
             managePopupSettings()
         }
@@ -201,26 +211,25 @@ class MainActivity : AppCompatActivity() {
         finishAll()
     }
 
-    fun timer(n: Long, hard: Boolean) {
+    fun timer(n: Long) =
         object : CountDownTimer(n, 1000) {
             override fun onTick(millisUntilFinished: Long) {
+                currentTime = millisUntilFinished
                 val minute = (millisUntilFinished / 1000) / 60
                 val seconds = seconds(millisUntilFinished)
                 binding.textViewTimer.text = "$minute:$seconds"
             }
 
-
             override fun onFinish() {
                 if (change) {
                     val intent = Intent(applicationContext, GameOverActivity::class.java).apply {
                         putExtra(SCORE, generateFinalScore(hard))
-                        putExtra("HARD",hard)
+                        putExtra("HARD", hard)
                     }
                     startActivity(intent)
                 }
             }
-        }.start()
-    }
+        }
 
     fun progressBarCycle() {
         object : CountDownTimer(20000, 1000) {
@@ -349,7 +358,7 @@ class MainActivity : AppCompatActivity() {
     fun generateFinalScore(hard: Boolean): Int {
         val finalScore = game.getFinalScore()
         if (hard) {
-            return (finalScore/2 + finalScore)
+            return (finalScore / 2 + finalScore)
         } else {
             return finalScore
         }
@@ -361,5 +370,18 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer.isLooping = true
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, LoginActivity.VOLUME, 0)
+    }
+
+    fun addExtraSeconds() {
+        timerGame.cancel()
+        timerGame = timer(currentTime + 5000)
+        timerGame.start()
+    }
+
+    fun subtractExtraSeconds() {
+        timerGame.cancel()
+        val residualTime = currentTime - 5000
+        timerGame = timer(if (residualTime > 1) residualTime else 0)
+        timerGame.start()
     }
 }
