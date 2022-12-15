@@ -52,6 +52,7 @@ class MainMenuActivity : AppCompatActivity() {
         binding.buttonOptions.setOnClickListener {
             val intentRedirect = Intent(this, SettingsActivity::class.java)
             startActivity(intentRedirect)
+            finish()
         }
 
         binding.buttonTutorial.setOnClickListener {

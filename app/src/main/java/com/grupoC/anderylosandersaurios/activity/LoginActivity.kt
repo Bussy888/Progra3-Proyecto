@@ -22,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
     companion object {
         var VOLUME: Int = 0
         var VIBRATION: Boolean = true
+        var LANG: String = "en"
         val ID: String = "email"
     }
 
@@ -165,7 +166,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onPause()
     }
 
@@ -175,7 +176,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onStop()
     }
 
