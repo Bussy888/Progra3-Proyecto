@@ -75,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         initVolumen()
+
         //Inicialización
         game = MediatorGame(
             Cabinet("blue", 0),
@@ -86,6 +87,10 @@ class MainActivity : AppCompatActivity() {
         )
 
         hard = intent.getBooleanExtra("HARD", true)
+
+        if(hard){
+            binding.imageIcon.setImageResource(R.drawable.moon_icon)
+        }
 
         binding.redScore.text = "0"
         binding.yellowScore.text = "0"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -164,8 +164,31 @@
         android:layout_height="@dimen/ninety"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="@dimen/fifteen"
+        android:layout_marginEnd="@dimen/fifteen"
+        android:layout_marginBottom="@dimen/fifteen"
         android:background="@color/grey"/>
+
+    <View
+        android:id="@+id/view_back_icon"
+        android:layout_width="@dimen/eighty"
+        android:layout_height="@dimen/eighty"
+        app:layout_constraintBottom_toBottomOf="@id/view_back_timer"
+        app:layout_constraintTop_toTopOf="@id/view_back_timer"
+        app:layout_constraintEnd_toStartOf="@id/view_back_timer"
+        android:background="@color/grey"/>
+
+    <ImageView
+        android:id="@+id/image_icon"
+        android:layout_width="@dimen/seventy"
+        android:layout_height="@dimen/seventy"
+        app:layout_constraintBottom_toBottomOf="@id/view_back_icon"
+        app:layout_constraintTop_toTopOf="@id/view_back_icon"
+        app:layout_constraintEnd_toEndOf="@id/view_back_icon"
+        app:layout_constraintStart_toStartOf="@id/view_back_icon"
+        android:background="@android:color/transparent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/sun_icon"/>
 
     <View
         android:layout_width="@dimen/one_forty"
