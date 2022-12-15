@@ -16,6 +16,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.R
+import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.LANG
 import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VIBRATION
 import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VOLUME
 import com.grupoC.anderylosandersaurios.databinding.ActivitySettingsBinding
@@ -54,16 +55,23 @@ class SettingsActivity : AppCompatActivity() {
 
         })
 
+        if(LANG == "en"){
+            binding.english.isChecked = true
+            binding.spanish.isChecked = false
+        } else{
+            binding.english.isChecked = false
+            binding.spanish.isChecked = true
+        }
+
         binding.english.setOnClickListener {
-            setLocale("enus")
+            setLocale("en")
         }
         binding.spanish.setOnClickListener {
             setLocale("es")
         }
 
         binding.buttonMenu.setOnClickListener {
-
-            finish()
+            onBackPressed()
         }
 
         binding.vibrationOn.setOnClickListener{
@@ -76,6 +84,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun setLocale(languageCode: String) {
+        LANG = languageCode
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
         val resources = this.resources
@@ -101,6 +110,8 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+        val intent = Intent(this, MainMenuActivity::class.java).apply {}
+        startActivity(intent)
         finish()
     }
 
