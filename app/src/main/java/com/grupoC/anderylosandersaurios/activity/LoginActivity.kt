@@ -18,13 +18,14 @@ import com.google.firebase.auth.FirebaseUser
 import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
 import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
 import com.grupoC.anderylosandersaurios.databinding.ItemPopupTutorialBinding
+import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
     companion object {
         var VOLUME: Int = 0
         var VIBRATION: Boolean = true
-        var LANG: String = "en"
+        var LANG: String = Locale.getDefault().language
         val ID: String = "email"
     }
 
