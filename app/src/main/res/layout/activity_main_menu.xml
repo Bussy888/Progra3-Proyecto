@@ -57,15 +57,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/button_tutorial"
+            app:layout_constraintBottom_toTopOf="@id/button_options"
             android:background="@color/dark_brown"
             android:outlineProvider="bounds"
             android:elevation="@dimen/five"/>
 
         <Button
             android:id="@+id/button_options"
-            android:layout_width="@dimen/ninety_five"
-            android:layout_height="@dimen/fifty"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/forty_five"
             android:text="@string/options"
             android:textSize="@dimen/text_nine"
             android:backgroundTint="@color/brown"
@@ -73,24 +73,24 @@
             android:elevation="@dimen/five"
             android:fontFamily="@font/volkhov"
             app:layout_constraintTop_toBottomOf="@id/view_background_score"
-            app:layout_constraintEnd_toStartOf="@id/button_tutorial"
+            app:layout_constraintEnd_toEndOf="@id/view_background_score"
             app:layout_constraintStart_toStartOf="@id/view_background_score"
-            app:layout_constraintBottom_toBottomOf="@id/view_background_niveles"/>
+            app:layout_constraintBottom_toTopOf="@id/button_tutorial"/>
 
         <Button
             android:id="@+id/button_tutorial"
-            android:layout_width="@dimen/ninety_four"
-            android:layout_height="@dimen/fifty"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/forty_five"
             android:text="@string/tutorial"
             android:textSize="@dimen/text_nine"
             android:backgroundTint="@color/brown"
             android:outlineProvider="bounds"
             android:elevation="@dimen/five"
             android:fontFamily="@font/volkhov"
-            app:layout_constraintTop_toBottomOf="@id/view_background_score"
+            app:layout_constraintTop_toBottomOf="@id/button_options"
             app:layout_constraintEnd_toEndOf="@id/view_background_score"
-            app:layout_constraintStart_toEndOf="@id/button_options"
-            app:layout_constraintBottom_toBottomOf="@id/view_background_niveles"/>
+            app:layout_constraintStart_toStartOf="@id/view_background_score"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/text_best_score"
