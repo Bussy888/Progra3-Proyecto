@@ -133,9 +133,12 @@ class LoginActivity : AppCompatActivity() {
 
     private fun redirectActivity() {
         val intentRedirect = Intent(this, MainMenuActivity::class.java)
-        intentRedirect.apply {
-            putExtra(ID, binding.editEmail.text)
-        }
+        MainMenuActivity.asignEmail(
+            if (!binding.editEmail.text.toString().isEmpty())
+                binding.editEmail.text.toString()
+            else
+                currentUser?.email.toString()
+        )
         startActivity(intentRedirect)
         finish()
     }

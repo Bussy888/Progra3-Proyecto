@@ -30,8 +30,7 @@ class RulesActivity : AppCompatActivity() {
         initVolumen()
 
         binding.buttonMenu.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java).apply {}
-            startActivity(intent)
+            finish()
         }
     }
 

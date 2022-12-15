@@ -62,8 +62,8 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         binding.buttonMenu.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java).apply {}
-            startActivity(intent)
+
+            finish()
         }
 
         binding.vibrationOn.setOnClickListener{
@@ -101,8 +101,6 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, MainMenuActivity::class.java).apply {}
-        startActivity(intent)
         finish()
     }
 

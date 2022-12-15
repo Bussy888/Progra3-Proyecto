@@ -22,10 +22,15 @@ class MainMenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainMenuBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
+    private val sharedPrefFile = "Scores_saved"
 
     companion object {
         val SCORE: String = "new_Message"
-        val ID: String = "email"
+        var email: String = ""
+
+        fun asignEmail(newEmail: String) {
+            email = newEmail
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -43,10 +48,10 @@ class MainMenuActivity : AppCompatActivity() {
 
         managePreferences()
 
+
         binding.buttonOptions.setOnClickListener {
             val intentRedirect = Intent(this, SettingsActivity::class.java)
             startActivity(intentRedirect)
-            finish()
         }
 
         binding.buttonTutorial.setOnClickListener {
@@ -98,29 +103,40 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun managePreferences() {
-        val sharedPrefFile = "Scores_saved_${intent.getStringExtra(ID)}"
         val sharedPreferences: SharedPreferences =
             this.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        val sharedBestScore =
+            sharedPreferences.getInt("best_score_$email", 0)
+        println("best_score_$email")
+        val sharedLastScore =
+            sharedPreferences.getInt("last_score_$email", 0)
+        println("last_score_$email")
 
-        val sharedBestScore = sharedPreferences.getInt("best_score", 0)
-        val sharedLastScore = sharedPreferences.getInt("last_score", 0)
+        println(sharedBestScore)
+        println(sharedLastScore)
 
         binding.textBestScoreNumber.text = sharedBestScore.toString()
         binding.textLastScoreNumber.text = sharedLastScore.toString()
 
         val lastScore: Int = intent.getIntExtra(SCORE, -1)
-
+        val editor = sharedPreferences.edit()
         if (lastScore >= 0) {
-            val editor = sharedPreferences.edit()
-            if (sharedLastScore < lastScore) {
+
+            if (sharedBestScore < lastScore) {
+                println()
+                println()
+                println("$sharedLastScore < $lastScore")
+                println()
+                println()
+
+
                 binding.textBestScoreNumber.text = lastScore.toString()
-                editor.putInt("best_score", lastScore)
+                editor.putInt("best_score_$email", lastScore)
             }
             binding.textLastScoreNumber.text = lastScore.toString()
-            editor.putInt("last_score", lastScore)
+            editor.putInt("last_score_$email", lastScore)
 
             editor.apply()
-            editor.commit()
         }
     }
 
