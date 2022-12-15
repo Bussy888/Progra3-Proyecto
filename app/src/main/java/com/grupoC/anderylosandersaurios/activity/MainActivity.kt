@@ -41,13 +41,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var game: MediatorGame
     private var change = true
     private var i = 0
-
     private var colors: List<String> = listOf("red", "yellow", "blue", "green")
     private val colorDraw: Map<String, Int> = mapOf(
         "red" to R.drawable.folder_red_plus,
         "yellow" to R.drawable.folder_yellow_plus,
         "blue" to R.drawable.folder_blue_plus,
         "green" to R.drawable.folder_green_plus
+    )
+    private var music : Map<Int, Int> = mapOf(
+            1 to R.raw.thunder,
+            2 to R.raw.the_consequence_of_style
     )
 
     companion object {
@@ -66,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        initVolumen()
+        randomMusic()
 
         var hard = intent.getBooleanExtra("HARD", true)
 
@@ -345,10 +348,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun generateFinalScore(): String = game.getFinalScore()
-
-    private fun initVolumen() {
-        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.thunder)
-        //mediaPlayer.start()
+    fun randomMusic(){
+        val randoms = (1..2).random()
+        music.get(randoms)?.let { initVolumen(it) }
+    }
+    private fun initVolumen(int: Int) {
+        mediaPlayer = MediaPlayer.create(this, int)
+        mediaPlayer.start()
         mediaPlayer.isLooping = true
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, LoginActivity.VOLUME, 0)
