@@ -78,7 +78,6 @@ data class MediatorGame(
         shuffleParameters()
         contract = Contract(colors[0], colorTexts[0], texts[0])
         contract.defineColor()
-        println("folder_${contract.image}")
         activity.idSContracts("folder_${contract.image}")
     }
 

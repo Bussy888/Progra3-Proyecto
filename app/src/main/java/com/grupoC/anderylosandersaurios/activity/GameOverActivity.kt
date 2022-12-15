@@ -41,6 +41,10 @@ class GameOverActivity : AppCompatActivity() {
 
         initVolumen()
 
+        if(intent.getBooleanExtra("HARD",true)){
+            binding.scoreTitle.text ="SCORE++"
+        }
+
         binding.scoreNumber.text = score.toString()
 
         binding.buttonMenu.setOnClickListener {

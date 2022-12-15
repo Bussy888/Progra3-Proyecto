@@ -27,6 +27,7 @@ import com.grupoC.anderylosandersaurios.classes.MediatorGame
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 import com.grupoC.anderylosandersaurios.databinding.ItemPopupMenuBinding
 import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
+import kotlin.math.roundToInt
 
 
 class MainActivity : AppCompatActivity() {
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         val SCORE: String = "new_Message"
     }
 
+
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,9 +69,6 @@ class MainActivity : AppCompatActivity() {
         )
 
         initVolumen()
-
-        var hard = intent.getBooleanExtra("HARD", true)
-
         //Inicialización
         game = MediatorGame(
             Cabinet("blue", 0),
@@ -79,6 +78,8 @@ class MainActivity : AppCompatActivity() {
             generatorButtonContracts(),
             this
         )
+
+        var hard = intent.getBooleanExtra("HARD", true)
 
         binding.redScore.text = "0"
         binding.yellowScore.text = "0"
@@ -102,7 +103,7 @@ class MainActivity : AppCompatActivity() {
             progressBarCycle()
         }
         // El timer
-        timer(10000)
+        timer(10000, hard)
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
 
@@ -200,7 +201,7 @@ class MainActivity : AppCompatActivity() {
         finishAll()
     }
 
-    fun timer(n: Long) {
+    fun timer(n: Long, hard: Boolean) {
         object : CountDownTimer(n, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val minute = (millisUntilFinished / 1000) / 60
@@ -212,7 +213,8 @@ class MainActivity : AppCompatActivity() {
             override fun onFinish() {
                 if (change) {
                     val intent = Intent(applicationContext, GameOverActivity::class.java).apply {
-                        putExtra(SCORE, generateFinalScore())
+                        putExtra(SCORE, generateFinalScore(hard))
+                        putExtra("HARD",hard)
                     }
                     startActivity(intent)
                 }
@@ -231,7 +233,7 @@ class MainActivity : AppCompatActivity() {
                 i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
-                if(VIBRATION){
+                if (VIBRATION) {
                     vibration(1500)
                 }
                 binding.progressBar.progress = 0
@@ -344,7 +346,14 @@ class MainActivity : AppCompatActivity() {
         binding.imageFileCenter.setImageResource(id)
     }
 
-    fun generateFinalScore(): Int = game.getFinalScore()
+    fun generateFinalScore(hard: Boolean): Int {
+        val finalScore = game.getFinalScore()
+        if (hard) {
+            return (finalScore/2 + finalScore)
+        } else {
+            return finalScore
+        }
+    }
 
     private fun initVolumen() {
         mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.thunder)

@@ -1,6 +1,7 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.R
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.media.AudioManager
@@ -24,6 +25,7 @@ class MainMenuActivity : AppCompatActivity() {
 
     companion object {
         val SCORE: String = "new_Message"
+        val ID: String = "email"
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -36,7 +38,11 @@ class MainMenuActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
         initVolumen()
+
+        managePreferences()
+
         binding.buttonOptions.setOnClickListener {
             val intentRedirect = Intent(this, SettingsActivity::class.java)
             startActivity(intentRedirect)
@@ -52,12 +58,14 @@ class MainMenuActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java).apply {}
             intent.putExtra("HARD", true)
             startActivity(intent)
+            finish()
         }
 
         binding.buttonTarjetaFacil.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java).apply {}
             intent.putExtra("HARD", false)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -79,15 +87,41 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun initVolumen() {
-        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.the_consequence_of_style)
+        mediaPlayer = MediaPlayer.create(
+            this,
+            com.grupoC.anderylosandersaurios.R.raw.the_consequence_of_style
+        )
         mediaPlayer.start()
         mediaPlayer.isLooping = true
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, VOLUME, 0)
     }
 
-    private fun managePreferences(){
+    private fun managePreferences() {
+        val sharedPrefFile = "Scores_saved_${intent.getStringExtra(ID)}"
+        val sharedPreferences: SharedPreferences =
+            this.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
 
+        val sharedBestScore = sharedPreferences.getInt("best_score", 0)
+        val sharedLastScore = sharedPreferences.getInt("last_score", 0)
+
+        binding.textBestScoreNumber.text = sharedBestScore.toString()
+        binding.textLastScoreNumber.text = sharedLastScore.toString()
+
+        val lastScore: Int = intent.getIntExtra(SCORE, -1)
+
+        if (lastScore >= 0) {
+            val editor = sharedPreferences.edit()
+            if (sharedLastScore < lastScore) {
+                binding.textBestScoreNumber.text = lastScore.toString()
+                editor.putInt("best_score", lastScore)
+            }
+            binding.textLastScoreNumber.text = lastScore.toString()
+            editor.putInt("last_score", lastScore)
+
+            editor.apply()
+            editor.commit()
+        }
     }
 
     override fun onPause() {
