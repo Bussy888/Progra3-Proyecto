@@ -107,13 +107,8 @@ class MainMenuActivity : AppCompatActivity() {
             this.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
         val sharedBestScore =
             sharedPreferences.getInt("best_score_$email", 0)
-        println("best_score_$email")
         val sharedLastScore =
             sharedPreferences.getInt("last_score_$email", 0)
-        println("last_score_$email")
-
-        println(sharedBestScore)
-        println(sharedLastScore)
 
         binding.textBestScoreNumber.text = sharedBestScore.toString()
         binding.textLastScoreNumber.text = sharedLastScore.toString()
@@ -123,13 +118,6 @@ class MainMenuActivity : AppCompatActivity() {
         if (lastScore >= 0) {
 
             if (sharedBestScore < lastScore) {
-                println()
-                println()
-                println("$sharedLastScore < $lastScore")
-                println()
-                println()
-
-
                 binding.textBestScoreNumber.text = lastScore.toString()
                 editor.putInt("best_score_$email", lastScore)
             }
