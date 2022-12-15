@@ -57,7 +57,7 @@ class RulesActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onPause()
     }
 
@@ -67,7 +67,7 @@ class RulesActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onStop()
     }
 

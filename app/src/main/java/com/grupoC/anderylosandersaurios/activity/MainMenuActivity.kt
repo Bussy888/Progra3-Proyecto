@@ -129,7 +129,7 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onPause()
     }
 
@@ -139,17 +139,23 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onStop()
     }
 
     override fun onRestart() {
-        super.onRestart()
         mediaPlayer.start()
+        super.onRestart()
+
     }
 
     override fun onResume() {
-        super.onResume()
         mediaPlayer.start()
+        super.onResume()
+    }
+
+    override fun onStart() {
+        mediaPlayer.start()
+        super.onStart()
     }
 }
