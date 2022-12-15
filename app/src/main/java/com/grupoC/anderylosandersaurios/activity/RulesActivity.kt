@@ -30,8 +30,7 @@ class RulesActivity : AppCompatActivity() {
         initVolumen()
 
         binding.buttonMenu.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java).apply {}
-            startActivity(intent)
+            finish()
         }
     }
 
@@ -58,7 +57,7 @@ class RulesActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onPause()
     }
 
@@ -68,7 +67,7 @@ class RulesActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onStop()
     }
 

@@ -27,6 +27,7 @@ import com.grupoC.anderylosandersaurios.classes.MediatorGame
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainBinding
 import com.grupoC.anderylosandersaurios.databinding.ItemPopupMenuBinding
 import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
+import kotlin.math.roundToInt
 
 
 class MainActivity : AppCompatActivity() {
@@ -39,8 +40,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var thunderSound: MediaPlayer
     private lateinit var binding: ActivityMainBinding
     private lateinit var game: MediatorGame
+
     private var change = true
     private var i = 0
+
     private var colors: List<String> = listOf("red", "yellow", "blue", "green")
     private val colorDraw: Map<String, Int> = mapOf(
         "red" to R.drawable.folder_red_plus,
@@ -62,9 +65,15 @@ class MainActivity : AppCompatActivity() {
         3 to R.raw.easy3
     )
 
+    private lateinit var timerGame: CountDownTimer
+    private var currentTime: Long = 0
+
+    private var hard: Boolean = false
+
     companion object {
         val SCORE: String = "new_Message"
     }
+
 
     @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -115,7 +124,9 @@ class MainActivity : AppCompatActivity() {
             progressBarCycle()
         }
         // El timer
-        timer(300000)
+        timerGame = timer(10000)
+        timerGame.start()
+
         thunderSound = MediaPlayer.create(this, R.raw.thunder)
 
 
@@ -135,9 +146,11 @@ class MainActivity : AppCompatActivity() {
         binding.buttonFour.setOnClickListener {
             clickButton(4)
         }
+
         binding.buttonMenu.setOnClickListener {
             managePopupMenu()
         }
+
         binding.imageCoffeeCupS.setOnClickListener {
             managePopupSettings()
         }
@@ -213,9 +226,10 @@ class MainActivity : AppCompatActivity() {
         finishAll()
     }
 
-    fun timer(n: Long) {
+    fun timer(n: Long) =
         object : CountDownTimer(n, 1000) {
             override fun onTick(millisUntilFinished: Long) {
+                currentTime = millisUntilFinished
                 val minute = (millisUntilFinished / 1000) / 60
                 val seconds = seconds(millisUntilFinished)
                 binding.textViewTimer.text = "$minute:$seconds"
@@ -225,13 +239,13 @@ class MainActivity : AppCompatActivity() {
             override fun onFinish() {
                 if (change) {
                     val intent = Intent(applicationContext, GameOverActivity::class.java).apply {
-
+                        putExtra(SCORE, generateFinalScore(hard))
+                        putExtra("HARD", hard)
                     }
                     startActivity(intent)
                 }
             }
-        }.start()
-    }
+        }
 
     fun progressBarCycle() {
         object : CountDownTimer(20000, 1000) {
@@ -244,7 +258,7 @@ class MainActivity : AppCompatActivity() {
                 i++
                 thunder(3000, 1000, binding.backgroundWhite)
                 thunderSound.start()
-                if(VIBRATION){
+                if (VIBRATION) {
                     vibration(1500)
                 }
                 binding.progressBar.progress = 0
@@ -357,8 +371,16 @@ class MainActivity : AppCompatActivity() {
         binding.imageFileCenter.setImageResource(id)
     }
 
-    fun generateFinalScore(): String = game.getFinalScore()
-    fun randomMusic(hard : Boolean){
+    fun generateFinalScore(hard: Boolean): Int {
+        val finalScore = game.getFinalScore()
+        if (hard) {
+            return (finalScore / 2 + finalScore)
+        } else {
+            return finalScore
+        }
+    }
+
+   fun randomMusic(hard : Boolean){
         val randoms = (1..6).random()
         if(hard) {
             hardMusic[randoms]?.let { initVolumen(it) }
@@ -372,5 +394,18 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer.isLooping = true
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, LoginActivity.VOLUME, 0)
+    }
+
+    fun addExtraSeconds() {
+        timerGame.cancel()
+        timerGame = timer(currentTime + 5000)
+        timerGame.start()
+    }
+
+    fun subtractExtraSeconds() {
+        timerGame.cancel()
+        val residualTime = currentTime - 5000
+        timerGame = timer(if (residualTime > 1) residualTime else 0)
+        timerGame.start()
     }
 }

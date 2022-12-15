@@ -12,8 +12,6 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.databinding.ActivityGameOverBinding
-import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
-import com.grupoC.anderylosandersaurios.R
 
 class GameOverActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameOverBinding
@@ -30,7 +28,7 @@ class GameOverActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGameOverBinding.inflate(layoutInflater)
 
-        val score: String = intent.getStringExtra(SCORE).orEmpty()
+        val score: Int = intent.getIntExtra(SCORE, 0)
 
         setContentView(binding.root)
         hideSystemUI()
@@ -41,10 +39,17 @@ class GameOverActivity : AppCompatActivity() {
 
         initVolumen()
 
-        binding.scoreNumber.text = score
+        if(intent.getBooleanExtra("HARD",true)){
+            binding.scoreTitle.text ="SCORE++"
+        }
+
+        binding.scoreNumber.text = score.toString()
 
         binding.buttonMenu.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
+            intent.apply {
+                putExtra(SCORE, score)
+            }
             startActivity(intent)
             finish()
         }
@@ -83,7 +88,7 @@ class GameOverActivity : AppCompatActivity() {
     }
 
     override fun onPause() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onPause()
     }
 
@@ -93,7 +98,7 @@ class GameOverActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onStop()
     }
 

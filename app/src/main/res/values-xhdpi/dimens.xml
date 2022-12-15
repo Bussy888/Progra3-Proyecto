@@ -27,6 +27,7 @@
     <dimen name="hundred">75dp</dimen>
     <dimen name="ninety_five">71dp</dimen>
     <dimen name="ninety_four">70dp</dimen>
+    <dimen name="ninety_two">69dp</dimen>
     <dimen name="ninety">67dp</dimen>
     <dimen name="eighty_five">63dp</dimen>
     <dimen name="eighty_four">63dp</dimen>

@@ -14,6 +14,8 @@ data class MediatorGame(
     private var colors: List<String> = listOf("red", "yellow", "blue", "green")
     private var colorTexts: List<String> = listOf("red", "yellow", "blue", "green")
     private var texts: List<String> = listOf("red", "yellow", "blue", "green", "")
+    private var plusTime: Int = 0
+    private var minusTime: Int = 0
 
     private lateinit var contract: Contract
 
@@ -24,9 +26,11 @@ data class MediatorGame(
             "blue" -> {
                 if (colorCheck == contract.rightColor) {
                     blueCabinet.score++
+                    increasingPlus()
                 } else {
                     blueCabinet.score--
-                    if(VIBRATION){
+                    increasingMinus()
+                    if (VIBRATION) {
                         activity.vibration(timeVibration)
                     }
                 }
@@ -35,9 +39,11 @@ data class MediatorGame(
             "red" -> {
                 if (colorCheck == contract.rightColor) {
                     redCabinet.score++
+                    increasingPlus()
                 } else {
                     redCabinet.score--
-                    if(VIBRATION) {
+                    increasingMinus()
+                    if (VIBRATION) {
                         activity.vibration(timeVibration)
                     }
                 }
@@ -46,9 +52,11 @@ data class MediatorGame(
             "yellow" -> {
                 if (colorCheck == contract.rightColor) {
                     yellowCabinet.score++
+                    increasingPlus()
                 } else {
                     yellowCabinet.score--
-                    if(VIBRATION) {
+                    increasingMinus()
+                    if (VIBRATION) {
                         activity.vibration(timeVibration)
                     }
                 }
@@ -57,9 +65,11 @@ data class MediatorGame(
             else -> {
                 if (colorCheck == contract.rightColor) {
                     greenCabinet.score++
+                    increasingPlus()
                 } else {
                     greenCabinet.score--
-                    if(VIBRATION) {
+                    increasingMinus()
+                    if (VIBRATION) {
                         activity.vibration(timeVibration)
                     }
                 }
@@ -78,13 +88,28 @@ data class MediatorGame(
         shuffleParameters()
         contract = Contract(colors[0], colorTexts[0], texts[0])
         contract.defineColor()
-        println("folder_${contract.image}")
         activity.idSContracts("folder_${contract.image}")
     }
 
-    fun getFinalScore(): String {
+    fun getFinalScore(): Int {
         val finalScore: Int =
             blueCabinet.score + redCabinet.score + yellowCabinet.score + greenCabinet.score
-        return "${if (finalScore < 0) "$finalScore" else "0"}"
+        return if (finalScore > 0) finalScore else 0
+    }
+
+    private fun increasingPlus() {
+        plusTime++
+        if (plusTime == 5) {
+            activity.addExtraSeconds()
+            plusTime = 0
+        }
+    }
+
+    private fun increasingMinus() {
+        minusTime++
+        if (minusTime == 5) {
+            activity.subtractExtraSeconds()
+            minusTime = 0
+        }
     }
 }

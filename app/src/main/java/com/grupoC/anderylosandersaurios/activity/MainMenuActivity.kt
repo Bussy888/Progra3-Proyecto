@@ -1,8 +1,10 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.R
+import android.content.Context
 import android.app.Dialog
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.media.AudioManager
@@ -25,8 +27,15 @@ class MainMenuActivity : AppCompatActivity() {
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
     private lateinit var popupTutorialBinding: ItemPopupTutorialBinding
+    private val sharedPrefFile = "Scores_saved"
+
     companion object {
         val SCORE: String = "new_Message"
+        var email: String = ""
+
+        fun asignEmail(newEmail: String) {
+            email = newEmail
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.R)
@@ -40,6 +49,8 @@ class MainMenuActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         initVolumen()
+
+        managePreferences()
 
         var popUpTutorial = intent.getBooleanExtra("POPUP", false)
 
@@ -106,15 +117,44 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun initVolumen() {
-        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.the_consequence_of_style)
+        mediaPlayer = MediaPlayer.create(
+            this,
+            com.grupoC.anderylosandersaurios.R.raw.the_consequence_of_style
+        )
         mediaPlayer.start()
         mediaPlayer.isLooping = true
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, VOLUME, 0)
     }
 
+    private fun managePreferences() {
+        val sharedPreferences: SharedPreferences =
+            this.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        val sharedBestScore =
+            sharedPreferences.getInt("best_score_$email", 0)
+        val sharedLastScore =
+            sharedPreferences.getInt("last_score_$email", 0)
+
+        binding.textBestScoreNumber.text = sharedBestScore.toString()
+        binding.textLastScoreNumber.text = sharedLastScore.toString()
+
+        val lastScore: Int = intent.getIntExtra(SCORE, -1)
+        val editor = sharedPreferences.edit()
+        if (lastScore >= 0) {
+
+            if (sharedBestScore < lastScore) {
+                binding.textBestScoreNumber.text = lastScore.toString()
+                editor.putInt("best_score_$email", lastScore)
+            }
+            binding.textLastScoreNumber.text = lastScore.toString()
+            editor.putInt("last_score_$email", lastScore)
+
+            editor.apply()
+        }
+    }
+
     override fun onPause() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onPause()
     }
 
@@ -124,17 +164,23 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        mediaPlayer.stop()
+        mediaPlayer.pause()
         super.onStop()
     }
 
     override fun onRestart() {
-        super.onRestart()
         mediaPlayer.start()
+        super.onRestart()
+
     }
 
     override fun onResume() {
-        super.onResume()
         mediaPlayer.start()
+        super.onResume()
+    }
+
+    override fun onStart() {
+        mediaPlayer.start()
+        super.onStart()
     }
 }
