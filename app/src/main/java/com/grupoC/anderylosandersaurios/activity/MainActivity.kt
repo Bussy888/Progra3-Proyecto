@@ -48,9 +48,18 @@ class MainActivity : AppCompatActivity() {
         "blue" to R.drawable.folder_blue_plus,
         "green" to R.drawable.folder_green_plus
     )
-    private var music : Map<Int, Int> = mapOf(
-            1 to R.raw.thunder,
-            2 to R.raw.the_consequence_of_style
+    private var hardMusic : Map<Int,Int> = mapOf(
+        1 to R.raw.hard1,
+        2 to R.raw.hard2,
+        3 to R.raw.hard3,
+        4 to R.raw.hard4,
+        5 to R.raw.hard5,
+        6 to R.raw.hard6
+    )
+    private var easyMusic : Map<Int, Int> = mapOf(
+        1 to R.raw.easy1,
+        2 to R.raw.easy2,
+        3 to R.raw.easy3
     )
 
     companion object {
@@ -69,7 +78,6 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        randomMusic()
 
         var hard = intent.getBooleanExtra("HARD", true)
 
@@ -89,6 +97,8 @@ class MainActivity : AppCompatActivity() {
         binding.greenScore.text = "0"
 
         initGame()
+        randomMusic(hard)
+
 
         // Progress bar
         binding.progressBar.max = 100
@@ -348,9 +358,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun generateFinalScore(): String = game.getFinalScore()
-    fun randomMusic(){
-        val randoms = (1..2).random()
-        music.get(randoms)?.let { initVolumen(it) }
+    fun randomMusic(hard : Boolean){
+        val randoms = (1..6).random()
+        if(hard) {
+            hardMusic[randoms]?.let { initVolumen(it) }
+        }else{
+            easyMusic[randoms]?.let { initVolumen(it) }
+        }
     }
     private fun initVolumen(int: Int) {
         mediaPlayer = MediaPlayer.create(this, int)

@@ -1,7 +1,10 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.R
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
@@ -16,6 +19,8 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupTutorialBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -127,9 +132,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun redirectActivity(){
         val intentRedirect = Intent(this, MainMenuActivity::class.java)
+        intentRedirect.putExtra("POPUP", true)
         startActivity(intentRedirect)
         finish()
     }
+
 
     private fun sendToast(text:String) {
         Toast.makeText(this, text, Toast.LENGTH_LONG).show()

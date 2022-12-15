@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/twenty"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark_grey">
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_marginTop="@dimen/ten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:text="Do you want to go to the tutorial?"
+                android:textSize="@dimen/text_fifteen"
+                android:textColor="@color/teal_700"
+                android:fontFamily="@font/asap_medium"/>
+            <View
+                android:id="@+id/lineView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/four"
+                android:background="@color/teal_700"
+                android:layout_marginTop="@dimen/ten"
+                app:layout_constraintTop_toBottomOf="@id/text_title"/>
+
+            <TextView
+                android:id="@+id/text_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/lineView"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="@dimen/ten"
+                android:text="It is recommended to see the tutorial before playing"
+                android:textSize="@dimen/text_fifteen"
+                android:fontFamily="@font/asap"
+                android:textColor="@color/white"/>
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidePopup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
+
+            <Button
+                android:id="@+id/buttonAccept"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/darker_grey_low_opacity"
+                android:textColor="@color/almost_white"
+                android:layout_marginTop="@dimen/ten"
+                android:text="@string/accept"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_content"
+                app:layout_constraintStart_toStartOf="@id/guidePopup"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <Button
+                android:id="@+id/buttonCancel"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/darker_grey_low_opacity"
+                android:textColor="@color/almost_white"
+                android:text="@string/cancel"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guidePopup"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
