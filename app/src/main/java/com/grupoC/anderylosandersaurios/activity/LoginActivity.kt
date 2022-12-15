@@ -16,6 +16,8 @@ import androidx.core.view.WindowInsetsControllerCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.grupoC.anderylosandersaurios.databinding.ActivityLoginBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupSettingsBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupTutorialBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -134,6 +136,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun redirectActivity() {
         val intentRedirect = Intent(this, MainMenuActivity::class.java)
+        intentRedirect.putExtra("POPUP", true)
         MainMenuActivity.asignEmail(
             if (!binding.editEmail.text.toString().isEmpty())
                 binding.editEmail.text.toString()

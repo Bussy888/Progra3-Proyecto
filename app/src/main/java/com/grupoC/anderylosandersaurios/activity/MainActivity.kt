@@ -51,6 +51,19 @@ class MainActivity : AppCompatActivity() {
         "blue" to R.drawable.folder_blue_plus,
         "green" to R.drawable.folder_green_plus
     )
+    private var hardMusic : Map<Int,Int> = mapOf(
+        1 to R.raw.hard1,
+        2 to R.raw.hard2,
+        3 to R.raw.hard3,
+        4 to R.raw.hard4,
+        5 to R.raw.hard5,
+        6 to R.raw.hard6
+    )
+    private var easyMusic : Map<Int, Int> = mapOf(
+        1 to R.raw.easy1,
+        2 to R.raw.easy2,
+        3 to R.raw.easy3
+    )
 
     private lateinit var timerGame: CountDownTimer
     private var currentTime: Long = 0
@@ -74,7 +87,8 @@ class MainActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
 
-        initVolumen()
+
+        var hard = intent.getBooleanExtra("HARD", true)
 
         //Inicialización
         game = MediatorGame(
@@ -86,8 +100,6 @@ class MainActivity : AppCompatActivity() {
             this
         )
 
-        hard = intent.getBooleanExtra("HARD", true)
-
         if(hard){
             binding.imageIcon.setImageResource(R.drawable.moon_icon)
         }
@@ -98,6 +110,8 @@ class MainActivity : AppCompatActivity() {
         binding.greenScore.text = "0"
 
         initGame()
+        randomMusic(hard)
+
 
         // Progress bar
         binding.progressBar.max = 100
@@ -224,6 +238,7 @@ class MainActivity : AppCompatActivity() {
                 val seconds = seconds(millisUntilFinished)
                 binding.textViewTimer.text = "$minute:$seconds"
             }
+
 
             override fun onFinish() {
                 if (change) {
@@ -352,6 +367,7 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer.stop()
         finish()
         change = false
+
     }
 
     fun idSContracts(name: String) {
@@ -368,9 +384,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun initVolumen() {
-        mediaPlayer = MediaPlayer.create(this, com.grupoC.anderylosandersaurios.R.raw.thunder)
-        //mediaPlayer.start()
+    fun randomMusic(hard : Boolean){
+        val randoms = (1..6).random()
+        if(hard) {
+            hardMusic[randoms]?.let { initVolumen(it) }
+        }else{
+            easyMusic[randoms]?.let { initVolumen(it) }
+        }
+    }
+
+    private fun initVolumen(int: Int) {
+        mediaPlayer = MediaPlayer.create(this, int)
+        mediaPlayer.start()
         mediaPlayer.isLooping = true
         audioManager = getSystemService(AUDIO_SERVICE) as AudioManager
         audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, LoginActivity.VOLUME, 0)

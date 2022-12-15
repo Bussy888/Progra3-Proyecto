@@ -1,9 +1,12 @@
 package com.grupoC.anderylosandersaurios.activity
 
 import android.R
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Build
@@ -16,12 +19,14 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.grupoC.anderylosandersaurios.activity.LoginActivity.Companion.VOLUME
 import com.grupoC.anderylosandersaurios.databinding.ActivityMainMenuBinding
+import com.grupoC.anderylosandersaurios.databinding.ItemPopupTutorialBinding
 
 class MainMenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainMenuBinding
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioManager: AudioManager
+    private lateinit var popupTutorialBinding: ItemPopupTutorialBinding
     private val sharedPrefFile = "Scores_saved"
 
     companion object {
@@ -43,12 +48,15 @@ class MainMenuActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
-
         initVolumen()
 
         managePreferences()
 
+        var popUpTutorial = intent.getBooleanExtra("POPUP", false)
 
+        if(popUpTutorial){
+            managePopupTutorial()
+        }
         binding.buttonOptions.setOnClickListener {
             val intentRedirect = Intent(this, SettingsActivity::class.java)
             startActivity(intentRedirect)
@@ -88,6 +96,25 @@ class MainMenuActivity : AppCompatActivity() {
             controller.systemBarsBehavior =
                 WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
         }
+    }
+    fun managePopupTutorial() {
+        popupTutorialBinding = ItemPopupTutorialBinding.inflate(layoutInflater)
+        val dialog = Dialog(this)
+        dialog.setContentView(popupTutorialBinding.root)
+        dialog.setCancelable(true)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        dialog.show()
+        popupTutorialBinding.buttonAccept.setOnClickListener {
+            val intent = Intent(this, RulesActivity::class.java).apply {}
+            startActivity(intent)
+            dialog.dismiss()
+
+        }
+        popupTutorialBinding.buttonCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
     }
 
     private fun initVolumen() {
@@ -145,16 +172,11 @@ class MainMenuActivity : AppCompatActivity() {
     override fun onRestart() {
         mediaPlayer.start()
         super.onRestart()
-
+        mediaPlayer.start()
     }
 
     override fun onResume() {
-        mediaPlayer.start()
         super.onResume()
-    }
-
-    override fun onStart() {
         mediaPlayer.start()
-        super.onStart()
     }
 }

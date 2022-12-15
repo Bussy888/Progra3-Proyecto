@@ -19,7 +19,7 @@ data class MediatorGame(
 
     private lateinit var contract: Contract
 
-    private val timeVibration: Long = 200
+    var timeVibration: Long = 200
 
     fun checking(colorCheck: String): Int {
         when (colorCheck) {

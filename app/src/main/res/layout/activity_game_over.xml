@@ -34,6 +34,8 @@
         android:text="@string/score"
         android:textColor="@color/red"
         android:textSize="@dimen/text_twenty_five"
+        android:textStyle="bold"
+        android:fontFamily="@font/amaranth"
         app:layout_constraintEnd_toEndOf="@+id/halfguide"
         app:layout_constraintTop_toTopOf="@+id/guideScore"
 
@@ -48,6 +50,8 @@
         android:text="@string/hundred"
         android:textColor="@color/red"
         android:textSize="@dimen/text_twenty_five"
+        android:fontFamily="@font/amaranth"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/halfguide"
         app:layout_constraintTop_toTopOf="@+id/guideScore" />
 
@@ -75,6 +79,8 @@
         android:text="@string/menu"
         android:textSize="@dimen/text_twenty_five"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:fontFamily="@font/oxanium_medium"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
