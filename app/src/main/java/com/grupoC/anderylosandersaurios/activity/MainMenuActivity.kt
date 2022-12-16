@@ -57,11 +57,11 @@ class MainMenuActivity : AppCompatActivity() {
 
         if(popUpTutorial){
             managePopupTutorial()
+
         }
         binding.buttonOptions.setOnClickListener {
             val intentRedirect = Intent(this, SettingsActivity::class.java)
             startActivity(intentRedirect)
-            finish()
         }
 
         binding.buttonTutorial.setOnClickListener {
@@ -172,6 +172,7 @@ class MainMenuActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
+        this.recreate()
         mediaPlayer.start()
     }
 
