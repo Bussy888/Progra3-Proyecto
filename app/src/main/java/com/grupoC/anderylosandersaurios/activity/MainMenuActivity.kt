@@ -57,6 +57,7 @@ class MainMenuActivity : AppCompatActivity() {
 
         if(popUpTutorial){
             managePopupTutorial()
+
         }
 
         binding.buttonOptions.setOnClickListener {

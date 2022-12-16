@@ -317,8 +317,8 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
         bindingPopupMenu.buttonAccept.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java).apply {}
-            startActivity(intent)
+            //val intent = Intent(this, MainMenuActivity::class.java).apply {}
+            //startActivity(intent)
             finishAll()
 
         }
