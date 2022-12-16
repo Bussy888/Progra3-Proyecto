@@ -62,7 +62,10 @@ class MainActivity : AppCompatActivity() {
     private var easyMusic : Map<Int, Int> = mapOf(
         1 to R.raw.easy1,
         2 to R.raw.easy2,
-        3 to R.raw.easy3
+        3 to R.raw.easy3,
+        4 to R.raw.easy4,
+        5 to R.raw.easy5,
+        6 to R.raw.easy6
     )
 
     private lateinit var timerGame: CountDownTimer
