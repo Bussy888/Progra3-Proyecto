@@ -30,7 +30,7 @@ class MainMenuActivity : AppCompatActivity() {
     private val sharedPrefFile = "Scores_saved"
 
     companion object {
-        val SCORE: String = "new_Message"
+        var SCORE: Int = -1
         var email: String = ""
 
         fun asignEmail(newEmail: String) {
@@ -48,6 +48,7 @@ class MainMenuActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
+
         initVolumen()
 
         managePreferences()
@@ -139,7 +140,7 @@ class MainMenuActivity : AppCompatActivity() {
         binding.textBestScoreNumber.text = sharedBestScore.toString()
         binding.textLastScoreNumber.text = sharedLastScore.toString()
 
-        val lastScore: Int = intent.getIntExtra(SCORE, -1)
+        val lastScore: Int = SCORE
         val editor = sharedPreferences.edit()
         if (lastScore >= 0) {
 
@@ -176,7 +177,13 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        super.onResume()
         mediaPlayer.start()
+        managePreferences()
+        super.onResume()
+    }
+
+    override fun onStart() {
+        mediaPlayer.start()
+        super.onStart()
     }
 }
