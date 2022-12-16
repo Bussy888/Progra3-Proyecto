@@ -27,9 +27,5 @@ data class Contract(
         image =
             "${colorPaper}${if (textContract.isEmpty()) "" else "_${textContract[0]}"}${if (textContract.isEmpty()) "" else "_${colorTextContract[0]}"}"
     }
-
-    fun calculateFinalScore(hard: Boolean): Int {
-        return 0
-    }
 }
 

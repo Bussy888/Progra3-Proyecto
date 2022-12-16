@@ -63,6 +63,14 @@ class SettingsActivity : AppCompatActivity() {
             binding.spanish.isChecked = true
         }
 
+        if(VIBRATION){
+            binding.vibrationOn.isChecked=true
+            binding.vibrationOff.isChecked=false
+        } else{
+            binding.vibrationOn.isChecked=false
+            binding.vibrationOff.isChecked=true
+        }
+
         binding.english.setOnClickListener {
             setLocale("en")
         }
@@ -110,8 +118,8 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, MainMenuActivity::class.java).apply {}
-        startActivity(intent)
+        //val intent = Intent(this, MainMenuActivity::class.java).apply {}
+        //startActivity(intent)
         finish()
     }
 

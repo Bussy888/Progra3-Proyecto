@@ -317,8 +317,8 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
         bindingPopupMenu.buttonAccept.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java).apply {}
-            startActivity(intent)
+            //val intent = Intent(this, MainMenuActivity::class.java).apply {}
+            //startActivity(intent)
             finishAll()
 
         }
@@ -370,7 +370,6 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer.stop()
         finish()
         change = false
-
     }
 
     fun idSContracts(name: String) {

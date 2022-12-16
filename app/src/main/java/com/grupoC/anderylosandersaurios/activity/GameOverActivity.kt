@@ -46,11 +46,7 @@ class GameOverActivity : AppCompatActivity() {
         binding.scoreNumber.text = score.toString()
 
         binding.buttonMenu.setOnClickListener {
-            val intent = Intent(this, MainMenuActivity::class.java)
-            intent.apply {
-                putExtra(SCORE, score)
-            }
-            startActivity(intent)
+            MainMenuActivity.SCORE = score
             finish()
         }
     }
@@ -82,8 +78,6 @@ class GameOverActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, MainMenuActivity::class.java).apply {}
-        startActivity(intent)
         finish()
     }
 
