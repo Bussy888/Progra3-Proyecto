@@ -73,12 +73,14 @@ class MainMenuActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java).apply {}
             intent.putExtra("HARD", true)
             startActivity(intent)
+            finish()
         }
 
         binding.buttonTarjetaFacil.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java).apply {}
             intent.putExtra("HARD", false)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -171,7 +173,6 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     override fun onRestart() {
-        mediaPlayer.start()
         super.onRestart()
         mediaPlayer.start()
     }
