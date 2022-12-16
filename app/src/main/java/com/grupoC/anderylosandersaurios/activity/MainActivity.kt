@@ -367,7 +367,6 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer.stop()
         finish()
         change = false
-
     }
 
     fun idSContracts(name: String) {
