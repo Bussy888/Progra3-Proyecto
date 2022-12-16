@@ -61,7 +61,6 @@ class MainMenuActivity : AppCompatActivity() {
         binding.buttonOptions.setOnClickListener {
             val intentRedirect = Intent(this, SettingsActivity::class.java)
             startActivity(intentRedirect)
-            finish()
         }
 
         binding.buttonTutorial.setOnClickListener {
@@ -73,14 +72,12 @@ class MainMenuActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java).apply {}
             intent.putExtra("HARD", true)
             startActivity(intent)
-            finish()
         }
 
         binding.buttonTarjetaFacil.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java).apply {}
             intent.putExtra("HARD", false)
             startActivity(intent)
-            finish()
         }
     }
 

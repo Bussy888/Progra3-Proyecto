@@ -110,8 +110,6 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, MainMenuActivity::class.java).apply {}
-        startActivity(intent)
         finish()
     }
 

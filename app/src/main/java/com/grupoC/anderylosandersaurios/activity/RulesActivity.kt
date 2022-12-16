@@ -31,8 +31,6 @@ class RulesActivity : AppCompatActivity() {
 
         binding.buttonMenu.setOnClickListener {
             finish()
-            val intentRedirect = Intent(this, MainMenuActivity::class.java)
-            intentRedirect.putExtra("POPUP", false)
         }
     }
 
