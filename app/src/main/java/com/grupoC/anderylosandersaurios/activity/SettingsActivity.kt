@@ -55,20 +55,20 @@ class SettingsActivity : AppCompatActivity() {
 
         })
 
-        if(LANG == "en"){
+        if (LANG == "en") {
             binding.english.isChecked = true
             binding.spanish.isChecked = false
-        } else{
+        } else {
             binding.english.isChecked = false
             binding.spanish.isChecked = true
         }
 
-        if(VIBRATION){
-            binding.vibrationOn.isChecked=true
-            binding.vibrationOff.isChecked=false
-        } else{
-            binding.vibrationOn.isChecked=false
-            binding.vibrationOff.isChecked=true
+        if (VIBRATION) {
+            binding.vibrationOn.isChecked = true
+            binding.vibrationOff.isChecked = false
+        } else {
+            binding.vibrationOn.isChecked = false
+            binding.vibrationOff.isChecked = true
         }
 
         binding.english.setOnClickListener {
@@ -82,7 +82,7 @@ class SettingsActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        binding.vibrationOn.setOnClickListener{
+        binding.vibrationOn.setOnClickListener {
             VIBRATION = true
         }
 
@@ -118,12 +118,10 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, MainMenuActivity::class.java).apply {}
-        startActivity(intent)
         finish()
     }
 
-    private fun initVolumen(){
+    private fun initVolumen() {
         mediaPlayer = MediaPlayer.create(this, R.raw.the_consequence_of_style)
         mediaPlayer.start()
         mediaPlayer.isLooping = true
